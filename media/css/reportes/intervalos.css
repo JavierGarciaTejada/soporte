@@ -1,0 +1,30 @@
+.bg-success1{
+	background-color: #49ff00;
+}
+.bg-warning1{
+	background-color: #fffc00;
+}
+.bg-danger1{
+	background-color: #ee0000;
+}
+.bg-danger2{
+	background-color: #c70000;
+}
+
+.item{
+	font-weight: bolder;
+	font-size: 12px;
+}
+
+.action:hover, .action-total:hover{
+	background-color: #fbc912 !important;
+    cursor: pointer;
+}
+
+.tableFixHead          { overflow-y: auto; height: 600px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }

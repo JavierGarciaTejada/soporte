@@ -1,0 +1,132 @@
+<div class="container-fluid">
+	
+	<div class="row">
+		<div class="col-sm-8">
+			<table class="table table-condensed table-11" id="table-reportes">
+				<thead>
+					<tr>
+						<th>Detalle</th>
+						<th>No Reporte</th>
+						<th>Ingeniero</th>
+						<th>Asunto</th>
+						<th>Estatus</th>
+						<th>Impacto</th>
+						<th>Inicio de Falla</th>
+						<th>Inicio de Soporte</th>
+						<th>Fin de Soporte</th>
+						<th>Archivo</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-sm-4">
+			<div id="container-form">
+				<form class="form" id="form-reportes" style="padding: 0px 20px">
+					<input type="hidden" id="id" name="id">
+					<div class="form-group col-sm-12 col-md-12">
+					    <label for="nombre">Nombre</label>
+					    <select class="form-control input-sm" name="nombre" id="nombre"></select>
+					</div>
+
+					<div class="form-group col-sm-12 col-md-6">
+					    <label for="fecha_falla">Inicio Falla</label>
+					    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-6">
+					    <label for="fecha_soporte">Inicio Soporte</label>
+					    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-12">
+					    <label for="asunto">Asunto</label>
+					    <input type="text" class="form-control input-sm" name="asunto" id="asunto">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-12">
+					    <label for="impacto">Impacto</label>
+					    <select class="form-control input-sm" name="impacto" id="impacto">
+					    	<option value="">Seleccionar</option>
+					    	<option value="&amp;&amp;&amp;CA">&amp;&amp;&amp;CA</option>
+							<option value="IMPCA">IMPCA</option>
+							<option value="&amp;&amp;&amp;SA">&amp;&amp;&amp;SA</option>
+							<option value="IMPSA">IMPSA</option>
+							<option value="MIMPCA">MIMPCA</option>
+							<option value="MIMPSA">MIMPSA</option>
+					    </select>
+					</div>
+
+					<!-- <div class="form-group col-sm-12 col-md-12">
+					    <label for="archivo">Archivo</label>
+					    <input type="file" class="form-control" name="archivo" id="archivo">
+					</div> -->
+
+					<div class="form-group col-sm-12 col-md-12">
+					    <label for="comentarios">Descripción</label>
+					    <textarea class="form-control" name="comentarios" id="comentarios" cols="10" rows="4"></textarea>
+					</div>
+
+					<div class="form-group col-sm-12 col-md-12">
+					    <button type="button" class="btn btn-primary" id="btn-guardar-reporte">Guardar</button>
+					    <button type="reset" class="btn btn-success" id="">Limpiar</button>
+					</div>
+
+				</form>
+			</div>
+			
+		</div>
+		
+	</div>
+
+
+
+	<!-- MODAL CARGAR ANEXOS -->
+	<div class="modal fade" id="modal-anexo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Cargar Archivos</h4>
+				</div>
+				<div class="modal-body">
+
+				<div class="row">
+					<div class='col-sm-12'><h5>Archivos Cargados</h5></div>
+					<ul id="anexos_listado">
+						
+					</ul>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<form enctype="multipart/form-data" class="formulario" id="form-archivos">
+							<input type="hidden" name="id_rep" id="id_rep">
+							<div id="div-file" class="col-md-12 col-sm-12">
+								<div class="form-group">
+									<label for="file-soporte">Seleccione Documento</label>
+									<input type="file" name="archivo" id="file-soporte" required data-msg="Adjunte un archivo">
+									<p class="help-block">(.pdf, .xlsx, .docx )</p>
+								</div>
+								
+								<!--div para visualizar mensajes-->
+								<div class="messages"></div>
+								<input type="button" class="btn btn-danger" value="Cargar Documento" id="btn-file" /><br />
+							</div>
+						</form>
+					</div>
+				</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
