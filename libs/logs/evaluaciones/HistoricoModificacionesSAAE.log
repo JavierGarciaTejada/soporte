@@ -1,0 +1,401 @@
+commit 95943b5211cfd1473bf1cd6b0e10d66f820ae96a
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 20 18:46:21 2019 -0500
+
+    Se agrega subdirección LX para reporte de evaluaciones
+
+commit b5144cf3879a1b81decb5b5a89b3f7a289d7caf4
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 20 18:32:45 2019 -0500
+
+    Cambio de intervalos para Materiales, Caracterizacíon y especificaciones
+
+commit b22ccee9ecc679031298d43dd86379cdebc05a3c
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 13 12:58:07 2019 -0500
+
+    Se agrega producto y observaciones en el listado de evaluaciones
+
+commit 7dfb8d2d00ef43c386e9211585fb1bedc18e9839
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Sep 11 18:30:48 2019 -0500
+
+    Modificación para especificaciones reporte de evaluaciones
+
+commit ddf3aac5e4d9189e9037304846cb104319fb71a5
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Sep 10 16:47:23 2019 -0500
+
+    Ajuste reporte de intervalos, no sumar producto nuevo en total
+
+commit 7c0e7343f6ce712dc06304113c34b90e767bc0cc
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Sep 10 13:56:05 2019 -0500
+
+    Se agrega fs, dias_t a tabla general reporte de evaluaciones
+
+commit e2d709f6dbe0b8a2615fb7913a960053e9e8cc04
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Sep 9 19:49:05 2019 -0500
+
+    Action en intervalos de producto nuevo
+
+commit 210b7c00fb90476b3c0efe3d037ce4da04f6b77f
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Sep 9 19:20:48 2019 -0500
+
+    Se agrega productos nuevos al reporte de intervalos
+
+commit 22c661a5bc1df4a46390df255053797a72685834
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Sep 9 17:08:55 2019 -0500
+
+    Etiqueta evaluaciones por gerencia
+
+commit cf75e9d6f9c3cd6ecac8c623100ee34895c979f4
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Sep 9 13:49:51 2019 -0500
+
+    Titulo evaluaciones por gerencia
+
+commit 068dadb66ab1b1de18a0a8238eccd09a9f9423fa
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Sep 9 11:12:33 2019 -0500
+
+    Edición para evaluaciones liberadas, administrador y gerente
+
+commit e6db830fa550b9787fe9a267799ed5af35f9265b
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 6 18:51:28 2019 -0500
+
+    Etiqueta en reporte de evaluaciones
+
+commit 27702d389c9b71a85175a799188a5e73258e6931
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 6 16:56:35 2019 -0500
+
+    Total solicitante reporte evaluaciones, no mostrar proveedor, agregar nuevo producto a tabla general
+
+commit 23b4f84e451115d4d1f222b956405133f82b0f29
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Sep 6 12:34:42 2019 -0500
+
+    Validación de un producto nuevo
+
+commit 0e249e9c73aad0fe0aa65dbf6cd824b57e42f7e5
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Sep 5 16:52:32 2019 -0500
+
+    Modelo de nuevos productos
+
+commit 74bf6d1432a78edbfec6baf409e874b737e7e2c1
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Sep 5 12:02:55 2019 -0500
+
+    Campo nuevo producto, observaciones en modificar evaluacion en proceso, export pdf reporte evaluaciones
+
+commit f243b538146e47a4f6375f2b2d4eb794671164db
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Sep 4 18:46:50 2019 -0500
+
+    Reporte Evaluaciones Proceso
+
+commit cfe175bf94b7ceaea2f93450b73e08d27183e1bd
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Aug 28 11:17:45 2019 -0500
+
+    Calculo dias liberación al editar evaluacion en proceso
+
+commit 52472777852ac49afe045b2f55da23a7f0a48e61
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Aug 27 18:54:24 2019 -0500
+
+    Se agrega la carga de archivos
+
+commit 8bcac57c253c096d80d52acaa75e5b6599e25750
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Aug 16 11:49:08 2019 -0500
+
+    Se agrega grafico de promedio tiempo liberación
+
+commit 647b5eccf741710f4d7077440aef2d06b6dd6f6c
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Aug 14 11:27:27 2019 -0500
+
+    Se agregan evaluaciones del 2017 liberadas a partir del 2018
+
+commit da89d75dcc4b33ea34bbf67d621289e529143756
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Aug 7 15:16:44 2019 -0500
+
+    Se ordena el listado de evaluaciones en proceso por días transcurridos
+
+commit fbcabc5d00d67e3f64a4e6a1c309a3562f58878a
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Aug 6 18:45:37 2019 -0500
+
+    Se excluyen proyectos especiales en listado total proceso
+
+commit 51df68d01f803f61c48c9f6ad69e54116b08d5a5
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Aug 5 15:23:35 2019 -0500
+
+    Orden del listado de evaluaciones detalle
+
+commit c06bb12a504f355c90ddb1005d48b95c9fa29bc9
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Aug 5 15:18:54 2019 -0500
+
+    Se agrega el listado total de evaluaciones en proceso
+
+commit 7867088941527b62ecb6b01cd10da70e175656ed
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Aug 2 18:22:56 2019 -0500
+
+    Nombre de gerencia cliente en grafica
+
+commit da95856fa273573cf8cea95d4b56bbe1a9bfc6ed
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Aug 2 13:49:31 2019 -0500
+
+    Nuevos periodos en odometros, muestra listado al dar clic
+
+commit 9532bdc4e8fd26b0bfaa312d0b1416e3601abee1
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Aug 1 18:29:48 2019 -0500
+
+    Se agrega el listado en el detalle de evaluaciones liberadas
+
+commit 417cbb70f6902268be67ce3e5dec7c1b58e48138
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Aug 1 14:06:44 2019 -0500
+
+    Grafica de evaluaciones por cliente
+
+commit 6b3db592c2f6362a0c15c69f074a7e27db124e39
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 31 17:17:33 2019 -0500
+
+    Validación fecha compromiso mayor a solicitud|registro-evaluacion
+
+commit 377d3bffd49e02f3900575b3f11bd710b0b204a0
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 31 11:22:54 2019 -0500
+
+    Catálogo tipo de mercado
+
+commit 1198e884fc6a59f8dd0b421411e9e7c595d472d5
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 29 18:17:30 2019 -0500
+
+    Nuevo catálogo Tecnologia - Equipo
+
+commit 5f3c1ec46af8561bcf0bd84684975ade212a8709
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 29 13:10:37 2019 -0500
+
+    Nueva plantilla para correo electronico saae
+
+commit 860047a4c4df4ff05b1721db12301c3a1f60ef5c
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 29 10:36:13 2019 -0500
+
+    Redimensión imagen correo saae
+
+commit 3a425c7666117d1c9f8111df06db6e2054cd6049
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 29 09:46:57 2019 -0500
+
+    Imagen redimensionada para correo electrónico saae
+
+commit 5fabbcc1ba6396d99cbdfc99ff86328f877f2e9f
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 26 16:38:31 2019 -0500
+
+    Se modifican columnas periodo y dias para vencer en el listado de liberaciones
+
+commit 7cdaeb31ca60b49b80768f2104b63e95dba1a84a
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 26 13:31:16 2019 -0500
+
+    nuevo metodo para generar update dl so_sol tiempos
+
+commit 80b41581cdb09d54e7422013d6dbab88e1e76968
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 26 10:34:19 2019 -0500
+
+    cambio ruta de aplicación en la plantilla de correo
+
+commit f1dbc0bd962166bc3711295e2d4c8b13b77352b7
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 25 18:55:20 2019 -0500
+
+    Se agrega header para correo de aceptación
+
+commit c9da773a4b693767483ccdea52a15675695f0c85
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 25 13:56:06 2019 -0500
+
+    se agrega el perfil de autorizador para operaciones
+
+commit 216cbd1603b34d4766c7853f88dc257bf5998285
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 25 11:51:05 2019 -0500
+
+    Se agrega proyectos especiales a tabla reporte estatus de evaluaciones
+
+commit 59700d6cf11ecf459c7f2156ac8e2ccd85c57806
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 24 12:48:02 2019 -0500
+
+    Se muestran las graficas de evaluaciones liberadas por mes en e
+
+commit 4f3422dd7847932c2d9f4901c0876df3bc748c9b
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 24 11:01:31 2019 -0500
+
+    Se valida motivo rechazo y cancelacion
+
+commit cbd638e3e656cd9fec7d1f480c8d60c2f566e2b8
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 24 10:26:44 2019 -0500
+
+    Catálogos de rechazo y cancelación de evaluación
+
+commit 723ef78622d721320f4111b4470562cd83e0d054
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Jul 23 17:21:22 2019 -0500
+
+    Se agrega subgerente a detalle evaluaciones tablero intervalos
+
+commit 960a0a5e20bf4c828374ed8fa43b9d4e37ec513e
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Jul 23 13:45:30 2019 -0500
+
+    Se agrega subgerente al detalle del reporte intervalos
+
+commit 1fc7ac851aa5169e52dfb13ac52304198722193e
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Jul 23 12:43:27 2019 -0500
+
+    Catalogo de proveedores
+
+commit c8afbe451945f9e5d5b967973e6bc8467f9a674c
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Jul 23 09:29:42 2019 -0500
+
+    Ingeniero activo al dar click para identificar filtro
+
+commit 370fae6e2480a25fc1f356898c3fd17b3f78921a
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 22 19:08:15 2019 -0500
+
+    Modulo record evaluaciones por ingeniero
+
+commit 550933f5eabb0b3cd7e4c523cb24417321d07a03
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 19 18:14:28 2019 -0500
+
+    Tecnologia Equipo se modifica select para solo activos
+
+commit 9ccf55b701a4d430b57db1189494553f45e0bc5c
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 19 17:54:00 2019 -0500
+
+    filtro tablero nuevas solicitudes por gerencia
+
+commit 4e01a210304545aaf3bd80eb18412d24654d2766
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 19 17:22:02 2019 -0500
+
+    Se validan campos nuevo y tec-equipo en aceptar evaluacion
+
+commit b9cc07482f9acafb003c4ccee351f26a1ab22c06
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Fri Jul 19 16:45:31 2019 -0500
+
+    Calculo fecha liberacion automatico en aceptar
+
+commit cf95a84b9b7947f0c56c14950c4261f360b60395
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 18 18:52:26 2019 -0500
+
+    Se agregan subgerentes al listado Asignar Ingeniero
+
+commit 8a34ec96af014fa388c19e3eea49f483f7da0377
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 18 18:07:43 2019 -0500
+
+    Brenda Lee y Leg, Todos los ingernieros para asignar. Año actual y anterior evaluaciones.
+
+commit 462d57bd9c422ae8eba61364366c70dda4fe343d
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 18 13:48:56 2019 -0500
+
+    Se elimina la validacion para el campo de referencia solicitud
+
+commit 6b847fac3ffb149d74966b727184685097c42ea7
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 18 13:33:15 2019 -0500
+
+    Corrección perfiles cambios evaluación
+
+commit 0f8d1e7a3261b5521b16044bb3e0ccee81481b92
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Thu Jul 18 13:25:49 2019 -0500
+
+    Perfiles que pueden realizar cambios en evaluaciones
+
+commit 440ae8d0564fa86f7efa392a26bd2af4671fb543
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 19:39:24 2019 -0500
+
+    Proyectos Especiales Reporte Intervalos
+
+commit d39c1655c9e21cca3b26d4d0d409858cbff4a3fb
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 18:01:43 2019 -0500
+
+    Intervalos en el tablero principal
+
+commit 110374cfc3986ae04b56c256f5d5e0e2b2152b22
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 16:16:58 2019 -0500
+
+    Excluyen servicios especiales para intervalos
+
+commit 0b82925f42374533ce356686e58d743aa2e0db99
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 13:54:30 2019 -0500
+
+    Validación tecnologia equipo - ovillalba
+
+commit 051b81338bdd4efb59ec80c2ca504611611164f1
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 12:40:12 2019 -0500
+
+    Envio correo electrónico por siglas
+
+commit df22fec99ec91a9f57957d2c07ce22997c7e7139
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 12:08:09 2019 -0500
+
+    Se desactiva la autenticación en prod
+
+commit 47d8df5518436b6aca1c4d1d66a4cbda34410355
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Wed Jul 17 11:54:50 2019 -0500
+
+    Integración git servidor prod
+
+commit 6899cda9e57c45b8496c2da6606ae2032a0526fe
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Tue Jul 16 12:34:06 2019 -0500
+
+    Dias para vencer - reporte intervalos
+
+commit bdc84e415c5ff7dcf5d017737fa1c4edc5bcc461
+Author: Javier Garcia <javigar31@gmail.com>
+Date:   Mon Jul 15 19:32:50 2019 -0500
+
+    version 1.0 saae

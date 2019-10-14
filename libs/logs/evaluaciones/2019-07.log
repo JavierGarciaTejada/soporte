@@ -1,0 +1,1716 @@
+{
+    "date": "2019-07-03 18:12:29",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865178",
+        "me": "831264706543201",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+}
+{
+    "date": "2019-07-03 18:17:33",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865174",
+        "me": "831264706543201",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00",
+        "mes": null
+    }
+},
+{
+    "date": "2019-07-03 18:19:13",
+    "type": "error",
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "SQLSTATE[HY093]: Invalid parameter number: parameter was not defined",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865176",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-03 19:04:44",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "1213145",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865174",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-03 19:31:07",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "819182541877047"
+    }
+},
+{
+    "date": "2019-07-03 19:31:07",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865176",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-03 19:32:43",
+    "nick": "jbustos@telmex.com",
+    "type": "error",
+    "meth": "BITACORA",
+    "desc": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '819182541877047' for key 'ix'",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "819182541877047"
+    }
+},
+{
+    "date": "2019-07-03 19:34:41",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "819182541877047"
+    }
+},
+{
+    "date": "2019-07-03 19:34:41",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840689",
+        "pa": "219056265865202",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-03 19:36:06",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "819182541877047"
+    }
+},
+{
+    "date": "2019-07-03 19:36:06",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840686",
+        "pa": "219056265865202",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-03 19:37:04",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "819182541877047"
+    }
+},
+{
+    "date": "2019-07-03 19:37:04",
+    "nick": "jbustos@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "819182541877047",
+        "id": "2939",
+        "proceso": "1",
+        "el": "121314",
+        "cl": "121314",
+        "al": "119056262939067",
+        "no": "PRUEBA ALTA DE EVALUACION PERFIL DE CLIENTE",
+        "ac": "319056265838389",
+        "pv": "919056262940320",
+        "ts": "719056262954170",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-02 00:00:00",
+        "sg": "919056264925383",
+        "ig": "919056264925355",
+        "te": "319056265848490",
+        "nu": "219056265840686",
+        "pa": "219056265865178",
+        "me": "831264706543206",
+        "meta": "",
+        "ft": "2019-08-02 00:00:00"
+    }
+},
+{
+    "date": "2019-07-05 16:40:51",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "219184323848447"
+    }
+},
+{
+    "date": "2019-07-05 16:40:51",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, ft = :ft, et = :et, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "2964",
+        "ix": "219184323848447",
+        "pv": "919056262940426",
+        "ts": "719056262954156",
+        "pr": "619056264954214",
+        "fo": "2019-07-12 00:00:00",
+        "sg": "919056264925308",
+        "ig": "919056264925312",
+        "te": "319056265848487",
+        "nu": "219056265840686",
+        "pa": "219056265865173",
+        "me": "831264706543202",
+        "meta": "2019-07-20",
+        "et": "619056264933549",
+        "fa": "2019-07-05 16:07:40"
+    }
+},
+{
+    "date": "2019-07-10 12:37:24",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "819190372444055"
+    }
+},
+{
+    "date": "2019-07-10 12:37:24",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "819190372444055",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-802\/2019",
+        "cl": "Lp-999\/2019",
+        "al": "119056262939067",
+        "no": "Evaluaci\u00f3n prueba datos nuevo y tecnolog\u00eda ",
+        "ac": "319056265838386",
+        "pv": "919056262940321",
+        "ts": "719056262984161",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-10",
+        "nu": "219056265840692",
+        "te": "119189203441144",
+        "gr": "919056264925385",
+        "fx": "2019-07-10 12:37:24",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-10 12:55:02",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "119185514627057"
+    }
+},
+{
+    "date": "2019-07-10 12:55:02",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "119185514627057",
+        "id": "2971",
+        "proceso": "1",
+        "el": "Ele-796\/2019",
+        "cl": "",
+        "al": "119056262939072",
+        "no": "Solicitud de RTO\/RPS-100 Interconexi\u00f3n de la red IP TELMEX con otros operadores.",
+        "ac": "319056265838396",
+        "pv": "919056262940477",
+        "ts": "719056262954164",
+        "pr": "619056264954215",
+        "fo": "2019-07-19 00:00:00",
+        "fs": "2019-07-05 00:00:00",
+        "nu": "219056265840691",
+        "te": "319056265848503",
+        "sg": "919056264925289",
+        "ig": "919056264925363",
+        "pa": "219056265865177",
+        "me": "831264706543205",
+        "meta": "",
+        "ft": "2019-07-23 00:00:00"
+    }
+},
+{
+    "date": "2019-07-17 12:28:25",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "919197282532172"
+    }
+},
+{
+    "date": "2019-07-17 12:28:25",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "919197282532172",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-999\/2019",
+        "cl": "le-999\/2019",
+        "al": "119056262939067",
+        "no": "PRUEBA ENVIO CORREO ELECTRONICO APP 1",
+        "ac": "319056265838385",
+        "pv": "919056262940321",
+        "ts": "719056262954153",
+        "pr": "619056264954214",
+        "fo": "2019-08-28",
+        "fs": "2019-07-17",
+        "nu": "219056265840692",
+        "te": "319056265848492",
+        "gr": "919056264925385",
+        "fx": "2019-07-17 12:28:25",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 09:49:02",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "519198490277413"
+    }
+},
+{
+    "date": "2019-07-18 09:49:02",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "519198490277413",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-XXX\/2019",
+        "cl": "Le-XXX\/2019",
+        "al": "119056262939067",
+        "no": "PRUEBA NUEVA EVALUACI\u00d3N REGISTRO Y CORREO",
+        "ac": "319056265838389",
+        "pv": "919056262940321",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "nu": "219056265840692",
+        "te": "319056265848487",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 09:49:02",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 10:31:32",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "519198490277413"
+    }
+},
+{
+    "date": "2019-07-18 10:31:32",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, ft = :ft, et = :et, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3031",
+        "ix": "519198490277413",
+        "pv": "919056262940321",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "te": "319056265848487",
+        "nu": "219056265840692",
+        "pa": "219056265865176",
+        "me": "831264706543204",
+        "meta": "2019-09-16",
+        "et": "619056264933549",
+        "fa": "2019-07-18 10:07:31"
+    }
+},
+{
+    "date": "2019-07-18 10:31:48",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "519198490277413"
+    }
+},
+{
+    "date": "2019-07-18 10:31:48",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "519198490277413",
+        "id": "3031",
+        "proceso": "1",
+        "el": "Ele-XXX\/2019",
+        "cl": "Le-XXX\/2019",
+        "al": "119056262939067",
+        "no": "PRUEBA NUEVA EVALUACI\u00d3N REGISTRO Y CORREO",
+        "ac": "319056265838389",
+        "pv": "919056262940321",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-18 00:00:00",
+        "nu": "219056265840691",
+        "te": "319056265848487",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "pa": "219056265865176",
+        "me": "831264706543204",
+        "meta": "",
+        "ft": "2019-09-16 00:00:00"
+    }
+},
+{
+    "date": "2019-07-18 10:32:12",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "519198490277413"
+    }
+},
+{
+    "date": "2019-07-18 10:32:12",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "519198490277413",
+        "id": "3031",
+        "proceso": "1",
+        "el": "Ele-XXX\/2019",
+        "cl": "Le-XXX\/2019",
+        "al": "119056262939067",
+        "no": "PRUEBA NUEVA EVALUACI\u00d3N REGISTRO Y CORREO - ACEPTACI\u00d3N - MODIFICACI\u00d3N",
+        "ac": "319056265838389",
+        "pv": "919056262940321",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-18 00:00:00",
+        "nu": "219056265840691",
+        "te": "319056265848487",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "pa": "219056265865176",
+        "me": "831264706543204",
+        "meta": "",
+        "ft": "2019-09-16 00:00:00"
+    }
+},
+{
+    "date": "2019-07-18 10:32:50",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "liberacion",
+        "ix": "519198490277413"
+    }
+},
+{
+    "date": "2019-07-18 10:32:50",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "LIBERACION",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, rl = :rl, re = :re, fl = :fl WHERE id = :id",
+    "data": {
+        "id": "3031",
+        "ix": "519198490277413",
+        "re": "419056265844511",
+        "fl": "2019-07-18",
+        "rl": "lp-XXX\/2019",
+        "et": "619056264933550",
+        "fa": "2019-07-18 10:07:32"
+    }
+},
+{
+    "date": "2019-07-18 11:15:40",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:15:40",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "619198154066125",
+        "id": "",
+        "proceso": "",
+        "el": "PRUEBA",
+        "cl": "PRUEBA",
+        "al": "119056262939067",
+        "no": "EVALUACI\u00d3N PRUEBA DE REGISTRO",
+        "ac": "319056265838389",
+        "pv": "919056262940322",
+        "ts": "719056262954154",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "nu": "219056265840691",
+        "te": "319056265848491",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 11:15:40",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 11:16:38",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "rechazo",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:16:38",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "RECHAZO",
+    "desc": "UPDATE so_sol SET mr = :mr, et = :et, fr = :fr, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3032",
+        "ix": "619198154066125",
+        "mr": " RECHAZO",
+        "fr": "2019-07-18",
+        "et": "619056264933548",
+        "fa": "2019-07-18 11:07:16"
+    }
+},
+{
+    "date": "2019-07-18 11:19:14",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "reenvio",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:19:14",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REENVIO",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, fs = :fs, fo = :fo WHERE id = :id",
+    "data": {
+        "ix": "619198154066125",
+        "id": "3032",
+        "proceso": "",
+        "pv": "919056262940322",
+        "ts": "719056262954154",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "nu": "219056265840691",
+        "te": "319056265848491",
+        "et": "619056264933547",
+        "fa": "2019-07-18 11:07:19",
+        "fs": "2019-07-18 11:07:19"
+    }
+},
+{
+    "date": "2019-07-18 11:24:05",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:24:05",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, ft = :ft, et = :et, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3032",
+        "ix": "619198154066125",
+        "pv": "919056262940322",
+        "ts": "719056262954154",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "te": "319056265848491",
+        "nu": "219056265840691",
+        "pa": "219056265865178",
+        "me": "831264706543204",
+        "meta": "2019-09-16",
+        "et": "619056264933549",
+        "fa": "2019-07-18 11:07:24"
+    }
+},
+{
+    "date": "2019-07-18 11:26:10",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:26:10",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "619198154066125",
+        "id": "3032",
+        "proceso": "1",
+        "el": "PRUEBA",
+        "cl": "PRUEBA",
+        "al": "119056262939067",
+        "no": "EVALUACI\u00d3N PRUEBA DE REGISTRO",
+        "ac": "319056265838389",
+        "pv": "919056262940322",
+        "ts": "719056262954154",
+        "pr": "619056264954214",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-18 11:07:19",
+        "nu": "219056265840693",
+        "te": "319056265848491",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "pa": "219056265865178",
+        "me": "831264706543204",
+        "meta": "",
+        "ft": "2019-09-16 00:00:00"
+    }
+},
+{
+    "date": "2019-07-18 11:30:07",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "liberacion",
+        "ix": "619198154066125"
+    }
+},
+{
+    "date": "2019-07-18 11:30:07",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "LIBERACION",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, rl = :rl, re = :re, fl = :fl WHERE id = :id",
+    "data": {
+        "id": "3032",
+        "ix": "619198154066125",
+        "re": "419056265844511",
+        "fl": "2019-07-18",
+        "rl": "le-XXX\/2019",
+        "et": "619056264933550",
+        "fa": "2019-07-18 11:07:30"
+    }
+},
+{
+    "date": "2019-07-18 11:30:38",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "719197312810827"
+    }
+},
+{
+    "date": "2019-07-18 11:30:38",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, ft = :ft, et = :et, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3030",
+        "ix": "719197312810827",
+        "pv": "919056262940392",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-02 00:00:00",
+        "sg": "919056264925408",
+        "ig": "919056264925392",
+        "te": "319056265848499",
+        "nu": "219056265840692",
+        "pa": "219056265865199",
+        "me": "831264706543200",
+        "meta": "2019-08-17",
+        "et": "619056264933549",
+        "fa": "2019-07-18 11:07:30"
+    }
+},
+{
+    "date": "2019-07-18 11:31:48",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "cancelacion",
+        "ix": "719197312810827"
+    }
+},
+{
+    "date": "2019-07-18 11:31:48",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "CANCELACION",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, rl = :rl, fc = :fc, mc = :mc WHERE id = :id",
+    "data": {
+        "id": "3030",
+        "ix": "719197312810827",
+        "fl": "2019-07-18",
+        "fc": "2019-07-18",
+        "mc": "MOTIVO",
+        "rl": "XXX",
+        "et": "619056264933551",
+        "fa": "2019-07-18 11:07:31"
+    }
+},
+{
+    "date": "2019-07-18 16:36:27",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "rechazo",
+        "ix": "719197115159440"
+    }
+},
+{
+    "date": "2019-07-18 16:36:27",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "RECHAZO",
+    "desc": "UPDATE so_sol SET mr = :mr, et = :et, fr = :fr, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3029",
+        "ix": "719197115159440",
+        "mr": " hjcjjh",
+        "fr": "2019-07-18",
+        "et": "619056264933548",
+        "fa": "2019-07-18 16:07:36"
+    }
+},
+{
+    "date": "2019-07-18 19:11:19",
+    "nick": "fgtejada@telmex.com",
+    "type": "error",
+    "meth": "REGISTRO",
+    "desc": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'nu' cannot be null",
+    "data": {
+        "ix": "519198111944619",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-9XX\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGISTRO SIN NUEVO, TECNOLOGIA\/EQUIPO\r\n",
+        "ac": "319056265838384",
+        "pv": "919056262940321",
+        "ts": "719056262954164",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 07:11:19",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206",
+        "nu": null,
+        "te": null
+    }
+},
+{
+    "date": "2019-07-18 19:11:59",
+    "nick": "fgtejada@telmex.com",
+    "type": "error",
+    "meth": "REGISTRO",
+    "desc": "SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens",
+    "data": {
+        "ix": "719198115883383",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-9XX\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGISTRO SIN NUEVO, TECNOLOGIA\/EQUIPO\r\n",
+        "ac": "319056265838384",
+        "pv": "919056262940321",
+        "ts": "719056262954164",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 07:11:58",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 19:12:23",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "619198122322733"
+    }
+},
+{
+    "date": "2019-07-18 19:12:23",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :pa, :me, :gr) ",
+    "data": {
+        "ix": "619198122322733",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-9XX\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGISTRO SIN NUEVO, TECNOLOGIA\/EQUIPO\r\n",
+        "ac": "319056265838384",
+        "pv": "919056262940321",
+        "ts": "719056262954164",
+        "pr": "619056264954214",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 07:12:23",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 19:15:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "819198150881233"
+    }
+},
+{
+    "date": "2019-07-18 19:15:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :pa, :me, :gr) ",
+    "data": {
+        "ix": "819198150881233",
+        "id": "",
+        "proceso": "",
+        "el": "eLE-989\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGSITRO NUEVA EVALUACION SIN NUEVO NI TECEQUIPO",
+        "ac": "319056265838383",
+        "pv": "919056262940529",
+        "ts": "719056262984161",
+        "pr": "619056264954215",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 07:15:08",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "nu": "219056265840690",
+        "te": "319056265848526",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 19:16:50",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "419198165093197"
+    }
+},
+{
+    "date": "2019-07-18 19:16:50",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "419198165093197",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-889\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA SIN NUEVO NI TEC-EQUIPO",
+        "ac": "319056265838382",
+        "pv": "919056262940529",
+        "ts": "719056262954153",
+        "pr": "619056264954216",
+        "fo": "2019-07-31",
+        "fs": "2019-07-18",
+        "gr": "919056264925385",
+        "fx": "2019-07-18 07:16:50",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "nu": "219056265840690",
+        "te": "319056265848526",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-18 19:17:55",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "419198165093197"
+    }
+},
+{
+    "date": "2019-07-18 19:17:55",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3035",
+        "ix": "419198165093197",
+        "pv": "919056262940529",
+        "ts": "719056262954153",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "sg": "919056264925308",
+        "ig": "919056264925308",
+        "te": "319056265848510",
+        "nu": "219056265840691",
+        "pa": "219056265865180",
+        "me": "831264706543202",
+        "et": "619056264933549",
+        "fa": "2019-07-18 19:07:17"
+    }
+},
+{
+    "date": "2019-07-19 11:56:21",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "519199562154211"
+    }
+},
+{
+    "date": "2019-07-19 11:56:21",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "519199562154211",
+        "id": "",
+        "proceso": "",
+        "el": "Ele-99x\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGISTRO SOLICITUD DOCUMENTO - RANGO ESPERADO: 15 D\u00cdAS FECHA ESPERADA DE LIBERACI\u00d3N: 2019-08-03",
+        "ac": "319056265838388",
+        "pv": "919056262940324",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-05",
+        "fs": "2019-07-19",
+        "gr": "919056264925385",
+        "fx": "2019-07-19 11:56:21",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "nu": "219056265840690",
+        "te": "319056265848526",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-19 12:01:47",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "519199562154211"
+    }
+},
+{
+    "date": "2019-07-19 12:01:47",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa, ft = :ft, dl = :dl WHERE id = :id",
+    "data": {
+        "id": "3036",
+        "ix": "519199562154211",
+        "pv": "919056262940324",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-05 00:00:00",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "te": "319056265848521",
+        "nu": "219056265840692",
+        "pa": "219056265865179",
+        "me": "831264706543204",
+        "et": "619056264933549",
+        "fa": "2019-07-19 12:07:01",
+        "dl": "15",
+        "ft": "2019-08-03"
+    }
+},
+{
+    "date": "2019-07-19 12:02:33",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "519199562154211"
+    }
+},
+{
+    "date": "2019-07-19 12:02:33",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa, ft = :ft, dl = :dl WHERE id = :id",
+    "data": {
+        "id": "3036",
+        "ix": "519199562154211",
+        "pv": "919056262940324",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-05 00:00:00",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "te": "319056265848521",
+        "nu": "219056265840692",
+        "pa": "219056265865179",
+        "me": "831264706543204",
+        "et": "619056264933549",
+        "fa": "2019-07-19 12:07:02",
+        "dl": "15",
+        "ft": "2019-08-03"
+    }
+},
+{
+    "date": "2019-07-19 12:03:05",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "modificacion_proceso",
+        "ix": "519199562154211"
+    }
+},
+{
+    "date": "2019-07-19 12:03:05",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "MODIFICACION_PROCESO",
+    "desc": "UPDATE so_sol SET al = :al, no = :no, ac = :ac, pv = :pv, ts = :ts, pr = :pr, fs = :fs, ig = :ig, me = :me, nu = :nu, pa = :pa, sg = :sg, te = :te WHERE ix = :ix",
+    "data": {
+        "ix": "519199562154211",
+        "id": "3036",
+        "proceso": "1",
+        "el": "Ele-99x\/2019",
+        "cl": "",
+        "al": "119056262939067",
+        "no": "PRUEBA REGISTRO SOLICITUD DOCUMENTO - RANGO ESPERADO: 15 D\u00cdAS FECHA ESPERADA DE LIBERACI\u00d3N: 2019-08-03. RESULTADO: OK.",
+        "ac": "319056265838388",
+        "pv": "919056262940324",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-05 00:00:00",
+        "fs": "2019-07-19 00:00:00",
+        "sg": "919056264925382",
+        "ig": "919056264925302",
+        "te": "319056265848521",
+        "nu": "219056265840692",
+        "pa": "219056265865179",
+        "me": "831264706543204"
+    }
+},
+{
+    "date": "2019-07-19 13:06:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "619197095879470"
+    }
+},
+{
+    "date": "2019-07-19 13:06:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa, ft = :ft, dl = :dl WHERE id = :id",
+    "data": {
+        "id": "3028",
+        "ix": "619197095879470",
+        "pv": "919056262940392",
+        "ts": "719056262954145",
+        "pr": "619056264954214",
+        "fo": "2019-08-02 00:00:00",
+        "fs": "2019-07-16 00:00:00",
+        "sg": "919056264925296",
+        "ig": "919056264925296",
+        "te": "319056265848488",
+        "nu": "219056265840691",
+        "pa": "219056265865173",
+        "me": "831264706543202",
+        "et": "619056264933549",
+        "fa": "2019-07-19 13:07:06",
+        "dl": "15",
+        "ft": "2019-07-31"
+    }
+},
+{
+    "date": "2019-07-19 13:08:01",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "319197324419977"
+    }
+},
+{
+    "date": "2019-07-19 13:08:01",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa, ft = :ft, dl = :dl WHERE id = :id",
+    "data": {
+        "id": "3027",
+        "ix": "319197324419977",
+        "pv": "919056262940426",
+        "ts": "719056262954153",
+        "pr": "619056264954216",
+        "fo": "2019-09-13 00:00:00",
+        "fs": "2019-07-16 00:00:00",
+        "sg": "919056264925291",
+        "ig": "919056264925296",
+        "te": "319056265848489",
+        "nu": "219056265840691",
+        "pa": "219056265865174",
+        "me": "831264706543203",
+        "et": "619056264933549",
+        "fa": "2019-07-19 13:07:08",
+        "dl": "60",
+        "ft": "2019-09-14"
+    }
+},
+{
+    "date": "2019-07-19 16:47:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "219199470862083"
+    }
+},
+{
+    "date": "2019-07-19 16:47:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "219199470862083",
+        "id": "",
+        "proceso": "",
+        "el": "XXX",
+        "cl": "XXX",
+        "al": "119056262939067",
+        "no": "PRUEBA NUEVO REGISTRO",
+        "ac": "319056265838383",
+        "pv": "919056262940320",
+        "ts": "719056262954145",
+        "pr": "619056264954216",
+        "fo": "2019-07-31",
+        "fs": "2019-07-19",
+        "gr": "919056264925385",
+        "fx": "2019-07-19 04:47:08",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "nu": "219056265840690",
+        "te": "319056265848526",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-19 16:48:59",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "registro",
+        "ix": "919199485943773"
+    }
+},
+{
+    "date": "2019-07-19 16:48:59",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REGISTRO",
+    "desc": "INSERT INTO so_sol (ix, fx, el, cl, no, ts, al, ac, pr, pv, fo, fs, ux, rx, et, sx, re, sg, ig, nu, te, pa, me, gr) VALUES (:ix, :fx, :el, :cl, :no, :ts, :al, :ac, :pr, :pv, :fo, :fs, :ux, :rx, :et, :sx, :re, :sg, :ig, :nu, :te, :pa, :me, :gr) ",
+    "data": {
+        "ix": "919199485943773",
+        "id": "",
+        "proceso": "",
+        "el": "XXXXX",
+        "cl": "XXX",
+        "al": "119056262939067",
+        "no": "NUEVO REGISTRO. CORREO ELECTR\u00d3NICO, CALCULO AUTOM\u00c1TICO DE D\u00cdAS PARA LIBERACI\u00d3N",
+        "ac": "319056265838385",
+        "pv": "919056262940547",
+        "ts": "719056262954145",
+        "pr": "619056264954216",
+        "fo": "2019-07-31",
+        "fs": "2019-07-19",
+        "gr": "919056264925385",
+        "fx": "2019-07-19 04:48:59",
+        "ux": "0",
+        "rx": "0",
+        "et": "619056264933547",
+        "sx": "0",
+        "re": "419056265844515",
+        "sg": "919056264925405",
+        "ig": "919056264925405",
+        "nu": "219056265840690",
+        "te": "319056265848526",
+        "pa": "219056265865197",
+        "me": "831264706543206"
+    }
+},
+{
+    "date": "2019-07-19 16:51:39",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "aceptacion",
+        "ix": "919199485943773"
+    }
+},
+{
+    "date": "2019-07-19 16:51:39",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "ACEPTACION",
+    "desc": "UPDATE so_sol SET pv = :pv, ts = :ts, pr = :pr, fo = :fo, sg = :sg, ig = :ig, te = :te, nu = :nu, pa = :pa, me = :me, et = :et, fa = :fa, ft = :ft, dl = :dl WHERE id = :id",
+    "data": {
+        "id": "3041",
+        "ix": "919199485943773",
+        "pv": "919056262940547",
+        "ts": "719056262954145",
+        "pr": "619056264954216",
+        "fo": "2019-07-31 00:00:00",
+        "fs": "2019-07-19 00:00:00",
+        "sg": "919056264925340",
+        "ig": "919056264925408",
+        "te": "319056265848494",
+        "nu": "219056265840691",
+        "pa": "219056265865174",
+        "me": "831264706543202",
+        "et": "619056264933549",
+        "fa": "2019-07-19 16:07:51",
+        "dl": "15",
+        "ft": "2019-08-03"
+    }
+},
+{
+    "date": "2019-07-24 10:03:34",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "rechazo",
+        "ix": "419202061767027"
+    }
+},
+{
+    "date": "2019-07-24 10:03:34",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "RECHAZO",
+    "desc": "UPDATE so_sol SET mr = :mr, et = :et, fr = :fr, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3061",
+        "ix": "419202061767027",
+        "fr": "2019-07-24",
+        "et": "619056264933548",
+        "fa": "2019-07-24 10:07:03",
+        "mr": null
+    }
+},
+{
+    "date": "2019-07-24 10:05:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "reenvio",
+        "ix": "419202061767027"
+    }
+},
+{
+    "date": "2019-07-24 10:05:08",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REENVIO",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, fs = :fs, fo = :fo WHERE id = :id",
+    "data": {
+        "ix": "419202061767027",
+        "id": "3061",
+        "proceso": "",
+        "pv": "919056262940337",
+        "ts": "719056262954157",
+        "pr": "619056264954214",
+        "fo": "2019-08-05 00:00:00",
+        "et": "619056264933547",
+        "fa": "2019-07-24 10:07:05",
+        "fs": "2019-07-24 10:07:05"
+    }
+},
+{
+    "date": "2019-07-24 10:06:28",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "rechazo",
+        "ix": "419202061767027"
+    }
+},
+{
+    "date": "2019-07-24 10:06:28",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "RECHAZO",
+    "desc": "UPDATE so_sol SET mr = :mr, et = :et, fr = :fr, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3061",
+        "ix": "419202061767027",
+        "mr": "1",
+        "fr": "2019-07-24",
+        "et": "619056264933548",
+        "fa": "2019-07-24 10:07:06"
+    }
+},
+{
+    "date": "2019-07-24 10:15:57",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "cancelacion",
+        "ix": "319202161874571"
+    }
+},
+{
+    "date": "2019-07-24 10:15:57",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "CANCELACION",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, rl = :rl, fc = :fc, mc = :mc WHERE id = :id",
+    "data": {
+        "id": "3053",
+        "ix": "319202161874571",
+        "fl": "2019-07-24",
+        "fc": "2019-07-24",
+        "mc": "11",
+        "rl": "RF-1234",
+        "et": "619056264933551",
+        "fa": "2019-07-24 10:07:15"
+    }
+},
+{
+    "date": "2019-07-24 11:00:23",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "rechazo",
+        "ix": "319202050313624"
+    }
+},
+{
+    "date": "2019-07-24 11:00:23",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "RECHAZO",
+    "desc": "UPDATE so_sol SET mr = :mr, et = :et, fr = :fr, fa = :fa WHERE id = :id",
+    "data": {
+        "id": "3060",
+        "ix": "319202050313624",
+        "mr": "",
+        "fr": "2019-07-24",
+        "et": "619056264933548",
+        "fa": "2019-07-24 11:07:00"
+    }
+},
+{
+    "date": "2019-07-24 11:00:35",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "BITACORA",
+    "desc": "INSERT INTO bi_sol SET ix = :ix, fx = :fx, mv = :mv, id_usr = :id_usr",
+    "data": {
+        "mv": "reenvio",
+        "ix": "319202050313624"
+    }
+},
+{
+    "date": "2019-07-24 11:00:35",
+    "nick": "fgtejada@telmex.com",
+    "type": true,
+    "meth": "REENVIO",
+    "desc": "UPDATE so_sol SET et = :et, fa = :fa, fs = :fs, fo = :fo WHERE id = :id",
+    "data": {
+        "ix": "319202050313624",
+        "id": "3060",
+        "proceso": "",
+        "el": "Ele-879\/2019",
+        "cl": "S-038\/2019 ",
+        "al": "119056262939071",
+        "no": "Validaci\u00f3n de la actualizaci\u00f3n del Documento Aprovisionamiento en Aruba Central Wi-Fi negocio ver 3.10 en la plataforma de Aruba",
+        "ac": "319056265838395",
+        "pv": "919056262940337",
+        "ts": "719056262954157",
+        "pr": "619056264954214",
+        "fo": "2019-08-05 00:00:00",
+        "fs": "2019-07-24 11:07:00",
+        "et": "619056264933547",
+        "fa": "2019-07-24 11:07:00"
+    }
+},
