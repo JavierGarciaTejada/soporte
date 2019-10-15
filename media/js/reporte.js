@@ -85,7 +85,7 @@ $(function(){
 
 					var botones = [];
 
-					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Modificar Reporte"><i class="fa fa-search" aria-hidden="true"></i></button>' );
+					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-search" aria-hidden="true"></i></button>' );
 					if( data.estado == "En Proceso" ){
 						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
 						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
