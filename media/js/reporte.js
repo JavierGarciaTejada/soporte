@@ -81,7 +81,7 @@ $(function(){
 					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Modificar Reporte"><i class="fa fa-search" aria-hidden="true"></i></button>' );
 					if( data.estado == "En Proceso" ){
 						botones.push( '<button class="btn btn-sm btn-success estado" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
-						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-trash" aria-hidden="true"></i></button>' );
+						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
 					}
 
 					$( td ).html( '' + botones.join(' ') + '' );
@@ -119,8 +119,8 @@ $(function(){
 	$("#btn-guardar-reporte").click(function(){
 		var validator = $('#form-reportes').data('bootstrapValidator');
         validator.validate();
-   //      if (!validator.isValid())
-			// return false;
+        if (!validator.isValid())
+			return false;
 
 		var serial = $("#form-reportes").serialize();
 		var captura = $( "#nombre option:selected" ).attr('data-ref');
@@ -161,9 +161,10 @@ $(function(){
 	//BOTON FINALIZAR/CANCELAR
 	$(document).on('click', '.estado', function(){
 
-    	var ope = $(this).attr('data-ope');
+    	var ope = $(this).attr('data-ref');
+    	var mov = $(this).attr('data-ope');
 
-    	var msg = "¿Está seguro de "+ope+" el soporte?";
+    	var msg = "¿Está seguro de "+mov+" el soporte?";
     	if( confirm(msg) ){
 
     		var dataRow = tableReportes.row( $(this).parents('tr') ).data();
