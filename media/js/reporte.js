@@ -205,6 +205,11 @@ $(function(){
 
 	$("#btn-finalizar").click(function(){
 
+		var validator = $('#form-finalizar').data('bootstrapValidator');
+        validator.validate();
+        if (!validator.isValid())
+			return false;
+
 		var serial = $("#form-finalizar").serialize();
 		setPost(e.url + 'finalizarReporte', serial, function(response){
 			if( response === true ){

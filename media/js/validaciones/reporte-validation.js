@@ -1,6 +1,6 @@
 $(function(){
 
-    //VALIDACION FORMULARIO LIBERAR
+    //VALIDACION NUEVO REPORTE
     $('#form-reportes')
     .bootstrapValidator({
         message: 'Valor no es válido',
@@ -57,6 +57,40 @@ $(function(){
                 validators: {
                     notEmpty: {
                         message: 'Ingrese Descripción'
+                    }
+                }
+            }
+
+        }
+    });
+
+
+
+
+
+
+    //VALIDACIONES FINALIZAR
+    $('#form-finalizar')
+    .bootstrapValidator({
+        message: 'Valor no es válido',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        excluded: [':disabled'],
+        fields: {
+            fecha_fin_falla: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione fecha y hora'
+                    }
+                }
+            },
+            solucion: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese la solución del reporte'
                     }
                 }
             }
