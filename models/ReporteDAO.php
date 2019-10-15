@@ -118,6 +118,8 @@ class ReporteDAO
 
 			$sql = "UPDATE bitacora SET 
 			estado = :estado,
+			fecha_fin_falla = :ff,
+			solucion = :so,
 			fechaDeCancelacion = :fc
 			WHERE id = :id";
 			Conexion::$connect = new Conexion();
@@ -125,8 +127,10 @@ class ReporteDAO
 			Conexion::$query = $sql;
 			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
 			Conexion::$prepare->bindParam(':estado', $data['estado']);
+			Conexion::$prepare->bindParam(':ff', $data['fecha_fin_falla']);
+			Conexion::$prepare->bindParam(':so', $data['solucion']);
 			Conexion::$prepare->bindParam(':fc', $data['fecha_cancelacion']);
-			Conexion::$prepare->bindParam(':id', $data['id']);
+			Conexion::$prepare->bindParam(':id', $data['id_rep_fin']);
 			$result = Conexion::$prepare->execute();
 
 			return $result;

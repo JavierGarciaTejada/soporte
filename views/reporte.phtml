@@ -14,6 +14,7 @@
 						<th>Inicio de Falla</th>
 						<th>Inicio de Soporte</th>
 						<th>Fin de Soporte</th>
+						<th>Solución</th>
 						<th>Archivo</th>
 					</tr>
 				</thead>
@@ -124,6 +125,45 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- MODAL FINALIZAR -->
+	<div class="modal fade" id="modal-finalizar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-success">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Finalizar Reporte</h4>
+				</div>
+				<div class="modal-body">
+
+				<div class="row">
+					<div class="col-sm-12">
+						<form class="form" id="form-finalizar" style="padding: 0px 20px">
+
+							<input type="hidden" id="id_rep_fin" name="id_rep_fin">
+							<div class="form-group col-sm-12 col-md-6">
+							    <label for="fecha_fin_falla">Fin Falla</label>
+							    <input type="text" class="form-control input-sm" name="fecha_fin_falla" id="fecha_fin_falla">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-12">
+							    <label for="solucion">Solución</label>
+							    <textarea class="form-control" name="solucion" id="solucion" cols="10" rows="4"></textarea>
+							</div>
+
+						</form>
+					</div>
+				</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" id="btn-finalizar">Finalizar</button>
 				</div>
 			</div>
 		</div>

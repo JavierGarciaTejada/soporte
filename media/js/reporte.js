@@ -18,6 +18,13 @@ $(function(){
 		startDate:	'NOW()'
 	});
 
+	$('#fecha_fin_falla').datetimepicker({
+		dayOfWeekStart : 1,
+		lang:'es',
+		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+		startDate:	'NOW()'
+	});
+
 	getJson(e.url + "getIngenieros", null, function(a){
 		setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
 	})
@@ -80,7 +87,7 @@ $(function(){
 
 					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Modificar Reporte"><i class="fa fa-search" aria-hidden="true"></i></button>' );
 					if( data.estado == "En Proceso" ){
-						botones.push( '<button class="btn btn-sm btn-success estado" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
+						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
 						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
 					}
 
@@ -95,6 +102,7 @@ $(function(){
 			{ "data" : "fecha_falla"},
 			{ "data" : "fecha_soporte"},
 			{ "data" : "fecha_fin_falla"},
+			{ "data" : "solucion"},
 			{
 				// "targets" : 0,
 				"class" : "details-control",
@@ -158,7 +166,7 @@ $(function(){
 
 	})
 
-	//BOTON FINALIZAR/CANCELAR
+	//BOTON CANCELAR
 	$(document).on('click', '.estado', function(){
 
     	var ope = $(this).attr('data-ref');
@@ -184,6 +192,33 @@ $(function(){
 			});
 
     	}
+
+	})
+
+	$(document).on('click', '.finalizar', function(){
+
+		$("#form-finalizar")[0].reset();
+		$("#id_rep_fin").val( $(this).attr('id') );
+		$("#modal-finalizar").modal('show');
+
+	})
+
+	$("#btn-finalizar").click(function(){
+
+		var serial = $("#form-finalizar").serialize();
+		setPost(e.url + 'finalizarReporte', serial, function(response){
+			if( response === true ){
+				mensaje = "Se realizó correctamente.";
+				clase = "alertify-success";
+				$("#modal-evaluacion").modal('hide');
+				tableReportes.ajax.reload();
+			}else{
+				mensaje = "Ocurrio un error.";
+				clase = "alertify-danger";
+			}
+
+			alertMessage(mensaje, clase);
+		});
 
 	})
 
