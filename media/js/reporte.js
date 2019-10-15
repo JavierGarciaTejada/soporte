@@ -162,7 +162,7 @@ $(function(){
 	$(document).on('click', '.estado', function(){
 
     	var ope = $(this).attr('data-ref');
-    	var mov = $(this).attr('data-ope');
+    	var mov = $(this).attr('data-ope'); 
 
     	var msg = "¿Está seguro de "+mov+" el soporte?";
     	if( confirm(msg) ){
