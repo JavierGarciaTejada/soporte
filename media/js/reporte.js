@@ -76,6 +76,7 @@ $(function(){
 		"columns" : [
 			{
 				"targets" : 0,
+				"width": "10%",
 				"class" : "details-control",
 				"orderable" : false,
 				"data" : null,
@@ -85,7 +86,7 @@ $(function(){
 
 					var botones = [];
 
-					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-search" aria-hidden="true"></i></button>' );
+					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );
 					if( data.estado == "En Proceso" ){
 						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
 						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
@@ -113,7 +114,7 @@ $(function(){
 				"createdCell" : function( td, data ) {
 					var botones = [];
 					botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
-					$( td ).html( '' + botones.join(' ') + '' );
+					$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
 				}
 			}
 			
