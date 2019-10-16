@@ -14,7 +14,7 @@ class Reporte
 		Config::$configuration->set('ruta_login', '/index.php/login/');
 		//Session::$_name_session = "ADMINAFA";
 		Session::validaSession();
-		$autorization = array('Administrador', 'Evaluador', 'Autorizador', 'Solicitante', 'Consultante');
+		$autorization = array('Administrador', 'Supervisor', 'Autorizador', 'Solicitante', 'Consultante');
 		if(! in_array(Session::getSession("role"), $autorization) ) 
 		{
 			$arr = array('title' => 'Sin Privilegios');
