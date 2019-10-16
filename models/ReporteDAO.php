@@ -46,8 +46,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre, fecha_falla, fecha_soporte, asunto, impacto, comentarios, estado, fechaDeCaptura, `year`, activo) 
-			VALUES (:uc, :no, :ff, :fs, :asu, :im, :co, :es, :fcap, :y, :ac)";
+			(usuario_captura, nombre, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,evento,fecha_reporte_falla,lugar,equipo) 
+			VALUES (:uc, :no, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:evento,:fecha_reporte_falla,:lugar,:equipo)";
 			Conexion::$connect = new Conexion();
 
 			Conexion::$query = $sql;
@@ -59,10 +59,16 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':fs', $data['fecha_soporte']);
 			// Conexion::$prepare->bindParam(':dpe', "0000/00/00 00:00");
 
-			Conexion::$prepare->bindParam(':asu', $data['asunto']);
 			Conexion::$prepare->bindParam(':im', $data['impacto']);
 			Conexion::$prepare->bindParam(':co', $data['comentarios']);
 			Conexion::$prepare->bindParam(':es', $data['estado']);
+
+			Conexion::$prepare->bindParam(':nombre_reporta', $data['nombre_reporta']);
+			Conexion::$prepare->bindParam(':entidad', $data['entidad']);
+			Conexion::$prepare->bindParam(':evento', $data['evento']);
+			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
+			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
+			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
 
 			$now = date('Y-m-d H:i:s');
 			$year = date('Y');
@@ -87,9 +93,14 @@ class ReporteDAO
 			nombre = :no,
 			fecha_falla = :ff,
 			fecha_soporte = :fs,
-			asunto = :asu,
 			impacto = :im,
-			comentarios = :co
+			comentarios = :co,
+			nombre_reporta = :nombre_reporta,
+			entidad = :entidad,
+			evento = :evento,
+			fecha_reporte_falla = :fecha_reporte_falla,
+			lugar = :lugar,
+			equipo = :equipo
 			WHERE id = :id";
 			Conexion::$connect = new Conexion();
 
@@ -98,9 +109,16 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':no', $data['nombre']);
 			Conexion::$prepare->bindParam(':ff', $data['fecha_falla']);
 			Conexion::$prepare->bindParam(':fs', $data['fecha_soporte']);
-			Conexion::$prepare->bindParam(':asu', $data['asunto']);
 			Conexion::$prepare->bindParam(':im', $data['impacto']);
 			Conexion::$prepare->bindParam(':co', $data['comentarios']);
+
+			Conexion::$prepare->bindParam(':nombre_reporta', $data['nombre_reporta']);
+			Conexion::$prepare->bindParam(':entidad', $data['entidad']);
+			Conexion::$prepare->bindParam(':evento', $data['evento']);
+			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
+			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
+			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
+
 			Conexion::$prepare->bindParam(':id', $data['id']);
 			$result = Conexion::$prepare->execute();
 

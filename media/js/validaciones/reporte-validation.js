@@ -18,6 +18,13 @@ $(function(){
                     }
                 }
             },
+            nombre_reporta: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese nombre de quién reporta'
+                    }
+                }
+            },
             inicio_falla: {
                 validators: {
                     notEmpty: {
@@ -25,10 +32,24 @@ $(function(){
                     }
                 }
             },
-            inicio_soporte: {
+            entidad: {
                 validators: {
                     notEmpty: {
-                        message: 'Ingrese Inicio Soporte'
+                        message: 'Seleccione Entidad'
+                    }
+                }
+            },
+            evento: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione Evento'
+                    }
+                }
+            },
+            fecha_soporte: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione fecha de soporte'
                     }
                     // ,regexp: {
                     //     regexp: /^[a-zA-Z0-9_]+$/,
@@ -36,10 +57,24 @@ $(function(){
                     // }
                 }
             },
-            asunto: {
+            fecha_falla: {
                 validators: {
                     notEmpty: {
-                        message: 'Ingrese Asunto'
+                        message: 'Seleccione fecha de falla'
+                    }
+                }
+            },
+            fecha_reporte_falla: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione fecha de reporte'
+                    }
+                }
+            },
+            lugar: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese Lugar'
                     }
                 }
             },

@@ -25,6 +25,13 @@ $(function(){
 		startDate:	'NOW()'
 	});
 
+	$('#fecha_reporte_falla').datetimepicker({
+		dayOfWeekStart : 1,
+		lang:'es',
+		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+		startDate:	'NOW()'
+	});
+
 	getJson(e.url + "getIngenieros", null, function(a){
 		setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
 	})
@@ -97,10 +104,11 @@ $(function(){
 			},
 			{ "data" : "folio"},
 			{ "data" : "nombre"},
-			{ "data" : "asunto"},
+			{ "data" : "evento"},
 			{ "data" : "estado"},
 			{ "data" : "impacto"},
 			{ "data" : "fecha_falla"},
+			{ "data" : "fecha_reporte_falla"},
 			{ "data" : "fecha_soporte"},
 			{ "data" : "fecha_fin_falla"},
 			{ "data" : "solucion"},

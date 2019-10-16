@@ -1,54 +1,69 @@
 <div class="container-fluid">
 	
 	<div class="row">
-		<div class="col-sm-9">
-			<table class="table table-condensed table-11" id="table-reportes">
-				<thead>
-					<tr>
-						<th>Detalle</th>
-						<th>No Reporte</th>
-						<th>Ingeniero</th>
-						<th>Asunto</th>
-						<th>Estatus</th>
-						<th>Impacto</th>
-						<th>Inicio de Falla</th>
-						<th>Inicio de Soporte</th>
-						<th>Fin de Soporte</th>
-						<th>Solución</th>
-						<th>Archivo</th>
-					</tr>
-				</thead>
-				<tbody>
-					
-				</tbody>
-			</table>
-		</div>
 
-		<div class="col-sm-3">
+		<div class="col-sm-12">
 			<div id="container-form">
 				<form class="form" id="form-reportes" style="padding: 0px 20px">
 					<input type="hidden" id="id" name="id">
-					<div class="form-group col-sm-12 col-md-12">
-					    <label for="nombre">Nombre</label>
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="nombre">Ingeniero que Atiende</label>
 					    <select class="form-control input-sm" name="nombre" id="nombre"></select>
 					</div>
 
-					<div class="form-group col-sm-12 col-md-6">
-					    <label for="fecha_falla">Inicio Falla</label>
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="nombre_reporta">Ingeniero que Reporta</label>
+					    <input type="text" class="form-control input-sm" name="nombre_reporta" id="nombre_reporta">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="entidad">Entidad</label>
+					    <select class="form-control input-sm" name="entidad" id="entidad">
+					    	<option value="">Seleccionar</option>
+					    	<option value="CNS III PUEBLA">CNS III PUEBLA</option>
+					    	<option value="CORPORATIVO TRAFICO">CORPORATIVO TRAFICO</option>
+					    </select>
+					</div>
+
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="evento">Evento</label>
+					    <select class="form-control input-sm" name="evento" id="evento">
+					    	<option value="">Seleccionar</option>
+					    	<option value="Falla">Falla</option>
+					    	<option value="Asesoría">Asesoría</option>
+					    	<option value="Consultoría">Consultoría</option>
+					    	<option value="Programado">Programado</option>
+					    	<option value="Refacción">Refacción</option>
+					    	<option value="Otro">Otro</option>
+					    </select>
+					</div>
+
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="fecha_falla">Inicio de Falla</label>
 					    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
 					</div>
 
-					<div class="form-group col-sm-12 col-md-6">
-					    <label for="fecha_soporte">Inicio Soporte</label>
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="fecha_reporte_falla">Aviso a Soporte Técnico</label>
+					    <input type="text" class="form-control input-sm" name="fecha_reporte_falla" id="fecha_reporte_falla">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="fecha_soporte">Inicio de Soporte</label>
 					    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
 					</div>
-
-					<div class="form-group col-sm-12 col-md-12">
-					    <label for="asunto">Asunto</label>
-					    <input type="text" class="form-control input-sm" name="asunto" id="asunto">
+					
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="lugar">Lugar</label>
+					    <input type="text" class="form-control input-sm" name="lugar" id="lugar">
 					</div>
 
-					<div class="form-group col-sm-12 col-md-12">
+					<div class="form-group col-sm-12 col-md-3">
+					    <label for="equipo">Equipo</label>
+					    <input type="text" class="form-control input-sm" name="equipo" id="equipo">
+					</div>
+
+					<div class="form-group col-sm-12 col-md-2">
 					    <label for="impacto">Impacto</label>
 					    <select class="form-control input-sm" name="impacto" id="impacto">
 					    	<option value="">Seleccionar</option>
@@ -61,17 +76,12 @@
 					    </select>
 					</div>
 
-					<!-- <div class="form-group col-sm-12 col-md-12">
-					    <label for="archivo">Archivo</label>
-					    <input type="file" class="form-control" name="archivo" id="archivo">
-					</div> -->
-
-					<div class="form-group col-sm-12 col-md-12">
+					<div class="form-group col-sm-12 col-md-7">
 					    <label for="comentarios">Descripción</label>
-					    <textarea class="form-control" name="comentarios" id="comentarios" cols="10" rows="4"></textarea>
+					    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
 					</div>
 
-					<div class="form-group col-sm-12 col-md-12">
+					<div class="form-group text-center col-sm-12 col-md-12">
 					    <button type="button" class="btn btn-primary" id="btn-guardar-reporte">Guardar</button>
 					    <button type="reset" class="btn btn-success" id="">Limpiar</button>
 					</div>
@@ -79,6 +89,30 @@
 				</form>
 			</div>
 			
+		</div>
+
+		<div class="col-sm-12">
+			<table class="table table-condensed table-11" id="table-reportes">
+				<thead>
+					<tr>
+						<th>Detalle</th>
+						<th>No Reporte</th>
+						<th>Ingeniero</th>
+						<th>Asunto</th>
+						<th>Estatus</th>
+						<th>Impacto</th>
+						<th>Inicio de Falla</th>
+						<th>Aviso a Soporte</th>
+						<th>Inicio de Soporte</th>
+						<th>Fin de Soporte</th>
+						<th>Solución</th>
+						<th>Archivo</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
 		</div>
 		
 	</div>
