@@ -35,7 +35,35 @@ class ReporteDAO
 	}
 
 	public static function IngenierosSoporte(){
-		$sql = "SELECT id, concat(ap,' ',am,' ',no) nombre FROM si_usr WHERE ux = 0 ORDER BY ap";
+		$sql = "SELECT id, concat(ap,' ',am,' ',no) label FROM si_usr WHERE ux = 0 ORDER BY ap";
+		$total['data'] = self::executeQuery($sql);
+		$total['sql'] = $sql;
+		return $total;
+	}
+
+	public static function Clientes(){
+		$sql = "SELECT id, nom_completo label FROM clientes WHERE ux = 0 ORDER BY nom_completo";
+		$total['data'] = self::executeQuery($sql);
+		$total['sql'] = $sql;
+		return $total;
+	}
+
+	public static function Entidades(){
+		$sql = "SELECT id, no label FROM entidades WHERE ux = 0 ORDER BY no";
+		$total['data'] = self::executeQuery($sql);
+		$total['sql'] = $sql;
+		return $total;
+	}
+
+	public static function Equipos(){
+		$sql = "SELECT id, no label FROM equipos WHERE ux = 0 ORDER BY no";
+		$total['data'] = self::executeQuery($sql);
+		$total['sql'] = $sql;
+		return $total;
+	}
+
+	public static function Lugares(){
+		$sql = "SELECT id, no label FROM lugares WHERE ux = 0 ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;

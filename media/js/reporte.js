@@ -33,7 +33,38 @@ $(function(){
 	});
 
 	getJson(e.url + "getIngenieros", null, function(a){
-		setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
+		$( "#nombre" ).autocomplete({
+	     	source: a.data
+	  	//    	select: function (event, ui) {        
+			// 	console.log(ui);
+			//     return false;
+			// }
+	    });
+		// setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
+	})
+
+	getJson(e.url + "getClientes", null, function(a){
+		$( "#nombre_reporta" ).autocomplete({
+	     	source: a.data
+	    });
+	})
+
+	getJson(e.url + "getEntidades", null, function(a){
+		$( "#entidad" ).autocomplete({
+	     	source: a.data
+	    });
+	})
+
+	getJson(e.url + "getEquipos", null, function(a){
+		$( "#equipo" ).autocomplete({
+	     	source: a.data
+	    });
+	})
+
+	getJson(e.url + "getLugares", null, function(a){
+		$( "#lugar" ).autocomplete({
+	     	source: a.data
+	    });
 	})
 
 	var setValoresFormulario = function(row, formId){

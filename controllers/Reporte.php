@@ -68,6 +68,26 @@ class Reporte
 		Funciones::imprimeJson($ingenieros);
 	}
 
+	public function getClientes(){
+		$clientes = ReporteDAO::Clientes();
+		Funciones::imprimeJson($clientes);
+	}
+
+	public function getEntidades(){
+		$entidad = ReporteDAO::Entidades();
+		Funciones::imprimeJson($entidad);
+	}
+
+	public function getEquipos(){
+		$equipos = ReporteDAO::Equipos();
+		Funciones::imprimeJson($equipos);
+	}
+
+	public function getLugares(){
+		$lugares = ReporteDAO::Lugares();
+		Funciones::imprimeJson($lugares);
+	}
+
 	public function registraReporte(){
 		$data = Funciones::getDataPost();
 		$data['estado'] = "En Proceso";
