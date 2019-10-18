@@ -88,6 +88,11 @@ class Reporte
 		Funciones::imprimeJson($lugares);
 	}
 
+	public function getProveedores(){
+		$lugares = ReporteDAO::Proveedores();
+		Funciones::imprimeJson($lugares);
+	}
+
 	public function registraReporte(){
 		$data = Funciones::getDataPost();
 		$data['estado'] = "En Proceso";
@@ -172,6 +177,14 @@ class Reporte
 		$anexos = ReporteDAO::Anexos($data);
 		Funciones::imprimeJson($anexos);
 
+	}
+
+
+	public function escalarReporte(){
+		$data = Funciones::getDataPost();
+		$data['fecha_escalado'] = date("Y-m-d H:i:s");
+ 		$update = ReporteDAO::EscalarReporte($data);
+		Funciones::imprimeJson($update);
 	}
 
 

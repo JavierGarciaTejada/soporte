@@ -133,4 +133,49 @@ $(function(){
         }
     });
 
+
+
+    //VALIDACIONES ESCALADO
+    $('#form-escalado')
+    .bootstrapValidator({
+        message: 'Valor no es válido',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        excluded: [':disabled'],
+        fields: {
+            reporte_escalado: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione Número de Reporte'
+                    }
+                }
+            },
+            ingeniero_escalado: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese Ingeniero que Atiende'
+                    }
+                }
+            },
+            proveedor_escalado: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione Empresa'
+                    }
+                }
+            },
+            solucion: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese la solución del reporte'
+                    }
+                }
+            }
+
+        }
+    });
+
 })

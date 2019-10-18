@@ -69,6 +69,13 @@ class ReporteDAO
 		return $total;
 	}
 
+	public static function Proveedores(){
+		$sql = "SELECT id, no FROM proveedores WHERE ux = 0 ORDER BY no";
+		$total['data'] = self::executeQuery($sql);
+		$total['sql'] = $sql;
+		return $total;
+	}
+
 	public static function RegistraReporte($data){
 
 		try{
@@ -226,6 +233,36 @@ class ReporteDAO
 
 		}catch( Exception $e ){
 			die("Error al obtener anexos de evaluación. Error! : ". $e->getMessage());
+		}
+
+	}
+
+	public static function EscalarReporte($data){
+
+		try{
+
+			$sql = "UPDATE bitacora SET 
+			reporte_escalado = :reporte_escalado,
+			ingeniero_escalado = :ingeniero_escalado,
+			proveedor_escalado = :proveedor_escalado,
+			solucion_escalado = :solucion_escalado,
+			fecha_escalado = :fecha_escalado
+			WHERE id = :id_rep_escalado";
+			Conexion::$connect = new Conexion();
+
+			Conexion::$query = $sql;
+			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
+			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
+			Conexion::$prepare->bindParam(':ingeniero_escalado', $data['ingeniero_escalado']);
+			Conexion::$prepare->bindParam(':proveedor_escalado', $data['proveedor_escalado']);
+			Conexion::$prepare->bindParam(':solucion_escalado', $data['solucion_escalado']);
+			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
+			Conexion::$prepare->bindParam(':id_rep_escalado', $data['id_rep_escalado']);
+			$result = Conexion::$prepare->execute();
+
+			return $result;
+		}catch( Exception $e ){
+			die("Error al registrar reporte. Error! : ". $e->getMessage());
 		}
 
 	}

@@ -108,6 +108,7 @@
 						<th>Inicio de Soporte</th>
 						<th>Fin de Soporte</th>
 						<th>Solución</th>
+						<th>Fecha Escalación</th>
 						<th>Archivo</th>
 					</tr>
 				</thead>
@@ -200,6 +201,55 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<button type="button" class="btn btn-primary" id="btn-finalizar">Finalizar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- MODAL ESCALADO A PROVEEDOR -->
+	<div class="modal fade" id="modal-escalado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-danger">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Escalación a proveedor</h4>
+				</div>
+				<div class="modal-body">
+
+				<div class="row">
+					<div class="col-sm-12">
+						<form class="form" id="form-escalado" style="padding: 0px 20px">
+
+							<input type="hidden" id="id_rep_escalado" name="id_rep_escalado">
+							<div class="form-group col-sm-12 col-md-6">
+							    <label for="reporte_escalado">No. Reporte</label>
+							    <input type="text" class="form-control input-sm" name="reporte_escalado" id="reporte_escalado">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-6">
+							    <label for="ingeniero_escalado">Ing. Atiende</label>
+							    <input type="text" class="form-control input-sm" name="ingeniero_escalado" id="ingeniero_escalado">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-6">
+							    <label for="proveedor_escalado">Empresa</label>
+							    <select  class="form-control input-sm" name="proveedor_escalado" id="proveedor_escalado"></select>
+							    <!-- <input type="text"> -->
+							</div>
+
+							<div class="form-group col-sm-12 col-md-12">
+							    <label for="solucion_escalado">Solución de Escalación</label>
+							    <textarea class="form-control" name="solucion_escalado" id="solucion_escalado" cols="10" rows="4"></textarea>
+							</div>
+
+						</form>
+					</div>
+				</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" id="btn-escalado">Guardar</button>
 				</div>
 			</div>
 		</div>

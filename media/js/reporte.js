@@ -67,6 +67,13 @@ $(function(){
 	    });
 	})
 
+	getJson(e.url + "getProveedores", null, function(a){
+		// $( "#proveedor_escalado" ).autocomplete({
+	 //     	source: a.data
+	 //    });
+	 	setValuesSelect('proveedor_escalado', a.data, 'no', 'no', 'id');
+	})
+
 	var setValoresFormulario = function(row, formId){
 
 		$(formId)[0].reset();
@@ -143,6 +150,7 @@ $(function(){
 			{ "data" : "fecha_soporte"},
 			{ "data" : "fecha_fin_falla"},
 			{ "data" : "solucion"},
+			{ "data" : "fecha_escalado"},
 			{
 				// "targets" : 0,
 				"class" : "details-control",
@@ -152,6 +160,7 @@ $(function(){
 				"searchable" : false,
 				"createdCell" : function( td, data ) {
 					var botones = [];
+					botones.push( '<button class="btn btn-sm btn-default escalado" id='+ data.id +' title="Escalación"><i class="fa fa-file" aria-hidden="true"></i></button>' );
 					botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
 					$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
 				}
@@ -200,10 +209,8 @@ $(function(){
 
 	//BOTON EDITAR
 	$(document).on('click', '.modificar-rep', function(){
-
     	$("#form-reportes").data('bootstrapValidator').resetForm();
 		setValoresFormulario( $(this), "#form-reportes" );
-
 	})
 
 	//BOTON CANCELAR
@@ -268,7 +275,40 @@ $(function(){
 	})
 
 
-	//BOTON EDITAR
+	//BOTON ESCALADO
+	$(document).on('click', '.escalado', function(){
+    	$("#form-escalado").data('bootstrapValidator').resetForm();
+		setValoresFormulario( $(this), "#form-escalado" );
+		$("#id_rep_escalado").val( $(this).attr('id') );
+		$("#modal-escalado").modal('show');
+	})
+
+	$("#btn-escalado").click(function(){
+
+		var validator = $('#form-escalado').data('bootstrapValidator');
+        validator.validate();
+        if (!validator.isValid())
+			return false;
+
+		var serial = $("#form-escalado").serialize();
+		setPost(e.url + 'escalarReporte', serial, function(response){
+			if( response === true ){
+				mensaje = "Se realizó correctamente.";
+				clase = "alertify-success";
+				$("#modal-evaluacion").modal('hide');
+				tableReportes.ajax.reload();
+			}else{
+				mensaje = "Ocurrio un error.";
+				clase = "alertify-danger";
+			}
+
+			alertMessage(mensaje, clase);
+		});
+
+	})
+
+
+	//BOTON ARCHIVOS
 	$(document).on('click', '.archivos', function(){
 
 		$("#id_rep").val( $(this).attr('id') );
@@ -347,7 +387,6 @@ $(function(){
 				showMessage(message);
 			}
 		});
-
 		
 	})
 
