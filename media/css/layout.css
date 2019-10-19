@@ -262,6 +262,12 @@ a#title-modulo-layout:focus, a#title-modulo-layout:hover {
 	color: #fff;
 }
 
+.btn-escalado{
+	background-color: #ff7b08;
+	border-color: #ed5405;
+	color: #fff;
+}
+
 .table-11{
 	font-size: 11px;
 }

@@ -160,7 +160,7 @@ $(function(){
 				"searchable" : false,
 				"createdCell" : function( td, data ) {
 					var botones = [];
-					botones.push( '<button class="btn btn-sm btn-default escalado" id='+ data.id +' title="Escalación"><i class="fa fa-file" aria-hidden="true"></i></button>' );
+					botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
 					botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
 					$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
 				}
