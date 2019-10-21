@@ -22,7 +22,18 @@ $(function(){
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-		startDate:	'NOW()'
+		startDate:	'NOW()',
+		minDate:0,
+		minTime:0
+	});
+
+	$('#fecha_fin_falla_upd').datetimepicker({
+		dayOfWeekStart : 1,
+		lang:'es',
+		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+		startDate:	'NOW()',
+		minDate:0,
+		minTime:0
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({

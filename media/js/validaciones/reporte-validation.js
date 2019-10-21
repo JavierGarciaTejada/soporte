@@ -32,6 +32,13 @@ $(function(){
                     }
                 }
             },
+            fecha_fin_falla: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione fecha y hora'
+                    }
+                }
+            },
             entidad: {
                 validators: {
                     notEmpty: {
@@ -115,7 +122,7 @@ $(function(){
         },
         excluded: [':disabled'],
         fields: {
-            fecha_fin_falla: {
+            fecha_fin_falla_upd: {
                 validators: {
                     notEmpty: {
                         message: 'Seleccione fecha y hora'

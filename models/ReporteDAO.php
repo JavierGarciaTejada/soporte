@@ -135,6 +135,8 @@ class ReporteDAO
 			evento = :evento,
 			fecha_reporte_falla = :fecha_reporte_falla,
 			lugar = :lugar,
+			fecha_fin_falla = :fecha_fin_falla,
+			solucion = :solucion,
 			equipo = :equipo
 			WHERE id = :id";
 			Conexion::$connect = new Conexion();
@@ -152,6 +154,8 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':evento', $data['evento']);
 			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
 			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
+			Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
+			Conexion::$prepare->bindParam(':solucion', $data['solucion']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
 
 			Conexion::$prepare->bindParam(':id', $data['id']);
@@ -180,7 +184,7 @@ class ReporteDAO
 			Conexion::$query = $sql;
 			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
 			Conexion::$prepare->bindParam(':estado', $data['estado']);
-			Conexion::$prepare->bindParam(':ff', $data['fecha_fin_falla']);
+			Conexion::$prepare->bindParam(':ff', $data['fecha_fin_falla_upd']);
 			Conexion::$prepare->bindParam(':so', $data['solucion']);
 			Conexion::$prepare->bindParam(':fc', $data['fecha_cancelacion']);
 			Conexion::$prepare->bindParam(':id', $data['id_rep_fin']);
