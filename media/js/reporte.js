@@ -22,9 +22,14 @@ $(function(){
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-		startDate:	'NOW()'
+		startDate:	'NOW()',
+		onShow:function( ct ){
+			this.setOptions({
+				minDate:$('#fecha_soporte').val() ? $('#fecha_soporte').val() : false
+			})
+		},
 		// ,minDate:0,
-		// minTime:0
+		minTime:0
 	});
 
 	$('#fecha_fin_falla_upd').datetimepicker({
@@ -32,8 +37,13 @@ $(function(){
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
 		startDate:	'NOW()',
+		onShow:function( ct ){
+			this.setOptions({
+				minDate:$('#fecha_soporte_upd').val() ? $('#fecha_soporte_upd').val() : false
+			})
+		},
 		// ,minDate:0,
-		// minTime:0
+		minTime:0
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({
@@ -263,6 +273,8 @@ $(function(){
 
 		$("#form-finalizar")[0].reset();
 		$("#id_rep_fin").val( $(this).attr('id') );
+		var dataRow = tableReportes.row( $(this).parents('tr') ).data();
+		$("#fecha_soporte_upd").val( dataRow.fecha_soporte );
 		$("#modal-finalizar").modal('show');
 
 	})
