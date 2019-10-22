@@ -182,7 +182,6 @@ class Reporte
 
 	public function escalarReporte(){
 		$data = Funciones::getDataPost();
-		$data['fecha_escalado'] = date("Y-m-d H:i:s");
  		$update = ReporteDAO::EscalarReporte($data);
 		Funciones::imprimeJson($update);
 	}

@@ -18,6 +18,13 @@ $(function(){
 		startDate:	'NOW()'
 	});
 
+	$('#fecha_escalado').datetimepicker({
+		dayOfWeekStart : 1,
+		lang:'es',
+		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+		startDate:	'NOW()'
+	});
+
 	$('#fecha_fin_falla').datetimepicker({
 		dayOfWeekStart : 1,
 		lang:'es',
@@ -172,6 +179,8 @@ $(function(){
 			{ "data" : "evento"},
 			{ "data" : "estado"},
 			{ "data" : "impacto"},
+			{ "data" : "equipo"},
+			{ "data" : "comentarios"},
 			{ "data" : "fecha_falla"},
 			{ "data" : "fecha_reporte_falla"},
 			{ "data" : "fecha_soporte"},
