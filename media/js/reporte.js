@@ -29,7 +29,7 @@ $(function(){
 			})
 		},
 		// ,minDate:0,
-		minTime:0
+		// minTime:0
 	});
 
 	$('#fecha_fin_falla_upd').datetimepicker({
@@ -43,7 +43,7 @@ $(function(){
 			})
 		},
 		// ,minDate:0,
-		minTime:0
+		// minTime:0
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({
