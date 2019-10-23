@@ -133,7 +133,7 @@ $(function(){
 		"processing" : true,
 		"language" : lenguageTable,
 		"scrollX" : true,
-		"scrollY" : '62vh',
+		"scrollY" : '67vh',
 		"scrollCollapse" : true,
 		"orderCellsTop": true,
         "fixedHeader": true,
@@ -151,7 +151,7 @@ $(function(){
 	            }
 	        },
 	        {
-	            text: 'Nueva Reporte',
+	            text: 'Nuevo Reporte',
 	            action: function ( dt ) {
 
 	        		$("#form-reportes")[0].reset();
@@ -194,12 +194,26 @@ $(function(){
 			{ "data" : "estado"},
 			{ "data" : "impacto"},
 			{ "data" : "equipo"},
-			{ "data" : "comentarios"},
+			{ 
+				"data" : "comentarios",
+				"createdCell" : function( td, data ) {
+					$( td ).html(
+						'<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>'
+					)
+				}
+			},
 			{ "data" : "fecha_falla"},
 			{ "data" : "fecha_reporte_falla"},
 			{ "data" : "fecha_soporte"},
 			{ "data" : "fecha_fin_falla"},
-			{ "data" : "solucion"},
+			{ 
+				"data" : "solucion",
+				"createdCell" : function( td, data ) {
+					$( td ).html(
+						'<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>'
+					)
+				}
+			},
 			{ "data" : "fecha_escalado"},
 			{
 				// "targets" : 0,
