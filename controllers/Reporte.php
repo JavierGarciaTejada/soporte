@@ -118,6 +118,7 @@ class Reporte
 
 	public function cancelarReporte(){
 		$data = Funciones::getDataPost();
+		$data['id_rep_fin'] = $data['id'];
 		$data['estado'] = "Cancelado";
 		$data['fecha_cancelacion'] = date('Y-m-d H:i:s');
  		$update = ReporteDAO::ModificaEstado($data);

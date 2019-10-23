@@ -149,6 +149,18 @@ $(function(){
 		        exportOptions: {
 	                columns: [1,2,3,4,5,6,7,8,9,10,11,12,13]
 	            }
+	        },
+	        {
+	            text: 'Nueva Reporte',
+	            action: function ( dt ) {
+
+	        		$("#form-reportes")[0].reset();
+					$("#form-reportes").data('bootstrapValidator').resetForm();
+					$("#id").val( "" );
+					$("#modal-reporte").modal('show');
+					$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
+
+	            }
 	        }
 	        
 	    ],
@@ -165,7 +177,9 @@ $(function(){
 
 					var botones = [];
 
-					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );
+					if( data.estado == "En Proceso" || data.estado == "Finalizado" )
+						botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );
+
 					if( data.estado == "En Proceso" ){
 						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
 						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
@@ -196,8 +210,11 @@ $(function(){
 				"searchable" : false,
 				"createdCell" : function( td, data ) {
 					var botones = [];
-					botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
-					botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
+					if( data.estado == "En Proceso" || data.estado == "Finalizado" ){
+						botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
+						botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
+					}
+					
 					$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
 				}
 			}
@@ -206,14 +223,6 @@ $(function(){
 	} );
 	tableReportes.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );
 	$("button.dt-button").addClass('btn btn-primary btn-sm');
-
-
-	$("#btn-limpiar").click(function(){
-		$("#form-reportes")[0].reset();
-		$("#form-reportes").data('bootstrapValidator').resetForm();
-		$("#id").val( "" );
-	})
-
 
 	$("#btn-guardar-reporte").click(function(){
 		var validator = $('#form-reportes').data('bootstrapValidator');
@@ -242,6 +251,7 @@ $(function(){
 				clase = "alertify-danger";
 			}
 
+			$("#modal-reporte").modal('hide');
 			alertMessage(mensaje, clase);
 		});
 
@@ -251,8 +261,11 @@ $(function(){
 
 	//BOTON EDITAR
 	$(document).on('click', '.modificar-rep', function(){
+		$("#form-reportes")[0].reset();
     	$("#form-reportes").data('bootstrapValidator').resetForm();
 		setValoresFormulario( $(this), "#form-reportes" );
+		$("#modal-reporte").modal('show');
+		$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
 	})
 
 	//BOTON CANCELAR

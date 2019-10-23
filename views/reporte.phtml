@@ -3,107 +3,6 @@
 	<div class="row">
 
 		<div class="col-sm-12">
-			<div id="container-form">
-				<form class="form" id="form-reportes" style="padding: 0px 20px">
-					<input type="hidden" id="id" name="id">
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="nombre">Ingeniero que Atiende</label>
-					    <!-- <select class="form-control input-sm" name="nombre" id="nombre"></select> -->
-					    <input type="text" class="form-control input-sm" name="nombre" id="nombre">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="nombre_reporta">Ingeniero que Reporta</label>
-					    <input type="text" class="form-control input-sm" name="nombre_reporta" id="nombre_reporta">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="entidad">Entidad</label>
-					    <input type="text" class="form-control input-sm" name="entidad" id="entidad" >
-					    <!-- <select class="form-control input-sm" name="entidad" id="entidad">
-					    	<option value="">Seleccionar</option>
-					    	<option value="CNS III PUEBLA">CNS III PUEBLA</option>
-					    	<option value="CORPORATIVO TRAFICO">CORPORATIVO TRAFICO</option>
-					    </select> -->
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="evento">Evento</label>
-					    <select class="form-control input-sm" name="evento" id="evento">
-					    	<option value="">Seleccionar</option>
-					    	<option value="Falla">Falla</option>
-					    	<option value="Asesoría">Asesoría</option>
-					    	<option value="Consultoría">Consultoría</option>
-					    	<option value="Programado">Programado</option>
-					    	<option value="Refacción">Refacción</option>
-					    	<option value="Otro">Otro</option>
-					    </select>
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="fecha_falla">Inicio de Falla</label>
-					    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="fecha_reporte_falla">Aviso a Soporte Técnico</label>
-					    <input type="text" class="form-control input-sm" name="fecha_reporte_falla" id="fecha_reporte_falla">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="fecha_soporte">Inicio de Soporte</label>
-					    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-3">
-					    <label for="fecha_fin_falla">Fecha Fin Falla</label>
-					    <input type="text" class="form-control input-sm" name="fecha_fin_falla" id="fecha_fin_falla">
-					</div>
-					
-					<div class="form-group col-sm-12 col-md-2">
-					    <label for="lugar">Lugar</label>
-					    <input type="text" class="form-control input-sm" name="lugar" id="lugar">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-2">
-					    <label for="equipo">Equipo</label>
-					    <input type="text" class="form-control input-sm" name="equipo" id="equipo">
-					</div>
-
-					<div class="form-group col-sm-12 col-md-2">
-					    <label for="impacto">Impacto</label>
-					    <select class="form-control input-sm" name="impacto" id="impacto">
-					    	<option value="">Seleccionar</option>
-					    	<option value="&amp;&amp;&amp;CA">&amp;&amp;&amp;CA</option>
-							<option value="IMPCA">IMPCA</option>
-							<option value="&amp;&amp;&amp;SA">&amp;&amp;&amp;SA</option>
-							<option value="IMPSA">IMPSA</option>
-							<option value="MIMPCA">MIMPCA</option>
-							<option value="MIMPSA">MIMPSA</option>
-					    </select>
-					</div>
-
-					<div class="form-group col-sm-12 col-md-2">
-					    <label for="comentarios">Falla</label>
-					    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
-					</div>
-
-					<div class="form-group col-sm-12 col-md-4">
-					    <label for="solucion">Solución</label>
-					    <textarea class="form-control input-sm" name="solucion" id="solucion" cols="10" rows="1"></textarea>
-					</div>
-
-					<div class="form-group text-center col-sm-12 col-md-12">
-					    <button type="button" class="btn btn-primary" id="btn-guardar-reporte">Guardar</button>
-					    <button type="button" class="btn btn-success" id="btn-limpiar">Limpiar</button>
-					</div>
-
-				</form>
-			</div>
-			
-		</div>
-
-		<div class="col-sm-12">
 			<table class="table table-condensed table-11" id="table-reportes">
 				<thead>
 					<tr>
@@ -272,4 +171,114 @@
 		</div>
 	</div>
 
+</div>
+
+<!-- MODAL REGISTRO -->
+<div class="modal fade" id="modal-reporte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Reporte</h4>
+			</div>
+			<div class="modal-body">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<form class="form" id="form-reportes" style="padding: 0px 20px">
+						<input type="hidden" id="id" name="id">
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="nombre">Ingeniero que Atiende</label>
+						    <input type="text" class="form-control input-sm auc" name="nombre" id="nombre">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="nombre_reporta">Ingeniero que Reporta</label>
+						    <input type="text" class="form-control input-sm auc" name="nombre_reporta" id="nombre_reporta">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="entidad">Entidad</label>
+						    <input type="text" class="form-control input-sm auc" name="entidad" id="entidad" >
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="evento">Evento</label>
+						    <select class="form-control input-sm" name="evento" id="evento">
+						    	<option value="">Seleccionar</option>
+						    	<option value="Falla">Falla</option>
+						    	<option value="Asesoría">Asesoría</option>
+						    	<option value="Consultoría">Consultoría</option>
+						    	<option value="Programado">Programado</option>
+						    	<option value="Refacción">Refacción</option>
+						    	<option value="Otro">Otro</option>
+						    </select>
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="fecha_falla">Inicio de Falla</label>
+						    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="fecha_reporte_falla">Aviso a Soporte Técnico</label>
+						    <input type="text" class="form-control input-sm" name="fecha_reporte_falla" id="fecha_reporte_falla">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="fecha_soporte">Inicio de Soporte</label>
+						    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-3">
+						    <label for="fecha_fin_falla">Fecha Fin Falla</label>
+						    <input type="text" class="form-control input-sm" name="fecha_fin_falla" id="fecha_fin_falla">
+						</div>
+						
+						<div class="form-group col-sm-12 col-md-2">
+						    <label for="lugar">Lugar</label>
+						    <input type="text" class="form-control input-sm auc" name="lugar" id="lugar">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-2">
+						    <label for="equipo">Equipo</label>
+						    <input type="text" class="form-control input-sm auc" name="equipo" id="equipo">
+						</div>
+
+						<div class="form-group col-sm-12 col-md-2">
+						    <label for="impacto">Impacto</label>
+						    <select class="form-control input-sm" name="impacto" id="impacto">
+						    	<option value="">Seleccionar</option>
+						    	<option value="&amp;&amp;&amp;CA">&amp;&amp;&amp;CA</option>
+								<option value="IMPCA">IMPCA</option>
+								<option value="&amp;&amp;&amp;SA">&amp;&amp;&amp;SA</option>
+								<option value="IMPSA">IMPSA</option>
+								<option value="MIMPCA">MIMPCA</option>
+								<option value="MIMPSA">MIMPSA</option>
+						    </select>
+						</div>
+
+						<div class="form-group col-sm-12 col-md-2">
+						    <label for="comentarios">Falla</label>
+						    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
+						</div>
+
+						<div class="form-group col-sm-12 col-md-4">
+						    <label for="solucion">Solución</label>
+						    <textarea class="form-control input-sm" name="solucion" id="solucion" cols="10" rows="1"></textarea>
+						</div>
+
+					</form>
+				</div>
+			</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="btn-guardar-reporte">Guardar</button>
+				<!-- <button type="button" class="btn btn-success" id="btn-limpiar">Limpiar</button> -->
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				<!-- <button type="button" class="btn btn-primary" id="btn-escalado">Guardar</button> -->
+			</div>
+		</div>
+	</div>
 </div>
