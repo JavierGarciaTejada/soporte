@@ -208,6 +208,12 @@ $(function(){
 	$("button.dt-button").addClass('btn btn-primary btn-sm');
 
 
+	$("#btn-limpiar").click(function(){
+		$("#form-reportes")[0].reset();
+		$("#form-reportes").data('bootstrapValidator').resetForm();
+		$("#id").val( "" );
+	})
+
 
 	$("#btn-guardar-reporte").click(function(){
 		var validator = $('#form-reportes').data('bootstrapValidator');
