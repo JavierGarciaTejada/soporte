@@ -197,6 +197,7 @@ $(function(){
 			{ 
 				"data" : "comentarios",
 				"createdCell" : function( td, data ) {
+					var d = ( data == null ) ? "" : data;
 					$( td ).html(
 						'<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>'
 					)
