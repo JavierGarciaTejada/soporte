@@ -32,13 +32,6 @@ $(function(){
                     }
                 }
             },
-            fecha_fin_falla: {
-                validators: {
-                    notEmpty: {
-                        message: 'Seleccione fecha y hora'
-                    }
-                }
-            },
             entidad: {
                 validators: {
                     notEmpty: {
