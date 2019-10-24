@@ -111,6 +111,7 @@ class Reporte
 	public function finalizarReporte(){
 		$data = Funciones::getDataPost();
 		$data['estado'] = "Finalizado";
+		$data['solucion'] = $data['solucion_fin'];
 		$data['fecha_cancelacion'] = '0000-00-00 00:00:00';
  		$update = ReporteDAO::ModificaEstado($data);
 		Funciones::imprimeJson($update);

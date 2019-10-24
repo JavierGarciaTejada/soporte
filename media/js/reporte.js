@@ -308,6 +308,7 @@ $(function(){
 					clase = "alertify-danger";
 				}
 
+				$("#modal-reporte").modal('hide');
 				alertMessage(mensaje, clase);
 			});
 
@@ -318,6 +319,7 @@ $(function(){
 	$(document).on('click', '.finalizar', function(){
 
 		$("#form-finalizar")[0].reset();
+		$("#form-finalizar").data('bootstrapValidator').resetForm();
 		$("#id_rep_fin").val( $(this).attr('id') );
 		var dataRow = tableReportes.row( $(this).parents('tr') ).data();
 		$("#fecha_soporte_upd").val( dataRow.fecha_soporte );
@@ -344,6 +346,7 @@ $(function(){
 				clase = "alertify-danger";
 			}
 
+			$("#modal-reporte").modal('hide');
 			alertMessage(mensaje, clase);
 		});
 
