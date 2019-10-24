@@ -157,6 +157,7 @@ $(function(){
 	        		$("#form-reportes")[0].reset();
 					$("#form-reportes").data('bootstrapValidator').resetForm();
 					$("#id").val( "" );
+					$("#solucion, #fecha_fin_falla").attr('readonly', 'readonly');
 					$("#modal-reporte").modal('show');
 					$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
 
@@ -279,6 +280,7 @@ $(function(){
 	$(document).on('click', '.modificar-rep', function(){
 		$("#form-reportes")[0].reset();
     	$("#form-reportes").data('bootstrapValidator').resetForm();
+    	$("#solucion, #fecha_fin_falla").attr('readonly', false);
 		setValoresFormulario( $(this), "#form-reportes" );
 		$("#modal-reporte").modal('show');
 		$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
