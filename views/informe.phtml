@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+	<div class="col-sm-12">
+		<form class="form-inline" id="form-filtro">
+			<div class="form-group">
+				<label for="fecha_soporte">Desde:</label>
+				<input type="text" class="form-control" id="fecha_soporte" name="fecha_soporte">
+			</div>
+			<div class="form-group">
+				<label for="fecha_fin_falla">Hasta:</label>
+				<input type="text" class="form-control" id="fecha_fin_falla" name="fecha_fin_falla" >
+			</div>
+			<div class="form-group">
+				<label for="gerencia">Gerencia:</label>
+				<select class="form-control" id="gerencia" name="gerencia">
+					<option value="" selected>Todos</option>
+					<option value="Lec">Lec</option>
+					<option value="Let">Let</option>
+					<option value="Leg">Leg</option>
+					<option value="Lep">Lep</option>
+				</select>
+			</div>
+			<button type="button" id="filtrar" class="btn btn-danger">Consultar</button>
+			<button type="reset" id="limpiar" class="btn btn-default">Quitar Filtro</button>
+		</form>
+	</div>
+	<hr><hr>
+
+
+	<div class="col-sm-12">
+		<p class='h4'>Total eventos: <strong id='total'></strong></p>
+	</div>
+	
+	<div class="col-sm-6" id="contenido">
+		
+	</div>
+
+	<div class="col-sm-6" id="promedio">
+	
+	</div>
+
+</div>

@@ -35,7 +35,7 @@ class ReporteDAO
 	}
 
 	public static function IngenierosSoporte(){
-		$sql = "SELECT id, concat(ap,' ',am,' ',no) label FROM si_usr WHERE ux = 0 ORDER BY ap";
+		$sql = "SELECT id, UPPER(concat(ap,' ',am,' ',no)) label FROM si_usr WHERE ux = 0 ORDER BY ap";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
