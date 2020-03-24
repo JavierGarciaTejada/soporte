@@ -23,6 +23,9 @@ class InformeDAO
 
 	public static function Filtro($filtro){
 		$f = array();
+
+		array_push($f, "estado = 'Liquidado'");
+
 		if( ! empty($filtro['fecha_soporte']) )
 			array_push($f, "fecha_soporte >= '".$filtro['fecha_soporte']."'");
 
@@ -38,7 +41,7 @@ class InformeDAO
 	}
 
 	public static function InformeEventos(){
-		$sql = "SELECT a.*, CONCAT('LEPR-', a.id, '/', year) folio, c.cl gerencia, if(impacto = 'MIMPSA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a inner join si_usr b on usuario_captura = b.id inner join ad_sig c on b.cl = c.ix ORDER BY a.id desc";
+		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, if(impacto = 'MIMPSA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a inner join si_usr b on usuario_captura = b.id inner join ad_sig c on b.cl = c.ix WHERE estado = 'Liquidado' ORDER BY a.id desc";
 		$data = self::executeQuery($sql);
 		$detalle['promedio'] = 0;
 		foreach ($data as $key => $value) {
@@ -60,7 +63,7 @@ class InformeDAO
 
 		$fil = self::Filtro($filtro);
 
-		$sql = "SELECT a.*, CONCAT(c.cl, a.id, '/', year) folio, c.cl gerencia, if(impacto = 'MIMPSA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a inner join si_usr b on usuario_captura = b.id inner join ad_sig c on b.cl = c.ix $fil ORDER BY a.id desc";
+		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, if(impacto = 'MIMPSA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a inner join si_usr b on usuario_captura = b.id inner join ad_sig c on b.cl = c.ix $fil ORDER BY a.id desc";
 		$data = self::executeQuery($sql);
 		$detalle['promedio'] = 0;
 		$detalle['total'] = [];
@@ -80,7 +83,7 @@ class InformeDAO
 	}
 
 	public static function InformePromedio(){
-		$sql = "SELECT evento, ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo FROM bitacora GROUP BY evento";
+		$sql = "SELECT evento, ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo FROM bitacora WHERE estado = 'Liquidado' GROUP BY evento";
 		$data = self::executeQuery($sql);
 		return $data;
 	}

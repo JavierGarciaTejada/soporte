@@ -1,7 +1,8 @@
 $(function(){
 	
 	var e = {
-		url: path + "index.php/informe/"
+		url: path + "index.php/informe/",
+		objeto: null
 	}
 
 	$.datetimepicker.setLocale('es');
@@ -30,7 +31,7 @@ $(function(){
 			var title = '<a href="#" class="list-group-item text-center active"><strong>'+ind+'</strong></a>';
 			div6.append(title);
 			$.each(val, function(i, v){
-				var item = '<a href="#" class="list-group-item"><span class="badge">'+v.length+'</span>'+i+'</a>';
+				var item = '<a href="#" class="list-group-item item-conteo" data-ref="'+ind+'" data-ind="'+i+'"><span class="badge">'+v.length+'</span>'+i+'</a>';
 				div6.append(item);
 			})
 		})
@@ -51,6 +52,8 @@ $(function(){
 	}
 
 	getJson(e.url + "getInforme", null, function(a){
+		e.objeto = a;
+		console.log(a);
 		detalle(a.detalle);
 		conteo(a);
 	})
@@ -62,8 +65,10 @@ $(function(){
 
 	$("#filtrar").click(function(){
 
+		$("#detalle").empty();
 		var serial = $("#form-filtro").serialize();
 		getJson(e.url + "getInformeFiltrado", serial, function(a){
+			e.objeto = a;
 			detalle(a.detalle);
 			conteo(a);
 		})
@@ -75,6 +80,7 @@ $(function(){
 	})
 
 	$("#limpiar").click(function(){
+		$("#detalle").empty();
 		getJson(e.url + "getInforme", null, function(a){
 			detalle(a.detalle);
 			conteo(a);
@@ -85,6 +91,29 @@ $(function(){
 		})
 	})
 
+	$(document).on('click', '.item-conteo', function(){
+		var ref = $(this).attr('data-ref');
+		var ind = $(this).attr('data-ind');
+		console.log(ref);
+		console.log(ind);
+		console.log(e.objeto.data[ref][ind]);
+
+		var values = e.objeto.data[ref][ind];
+		var table = $("<table>").addClass('table table-bordered');
+		var thead = $("<thead>");
+		var columnas = "<tr><th>No Reporte</th><th>Descripción</th></tr>";
+		thead.append(columnas);
+		table.append(thead);
+
+		values.forEach(element => {
+			var tr = $("<tr>");
+			tr.append( $("<td>").html(element.folio) );
+			tr.append( $("<td>").html(element.comentarios) );
+			table.append(tr);
+		});
+		$("#detalle").empty();
+		$("#detalle").append(table[0].outerHTML);
+	})
 
 	var setValoresFormulario = function(row, formId){
 
