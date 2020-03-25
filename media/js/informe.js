@@ -25,10 +25,18 @@ $(function(){
 		$("#total").html(total);
 	}
 
+	var titulos = {
+		'Liquidado' : 'Liquidados',
+		'En Proceso' : 'En Proceso',
+		'Promedio' : 'Tiempo promedio de atención (horas)',
+		'Cancelado' : 'Cancelados',
+		'Gerencias': 'Gerencias'
+	}
+
 	var conteo = function(a){
 		$.each(a.data, function(ind, val){
 			var div = $('<div>').addClass('col-sm-8 list-group');
-			var titulo = ( ind == 'Promedio' ) ? "Tiempo promedio de atención (horas)" : ind;
+			var titulo = titulos[ind];
 			div.append('<a href="#" class="list-group-item text-center active"><strong>'+titulo+'</strong></a>');
 
 			$.each(val, function(i, v){
