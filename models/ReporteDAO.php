@@ -28,7 +28,7 @@ class ReporteDAO
 	}
 
 	public static function BitacoraReportes(){
-		$sql = "SELECT a.*, UPPER(CONCAT(c.cl,'-', a.id, '/', year)) folio FROM bitacora a INNER JOIN si_usr b ON usuario_captura = b.id INNER JOIN ad_sig c on b.cl = c.ix ORDER BY a.id desc";
+		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig c on b.cl = c.ix ORDER BY a.id desc";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
@@ -81,14 +81,15 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,evento,fecha_reporte_falla,lugar,equipo) 
-			VALUES (:uc, :no, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:evento,:fecha_reporte_falla,:lugar,:equipo)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,evento,fecha_reporte_falla,lugar,equipo) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:evento,:fecha_reporte_falla,:lugar,:equipo)";
 			Conexion::$connect = new Conexion();
 
 			Conexion::$query = $sql;
 			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
 			Conexion::$prepare->bindParam(':uc', $data['captura']);
 			Conexion::$prepare->bindParam(':no', $data['nombre']);
+			Conexion::$prepare->bindParam(':ii', $data['id_ingeniero']);
 
 			Conexion::$prepare->bindParam(':ff', $data['fecha_falla']);
 			Conexion::$prepare->bindParam(':fs', $data['fecha_soporte']);
@@ -126,6 +127,7 @@ class ReporteDAO
 
 			$sql = "UPDATE bitacora SET 
 			nombre = :no,
+			id_ingeniero = :ii,
 			fecha_falla = :ff,
 			fecha_soporte = :fs,
 			impacto = :im,
@@ -135,7 +137,7 @@ class ReporteDAO
 			evento = :evento,
 			fecha_reporte_falla = :fecha_reporte_falla,
 			lugar = :lugar,
-			fecha_fin_falla = :fecha_fin_falla,
+			-- fecha_fin_falla = :fecha_fin_falla,
 			solucion = :solucion,
 			equipo = :equipo
 			WHERE id = :id";
@@ -144,6 +146,7 @@ class ReporteDAO
 			Conexion::$query = $sql;
 			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
 			Conexion::$prepare->bindParam(':no', $data['nombre']);
+			Conexion::$prepare->bindParam(':ii', $data['id_ingeniero']);
 			Conexion::$prepare->bindParam(':ff', $data['fecha_falla']);
 			Conexion::$prepare->bindParam(':fs', $data['fecha_soporte']);
 			Conexion::$prepare->bindParam(':im', $data['impacto']);
@@ -154,7 +157,7 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':evento', $data['evento']);
 			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
 			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
-			Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
+			// Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
 			Conexion::$prepare->bindParam(':solucion', $data['solucion']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
 

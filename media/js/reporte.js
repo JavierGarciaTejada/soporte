@@ -62,11 +62,12 @@ $(function(){
 
 	getJson(e.url + "getIngenieros", null, function(a){
 		$( "#nombre" ).autocomplete({
-	     	source: a.data
-	  	//    	select: function (event, ui) {        
-			// 	console.log(ui);
-			//     return false;
-			// }
+	     	source: a.data,
+	  	   	select: function (event, ui) {
+	  	   		$("#id_ingeniero").val(ui.item.id);
+	  	   		$("#nombre").val(ui.item.value);        
+			    return false;
+			}
 	    });
 		// setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
 	})
@@ -280,7 +281,7 @@ $(function(){
 	$(document).on('click', '.modificar-rep', function(){
 		$("#form-reportes")[0].reset();
     	$("#form-reportes").data('bootstrapValidator').resetForm();
-    	$("#solucion, #fecha_fin_falla").attr('readonly', false);
+    	$("#solucion, #fecha_fin_falla").attr('readonly', true);
 		setValoresFormulario( $(this), "#form-reportes" );
 		$("#modal-reporte").modal('show');
 		$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
