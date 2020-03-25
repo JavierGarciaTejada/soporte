@@ -33,7 +33,7 @@ $(function(){
 
 			$.each(val, function(i, v){
 				var badgeValue = ( Array.isArray(v) ) ? v.length : v;
-				var texto = ( ind == 'Promedio' || ind == 'Gerencia' || ind == 'total' ) ? i : i.substring(2);
+				var texto = ( ind == 'Promedio' || ind == 'Gerencias' || ind == 'total' ) ? i : i.substring(2);
 				div.append('<a href="#" class="list-group-item item-conteo" data-ref="'+ind+'" data-ind="'+i+'"><span class="badge">'+badgeValue+'</span>'+texto+'</a>');
 			})
 			
