@@ -40,7 +40,60 @@ class InformeDAO
 		return $fil;
 	}
 
-	public static function InformeEventos(){
+	public static function InformeEventos($f = null){
+		$filtros = ( $f === null ) ? "" : self::Filtro($f);
+		$keys = array();
+
+		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, UPPER(evento) evento, 
+		if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo 
+		FROM bitacora a 
+		LEFT JOIN si_usr b ON id_ingeniero = b.id 
+		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		$filtros 
+		ORDER BY a.estado DESC";
+
+		$data = self::executeQuery($sql);
+		$keys['total'] = [];
+
+		foreach($data as $key => $value){
+
+			$keys['total'][] = $value['id'];
+			$keys[$value['estado']]['A_TOTAL'][] = $value['id'];
+			$keys[$value['estado']]['B_'.$value['afectacion']][] = $value['id'];
+
+			if( ! empty($value['fecha_escalado']) )
+				$keys[$value['estado']]['C_ESCALADO'][] = $value['id'];
+
+			$keys[$value['estado']]['D_'.$value['evento']][] = $value['id'];
+			$keys['Gerencias'][$value['gerencia']][] = $value['id'];
+
+		}
+
+		ksort($keys['Liquidado']);
+		ksort($keys['En Proceso']);
+
+		$sqlPromedio = "SELECT if(evento <> 'Falla', UPPER(evento), if(impacto LIKE '%SA', 'FALLA SIN AFECTACION', 'FALLA CON AFECTACION')) evento, 
+		ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo 
+		FROM bitacora a 
+		LEFT JOIN si_usr b ON id_ingeniero = b.id 
+		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		$filtros 
+		GROUP BY if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'Falla sin afectacion', 'Falla con afectacion'))";
+		$dataPromedio = self::executeQuery($sqlPromedio);
+
+		foreach($dataPromedio as $keyP => $valueP){
+			$keys['Promedio'][$valueP['evento']] = $valueP['tiempo'];
+		}
+
+		array_multisort($keys);
+		$informe['data'] = $keys;
+		$informe['sql'] = $sql;
+
+		return $informe;
+
+	}
+
+	public static function InformeEventos1(){
 		#WHERE estado = 'Liquidado'
 		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a LEFT join si_usr b on id_ingeniero = b.id LEFT join ad_sig c on b.cl = c.ix ORDER BY a.id desc";
 		$data = self::executeQuery($sql);

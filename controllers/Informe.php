@@ -65,20 +65,20 @@ class Informe
 
 	public function getInformeFiltrado(){
 		$data = Funciones::getDataGet();
-		$informe = InformeDAO::InformeEventosFiltrado($data);
+		$informe = InformeDAO::InformeEventos($data);
 		Funciones::imprimeJson($informe);
 	}
 
-	public function getPromedio(){
-		$promedio = InformeDAO::InformePromedio();
-		Funciones::imprimeJson($promedio);
-	}
+	// public function getPromedio(){
+	// 	$promedio = InformeDAO::InformePromedio();
+	// 	Funciones::imprimeJson($promedio);
+	// }
 
-	public function getPromedioFiltrado(){
-		$data = Funciones::getDataGet();
-		$promedio = InformeDAO::InformePromedioFiltrado($data);
-		Funciones::imprimeJson($promedio);
-	}
+	// public function getPromedioFiltrado(){
+	// 	$data = Funciones::getDataGet();
+	// 	$promedio = InformeDAO::InformePromedioFiltrado($data);
+	// 	Funciones::imprimeJson($promedio);
+	// }
 
 
 }
