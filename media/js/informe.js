@@ -33,16 +33,29 @@ $(function(){
 		'Gerencias': 'Gerencias'
 	}
 
+	var colores = {
+		'TOTAL' : "",
+		'CON AFECTACION' : "list-group-item-info",
+		'SIN AFECTACION' : "list-group-item-info",
+		'ESCALADO' : "",
+		'FALLA' : "list-group-item-success",
+		'PROGRAMADO' : "list-group-item-success",
+		'REFACCIÓN' : "list-group-item-success"
+	}
+
 	var conteo = function(a){
 		$.each(a.data, function(ind, val){
 			var div = $('<div>').addClass('col-sm-8 list-group');
 			var titulo = titulos[ind];
 			div.append('<a href="#" class="list-group-item text-center active"><strong>'+titulo+'</strong></a>');
 
+			
+
 			$.each(val, function(i, v){
 				var badgeValue = ( Array.isArray(v) ) ? v.length : v;
 				var texto = ( ind == 'Promedio' || ind == 'Gerencias' || ind == 'total' ) ? i : i.substring(2);
-				div.append('<a href="#" class="list-group-item item-conteo" data-ref="'+ind+'" data-ind="'+i+'"><span class="badge">'+badgeValue+'</span>'+texto+'</a>');
+				var color = ( ind == 'Liquidado' || ind == 'En Proceso' ) ? colores[texto] : "";
+				div.append('<a href="#" class="list-group-item item-conteo '+color+'" data-ref="'+ind+'" data-ind="'+i+'"><span class="badge">'+badgeValue+'</span>'+texto+'</a>');
 			})
 			
 			ind = ( ind == "En Proceso" ) ? "Proceso" : ind;
