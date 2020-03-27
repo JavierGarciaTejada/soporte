@@ -18,13 +18,6 @@ $(function(){
                     }
                 }
             },
-            nombre_reporta: {
-                validators: {
-                    notEmpty: {
-                        message: 'Ingrese nombre de quién reporta'
-                    }
-                }
-            },
             inicio_falla: {
                 validators: {
                     notEmpty: {
@@ -88,6 +81,32 @@ $(function(){
                     // }
                 }
             },
+
+            equipo: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese Equipo'
+                    }
+                }
+            },
+            proveedor: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese Proveedor'
+                    }
+                }
+            },
+            comentarios: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese descripción de la falla'
+                    }
+                    // ,emailAddress: {
+                    //     message: 'Se detecto un correo no válido'
+                    // }
+                }
+            },
+
             descripcion: {
                 validators: {
                     notEmpty: {

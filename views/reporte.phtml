@@ -21,14 +21,28 @@
 						<th>Estatus</th>
 						<th>Impacto</th>
 						<th>Equipo</th>
+						<th>Proveedor</th>
 						<th>Falla</th>
+
+						<th>Cobo</th>
+						<th>Tipo Evento</th>
+						<th>Causa</th>
+						<th>Imputable</th>
+						<th>Area</th>
+
 						<th>Inicio de Falla</th>
 						<th>Aviso a Soporte</th>
 						<th>Inicio de Soporte</th>
 						<th>Fin de Soporte</th>
 						<th>Solución</th>
+
+
 						<th>Fecha Escalación</th>
-						<th>Escalado/Archivo</th>
+						<!-- <th>Reporte Escalado</th> -->
+						<th>Proveedor Escalado</th>
+						<th>Fecha Fin Escalado</th>
+						<th>Solucion Escalado</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -127,7 +141,7 @@
 	</div>
 
 	<!-- MODAL ESCALADO A PROVEEDOR -->
-	<div class="modal fade" id="modal-escalado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<!-- <div class="modal fade" id="modal-escalado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-danger">
@@ -177,7 +191,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </div>
 
@@ -194,88 +208,192 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<form class="form" id="form-reportes" style="padding: 0px 20px">
-						<input type="hidden" id="id" name="id">
-						<div class="form-group col-sm-12 col-md-3">
-							<input type="hidden" name="id_ingeniero" id="id_ingeniero">
-						    <label for="nombre">Ingeniero que Atiende</label>
-						    <input type="text" class="form-control input-sm auc" name="nombre" id="nombre">
+
+						<div class="row">
+							
+							<input type="hidden" id="id" name="id">
+							<div class="form-group col-sm-12 col-md-3">
+								<input type="hidden" name="id_ingeniero" id="id_ingeniero">
+							    <label for="nombre">Ingeniero que Atiende</label>
+							    <input type="text" class="form-control input-sm auc" name="nombre" id="nombre">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="nombre_reporta">Ingeniero que Reporta</label>
+							    <input type="text" class="form-control input-sm auc" name="nombre_reporta" id="nombre_reporta">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="entidad">Entidad</label>
+							    <input type="text" class="form-control input-sm auc" name="entidad" id="entidad" >
+							</div>
+
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="evento">Evento</label>
+							    <select class="form-control input-sm" name="evento" id="evento">
+							    	<option value="">Seleccionar</option>
+							    	<option value="Falla">Falla</option>
+							    	<option value="Asesoría/Consulta">Asesoría/Consulta</option>
+							    	<!-- <option value="Consultoría">Consultoría</option> -->
+							    	<option value="CTRL CAMBIOS / PROGRAMADO">CTRL CAMBIOS / PROGRAMADO</option>
+							    	<option value="Siniestro">Siniestro</option>
+							    	<option value="Refacción">Refacción</option>
+							    </select>
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="subevento">Tipo</label>
+							    <select class="form-control input-sm" name="subevento" id="subevento">
+							    	<option value="">Seleccionar</option>
+							    	<option value="Atendido TELMEX">Atendido TELMEX</option>
+									<option value="Con Cargo">Con Cargo</option>
+									<option value="No aplica">No aplica</option>
+									<option value="Poliza">Poliza</option>
+									<option value="Sin Cargo">Sin Cargo</option>
+									<option value="Siniestro">Siniestro</option>
+							    </select>
+							</div>
+
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="fecha_falla">Inicio de Falla</label>
+							    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="fecha_reporte_falla">Aviso a Soporte Técnico</label>
+							    <input type="text" class="form-control input-sm" name="fecha_reporte_falla" id="fecha_reporte_falla">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="fecha_soporte">Inicio de Soporte</label>
+							    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
+							</div>
+
+							<!-- <div class="form-group col-sm-12 col-md-3">
+							    <label for="fecha_fin_falla">Fecha Fin Falla</label>
+							    <input type="text" class="form-control input-sm" name="fecha_fin_falla" id="fecha_fin_falla">
+							</div> -->
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="impacto">Impacto</label>
+							    <select class="form-control input-sm" name="impacto" id="impacto">
+							    	<option value="">Seleccionar</option>
+							    	<option value="&amp;&amp;&amp;CA">&amp;&amp;&amp;CA</option>
+									<option value="IMPCA">IMPCA</option>
+									<option value="&amp;&amp;&amp;SA">&amp;&amp;&amp;SA</option>
+									<option value="IMPSA">IMPSA</option>
+									<option value="MIMPCA">MIMPCA</option>
+									<option value="MIMPSA">MIMPSA</option>
+							    </select>
+							</div>
+							
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="lugar">Lugar</label>
+							    <input type="text" class="form-control input-sm auc" name="lugar" id="lugar">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="equipo">Equipo</label>
+							    <input type="text" class="form-control input-sm auc" name="equipo" id="equipo">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="proveedor">Proveedor</label>
+							    <input type="text" class="form-control input-sm auc" name="proveedor" id="proveedor">
+							</div>
+
+							<div class="form-group col-sm-12 col-md-4">
+							    <label for="comentarios">Falla</label>
+							    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="cobo">Folio Cobo/SISA</label>
+							    <input type="text" class="form-control input-sm" name="cobo" id="cobo">
+							</div>
+
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="causa_falla">Causa Falla</label>
+							    <select class="form-control input-sm" name="causa_falla" id="causa_falla">
+							    	<option value="">Seleccionar</option>
+							    	<option value="Asesoria/Consulta">Asesoria/Consulta</option>
+									<option value="Base de Datos">Base de Datos</option>
+									<option value="Cableado">Cableado</option>
+									<option value="Clima">Clima</option>
+									<option value="Configuración">Configuración</option>
+									<option value="Equipo Cliente">Equipo Cliente</option>
+									<option value="Error de Ejecución">Error de Ejecución</option>
+									<option value="Error de Intervención">Error de Intervención</option>
+									<option value="Error Humano">Error Humano</option>
+									<option value="Fibra Óptica">Fibra Óptica</option>
+									<option value="Fuerza">Fuerza</option>
+									<option value="Gestión">Gestión</option>
+									<option value="Hardware">Hardware</option>
+									<option value="Jumper F.O.">Jumper F.O.</option>
+									<option value="Mantenimiento">Mantenimiento</option>
+									<option value="No se Encontro Falla">No se Encontro Falla</option>
+									<option value="Otro Proveedor">Otro Proveedor</option>
+									<option value="Siniestro">Siniestro</option>
+									<option value="Software">Software</option>
+							    </select>
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="imputable">Imputable</label>
+							    <select class="form-control input-sm" name="imputable" id="imputable">
+							    	<option value="">Seleccionar</option>
+							    	<option value='Proveedor'>Proveedor</option>
+									<option value='TELMEX'>TELMEX</option>
+									<option value='Terceros'>Terceros</option>
+							    </select>
+							</div>
+
+							<div class="form-group col-sm-12 col-md-2">
+							    <label for="area">Area</label>
+							    <select class="form-control input-sm" name="area" id="area">
+							    	<option value="">Seleccionar</option>
+							    	<option value='Metro'>Metro</option>
+									<option value='Sur'>Sur</option>
+									<option value='Occidente'>Occidente</option>
+									<option value='Norte'>Norte</option>
+									<option value='Telnor'>Telnor</option>
+							    </select>
+							</div>
+
 						</div>
 
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="nombre_reporta">Ingeniero que Reporta</label>
-						    <input type="text" class="form-control input-sm auc" name="nombre_reporta" id="nombre_reporta">
-						</div>
+						<!-- escalado a proveedor -->
+						<div class="row bg-info">
+							<p><h4 class="text-center">Escalado</h4></p>
+						
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="reporte_escalado">No. Reporte</label>
+							    <input type="text" class="form-control input-sm" name="reporte_escalado" id="reporte_escalado">
+							</div>
 
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="entidad">Entidad</label>
-						    <input type="text" class="form-control input-sm auc" name="entidad" id="entidad" >
-						</div>
+							<!-- <div class="form-group col-sm-12 col-md-3">
+							    <label for="proveedor_escalado">Proveedor Escalado</label>
+							    <select  class="form-control input-sm" name="proveedor_escalado" id="proveedor_escalado"></select>
+							</div> -->
 
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="evento">Evento</label>
-						    <select class="form-control input-sm" name="evento" id="evento">
-						    	<option value="">Seleccionar</option>
-						    	<option value="Falla">Falla</option>
-						    	<option value="Asesoría/Consulta">Asesoría/Consulta</option>
-						    	<!-- <option value="Consultoría">Consultoría</option> -->
-						    	<option value="ControlCambios/Programado">Control de Cambios/Programado</option>
-						    	<option value="Siniestro">Siniestro</option>
-						    	<option value="Refacción">Refacción</option>
-						    </select>
-						</div>
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="fecha_escalado">Fecha Escalación</label>
+							    <input type="text" class="form-control input-sm" name="fecha_escalado" id="fecha_escalado">
+							</div>
 
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="fecha_falla">Inicio de Falla</label>
-						    <input type="text" class="form-control input-sm" name="fecha_falla" id="fecha_falla">
-						</div>
+							<div class="form-group col-sm-12 col-md-3">
+							    <label for="fecha_fin_escalado">Fin de atencíon Proveedor</label>
+							    <input type="text" class="form-control input-sm" name="fecha_fin_escalado" id="fecha_fin_escalado">
+							</div>
 
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="fecha_reporte_falla">Aviso a Soporte Técnico</label>
-						    <input type="text" class="form-control input-sm" name="fecha_reporte_falla" id="fecha_reporte_falla">
-						</div>
-
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="fecha_soporte">Inicio de Soporte</label>
-						    <input type="text" class="form-control input-sm" name="fecha_soporte" id="fecha_soporte">
-						</div>
-
-						<div class="form-group col-sm-12 col-md-3">
-						    <label for="fecha_fin_falla">Fecha Fin Falla</label>
-						    <input type="text" class="form-control input-sm" name="fecha_fin_falla" id="fecha_fin_falla">
+							<div class="form-group col-sm-12 col-md-12">
+							    <label for="solucion_escalado">Solución de Proveedor</label>
+							    <textarea class="form-control" name="solucion_escalado" id="solucion_escalado" cols="10" rows="1"></textarea>
+							</div>
 						</div>
 						
-						<div class="form-group col-sm-12 col-md-2">
-						    <label for="lugar">Lugar</label>
-						    <input type="text" class="form-control input-sm auc" name="lugar" id="lugar">
-						</div>
-
-						<div class="form-group col-sm-12 col-md-2">
-						    <label for="equipo">Equipo</label>
-						    <input type="text" class="form-control input-sm auc" name="equipo" id="equipo">
-						</div>
-
-						<div class="form-group col-sm-12 col-md-2">
-						    <label for="impacto">Impacto</label>
-						    <select class="form-control input-sm" name="impacto" id="impacto">
-						    	<option value="">Seleccionar</option>
-						    	<option value="&amp;&amp;&amp;CA">&amp;&amp;&amp;CA</option>
-								<option value="IMPCA">IMPCA</option>
-								<option value="&amp;&amp;&amp;SA">&amp;&amp;&amp;SA</option>
-								<option value="IMPSA">IMPSA</option>
-								<option value="MIMPCA">MIMPCA</option>
-								<option value="MIMPSA">MIMPSA</option>
-						    </select>
-						</div>
-
-						<div class="form-group col-sm-12 col-md-2">
-						    <label for="comentarios">Falla</label>
-						    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
-						</div>
-
-						<div class="form-group col-sm-12 col-md-4">
-						    <label for="solucion">Solución</label>
-						    <textarea class="form-control input-sm" name="solucion" id="solucion" cols="10" rows="1"></textarea>
-						</div>
 
 					</form>
 				</div>

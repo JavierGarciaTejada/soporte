@@ -97,10 +97,10 @@ $(function(){
 	})
 
 	getJson(e.url + "getProveedores", null, function(a){
-		// $( "#proveedor_escalado" ).autocomplete({
-	 //     	source: a.data
-	 //    });
-	 	setValuesSelect('proveedor_escalado', a.data, 'no', 'no', 'id');
+		$( "#proveedor" ).autocomplete({
+	     	source: a.data
+	    });
+	 	// setValuesSelect('proveedor_escalado', a.data, 'no', 'no', 'id');
 	})
 
 	var setValoresFormulario = function(row, formId){
@@ -196,6 +196,7 @@ $(function(){
 			{ "data" : "estado"},
 			{ "data" : "impacto"},
 			{ "data" : "equipo"},
+			{ "data" : "proveedor"},
 			{ 
 				"data" : "comentarios",
 				"createdCell" : function( td, data ) {
@@ -205,6 +206,13 @@ $(function(){
 					)
 				}
 			},
+
+			{ "data" : "cobo"},
+			{ "data" : "subevento"},
+			{ "data" : "causa_falla"},
+			{ "data" : "imputable"},
+			{ "data" : "area"},
+
 			{ "data" : "fecha_falla"},
 			{ "data" : "fecha_reporte_falla"},
 			{ "data" : "fecha_soporte"},
@@ -219,23 +227,28 @@ $(function(){
 				}
 			},
 			{ "data" : "fecha_escalado"},
-			{
-				// "targets" : 0,
-				"class" : "details-control",
-				"orderable" : false,
-				"data" : null,
-				"defaultContent" : "",
-				"searchable" : false,
-				"createdCell" : function( td, data ) {
-					var botones = [];
-					if( data.estado == "En Proceso" || data.estado == "Finalizado" ){
-						botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
-						botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
-					}
+
+			{ "data" : "reporte_escalado"},
+			//{ "data" : "proveedor_escalado"},
+			{ "data" : "fecha_fin_escalado"},
+			{ "data" : "solucion_escalado"}
+			// {
+			// 	// "targets" : 0,
+			// 	"class" : "details-control",
+			// 	"orderable" : false,
+			// 	"data" : null,
+			// 	"defaultContent" : "",
+			// 	"searchable" : false,
+			// 	"createdCell" : function( td, data ) {
+			// 		var botones = [];
+			// 		if( data.estado == "En Proceso" || data.estado == "Finalizado" ){
+			// 			// botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
+			// 			// botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
+			// 		}
 					
-					$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
-				}
-			}
+			// 		$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
+			// 	}
+			// }
 			
 		]
 	} );
@@ -251,6 +264,12 @@ $(function(){
 		var serial = $("#form-reportes").serialize();
 		var captura = $( "#nombre option:selected" ).attr('data-ref');
 		serial += "&captura=" + captura;
+
+		if( $("#id_ingeniero").val() == "" ){
+			$("#nombre").val("").focus();
+			alert("Seleccione quien atiende del listado, reportar si no aparece");
+			return false;
+		}
 
 		var ope = "registraReporte";
 		if( $("#id").val() != "" )
@@ -362,29 +381,29 @@ $(function(){
 		$("#modal-escalado").modal('show');
 	})
 
-	$("#btn-escalado").click(function(){
+	// $("#btn-escalado").click(function(){
 
-		var validator = $('#form-escalado').data('bootstrapValidator');
-        validator.validate();
-        if (!validator.isValid())
-			return false;
+	// 	var validator = $('#form-escalado').data('bootstrapValidator');
+ //        validator.validate();
+ //        if (!validator.isValid())
+	// 		return false;
 
-		var serial = $("#form-escalado").serialize();
-		setPost(e.url + 'escalarReporte', serial, function(response){
-			if( response === true ){
-				mensaje = "Se realizó correctamente.";
-				clase = "alertify-success";
-				$("#modal-evaluacion").modal('hide');
-				tableReportes.ajax.reload();
-			}else{
-				mensaje = "Ocurrio un error.";
-				clase = "alertify-danger";
-			}
+	// 	var serial = $("#form-escalado").serialize();
+	// 	setPost(e.url + 'escalarReporte', serial, function(response){
+	// 		if( response === true ){
+	// 			mensaje = "Se realizó correctamente.";
+	// 			clase = "alertify-success";
+	// 			$("#modal-evaluacion").modal('hide');
+	// 			tableReportes.ajax.reload();
+	// 		}else{
+	// 			mensaje = "Ocurrio un error.";
+	// 			clase = "alertify-danger";
+	// 		}
 
-			alertMessage(mensaje, clase);
-		});
+	// 		alertMessage(mensaje, clase);
+	// 	});
 
-	})
+	// })
 
 
 	//BOTON ARCHIVOS

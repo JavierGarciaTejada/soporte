@@ -70,7 +70,7 @@ class ReporteDAO
 	}
 
 	public static function Proveedores(){
-		$sql = "SELECT id, no FROM proveedores WHERE ux = 0 ORDER BY no";
+		$sql = "SELECT id, no label FROM proveedores WHERE ux = 0 GROUP BY no ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
@@ -81,8 +81,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,evento,fecha_reporte_falla,lugar,equipo) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:evento,:fecha_reporte_falla,:lugar,:equipo)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area)";
 			Conexion::$connect = new Conexion();
 
 			Conexion::$query = $sql;
@@ -101,10 +101,21 @@ class ReporteDAO
 
 			Conexion::$prepare->bindParam(':nombre_reporta', $data['nombre_reporta']);
 			Conexion::$prepare->bindParam(':entidad', $data['entidad']);
+			Conexion::$prepare->bindParam(':proveedor', $data['proveedor']);
 			Conexion::$prepare->bindParam(':evento', $data['evento']);
 			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
 			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
+
+			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
+			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
+			Conexion::$prepare->bindParam(':fecha_fin_escalado', $data['fecha_fin_escalado']);
+			Conexion::$prepare->bindParam(':solucion_escalado', $data['solucion_escalado']);
+			Conexion::$prepare->bindParam(':cobo', $data['cobo']);
+			Conexion::$prepare->bindParam(':subevento', $data['subevento']);
+			Conexion::$prepare->bindParam(':causa_falla', $data['causa_falla']);
+			Conexion::$prepare->bindParam(':imputable', $data['imputable']);
+			Conexion::$prepare->bindParam(':area', $data['area']);
 
 			$now = date('Y-m-d H:i:s');
 			$year = date('Y');
@@ -134,10 +145,21 @@ class ReporteDAO
 			comentarios = :co,
 			nombre_reporta = :nombre_reporta,
 			entidad = :entidad,
+			proveedor = :proveedor,
 			evento = :evento,
 			fecha_reporte_falla = :fecha_reporte_falla,
 			lugar = :lugar,
-			-- fecha_fin_falla = :fecha_fin_falla,
+			
+			reporte_escalado = :reporte_escalado,
+			fecha_escalado = :fecha_escalado,
+			fecha_fin_escalado = :fecha_fin_escalado,
+			solucion_escalado = :solucion_escalado,
+			cobo = :cobo,
+			subevento = :subevento,
+			causa_falla = :causa_falla,
+			imputable = :imputable,
+			area = :area,
+
 			solucion = :solucion,
 			equipo = :equipo
 			WHERE id = :id";
@@ -154,9 +176,22 @@ class ReporteDAO
 
 			Conexion::$prepare->bindParam(':nombre_reporta', $data['nombre_reporta']);
 			Conexion::$prepare->bindParam(':entidad', $data['entidad']);
+			Conexion::$prepare->bindParam(':proveedor', $data['proveedor']);
 			Conexion::$prepare->bindParam(':evento', $data['evento']);
 			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
 			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
+
+
+			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
+			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
+			Conexion::$prepare->bindParam(':fecha_fin_escalado', $data['fecha_fin_escalado']);
+			Conexion::$prepare->bindParam(':solucion_escalado', $data['solucion_escalado']);
+			Conexion::$prepare->bindParam(':cobo', $data['cobo']);
+			Conexion::$prepare->bindParam(':subevento', $data['subevento']);
+			Conexion::$prepare->bindParam(':causa_falla', $data['causa_falla']);
+			Conexion::$prepare->bindParam(':imputable', $data['imputable']);
+			Conexion::$prepare->bindParam(':area', $data['area']);
+
 			// Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
 			Conexion::$prepare->bindParam(':solucion', $data['solucion']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);

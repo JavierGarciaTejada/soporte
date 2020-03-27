@@ -61,7 +61,7 @@ class InformeDAO
 			$keys[$value['estado']]['A_TOTAL'][] = $value['id'];
 			$keys[$value['estado']]['B_'.$value['afectacion']][] = $value['id'];
 
-			if( ! empty($value['fecha_escalado']) )
+			if( ! empty($value['fecha_escalado']) && $value['fecha_escalado'] != "0000-00-00 00:00:00" )
 				$keys[$value['estado']]['C_ESCALADO'][] = $value['id'];
 
 			$keys[$value['estado']]['D_'.$value['evento']][] = $value['id'];
@@ -82,7 +82,8 @@ class InformeDAO
 		$dataPromedio = self::executeQuery($sqlPromedio);
 
 		foreach($dataPromedio as $keyP => $valueP){
-			$keys['Promedio'][$valueP['evento']] = $valueP['tiempo'];
+			if( $valueP['evento'] != "REFACCIÓN" )
+				$keys['Promedio'][$valueP['evento']] = $valueP['tiempo'];
 		}
 
 		array_multisort($keys);
@@ -91,76 +92,6 @@ class InformeDAO
 
 		return $informe;
 
-	}
-
-	public static function InformeEventos1(){
-		#WHERE estado = 'Liquidado'
-		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a LEFT join si_usr b on id_ingeniero = b.id LEFT join ad_sig c on b.cl = c.ix ORDER BY a.id desc";
-		$data = self::executeQuery($sql);
-		$detalle['promedio'] = 0;
-		foreach ($data as $key => $value) {
-			$detalle['promedio'] += (int)$value['tiempo'];
-			$detalle['total'][] = $value;
-
-			$keys['Estatus'][$value['estado']][] = $value;
-			if( ! empty($value['fecha_escalado']) && $value['estado'] == 'Liquidado' ) 
-				$keys['Estatus']['Escalados Liquidados'][] = $value;
-			else if(! empty($value['fecha_escalado']) && $value['estado'] == 'En Proceso')
-				$keys['Estatus']['Escalados En Proceso'][] = $value;
-
-			$keys['Impacto'][$value['afectacion']][] = $value;
-			$keys['Evento'][$value['evento']][] = $value;
-			$keys['Gerencia'][$value['gerencia']][] = $value;
-		}
-		$total['data'] = $keys;
-		$total['detalle'] = $detalle;
-		$total['sql'] = $sql;
-		return $total;
-	}
-
-	public static function InformeEventosFiltrado($filtro){
-
-		$fil = self::Filtro($filtro);
-		$keys = array();
-
-		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo FROM bitacora a LEFT join si_usr b on id_ingeniero = b.id LEFT join ad_sig c on b.cl = c.ix $fil ORDER BY a.id desc";
-		$data = self::executeQuery($sql);
-		$detalle['promedio'] = 0;
-		$detalle['total'] = [];
-		foreach ($data as $key => $value) {
-			$detalle['promedio'] += (int)$value['tiempo'];
-			$detalle['total'][] = $value;
-
-			$keys['Estatus'][$value['estado']][] = $value;
-			if( ! empty($value['fecha_escalado']) && $value['estado'] == 'Liquidado' ) 
-				$keys['Estatus']['Escalados Liquidados'][] = $value;
-			else if(! empty($value['fecha_escalado']) && $value['estado'] == 'En Proceso')
-				$keys['Estatus']['Escalados En Proceso'][] = $value;
-
-			$keys['Impacto'][$value['afectacion']][] = $value;
-			$keys['Evento'][$value['evento']][] = $value;
-			$keys['Gerencia'][$value['gerencia']][] = $value;
-		}
-		$total['data'] = $keys;
-		$total['detalle'] = $detalle;
-		$total['sql'] = $sql;
-		return $total;
-	}
-
-	public static function InformePromedio(){
-		#WHERE estado = 'Liquidado'
-		$sql = "SELECT if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'FALLA SIN AFECTACION', 'FALLA CON AFECTACION')) evento, ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo FROM bitacora GROUP BY if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'Falla sin afectacion', 'Falla con afectacion'))";
-		$data = self::executeQuery($sql);
-		return $data;
-	}
-
-	public static function InformePromedioFiltrado($filtro){
-		$fil = self::Filtro($filtro);
-		$sql = "SELECT if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'FALLA SIN AFECTACION', 'FALLA CON AFECTACION')) evento, ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo, c.cl gerencia FROM bitacora a LEFT join si_usr b on id_ingeniero = b.id LEFT join ad_sig c on b.cl = c.ix $fil GROUP BY if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'Falla sin afectacion', 'Falla con afectacion'))";
-
-		// $sql = "SELECT evento, ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo, c.cl gerencia FROM bitacora a inner join si_usr b on usuario_captura = b.id inner join ad_sig c on b.cl = c.ix $fil GROUP BY evento";
-		$data = self::executeQuery($sql);
-		return $data;
 	}
 
 	
