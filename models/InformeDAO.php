@@ -29,8 +29,8 @@ class InformeDAO
 		if( ! empty($filtro['fecha_soporte']) )
 			array_push($f, "fecha_soporte >= '".$filtro['fecha_soporte']."'");
 
-		if( ! empty($filtro['fecha_soporte']) )
-			array_push($f,"fecha_soporte >= '".$filtro['fecha_soporte']."'");
+		if( ! empty($filtro['fecha_fin_falla']) )
+			array_push($f,"fecha_soporte <= '".$filtro['fecha_fin_falla']."'");
 
 		if( ! empty($filtro['gerencia']) )
 			array_push($f,"c.cl = '".$filtro['gerencia']."'");
