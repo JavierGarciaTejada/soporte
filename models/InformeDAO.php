@@ -73,7 +73,7 @@ class InformeDAO
 		ksort($keys['En Proceso']);
 
 		$sqlPromedio = "SELECT if(evento <> 'Falla', UPPER(evento), if(impacto LIKE '%SA', 'FALLA SIN AFECTACION', 'FALLA CON AFECTACION')) evento, 
-		ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 3600),2) tiempo 
+		ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60),2) tiempo 
 		FROM bitacora a 
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 

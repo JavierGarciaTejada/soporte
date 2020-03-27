@@ -28,7 +28,7 @@ $(function(){
 	var titulos = {
 		'Liquidado' : 'Liquidados',
 		'En Proceso' : 'En Proceso',
-		'Promedio' : 'Tiempo promedio de atención (horas)',
+		'Promedio' : 'Tiempo promedio de atención (minutos)',
 		'Cancelado' : 'Cancelados',
 		'Gerencias': 'Gerencias'
 	}

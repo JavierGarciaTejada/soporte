@@ -42,7 +42,7 @@ class ReporteDAO
 	}
 
 	public static function Clientes(){
-		$sql = "SELECT id, nom_completo label FROM clientes WHERE ux = 0 ORDER BY nom_completo";
+		$sql = "SELECT id, nom_completo label FROM clientes WHERE ux = 0 GROUP BY nom_completo ORDER BY nom_completo";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
