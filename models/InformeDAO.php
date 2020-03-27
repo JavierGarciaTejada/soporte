@@ -62,9 +62,9 @@ class InformeDAO
 			$keys[$value['estado']]['B_'.$value['afectacion']][] = $value['id'];
 
 			if( ! empty($value['fecha_escalado']) && $value['fecha_escalado'] != "0000-00-00 00:00:00" )
-				$keys[$value['estado']]['C_ESCALADO'][] = $value['id'];
+				$keys[$value['estado']]['D_ESCALADO'][] = $value['id'];
 
-			$keys[$value['estado']]['D_'.$value['evento']][] = $value['id'];
+			$keys[$value['estado']]['C_'.$value['evento']][] = $value['id'];
 			$keys['Gerencias'][$value['gerencia']][] = $value['id'];
 
 		}

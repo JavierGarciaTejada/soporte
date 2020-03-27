@@ -82,7 +82,7 @@ class ReporteDAO
 
 			$sql = "INSERT INTO bitacora 
 			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area)";
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area)";
 			Conexion::$connect = new Conexion();
 
 			Conexion::$query = $sql;

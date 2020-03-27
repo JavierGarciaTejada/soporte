@@ -39,7 +39,7 @@ $(function(){
 		'SIN AFECTACION' : "list-group-item-info",
 		'ESCALADO' : "",
 		'FALLA' : "list-group-item-success",
-		'PROGRAMADO' : "list-group-item-success",
+		'CTRL CAMBIOS / PROGRAMADO' : "list-group-item-success",
 		'REFACCIÓN' : "list-group-item-success"
 	}
 
