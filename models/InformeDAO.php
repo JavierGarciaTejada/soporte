@@ -81,6 +81,11 @@ class InformeDAO
 		GROUP BY if(evento <> 'Falla', evento, if(impacto LIKE '%SA', 'Falla sin afectacion', 'Falla con afectacion'))";
 		$dataPromedio = self::executeQuery($sqlPromedio);
 
+		$keys['Promedio']['FALLA CON AFECTACION'] = 0;
+		$keys['Promedio']['FALLA SIN AFECTACION'] = 0;
+		$keys['Promedio']['ASESORIA / CONSULTA'] = 0;
+		$keys['Promedio']['CTRL CAMBIOS / PROGRAMADO'] = 0;
+
 		foreach($dataPromedio as $keyP => $valueP){
 			if( $valueP['evento'] != "REFACCIÓN" )
 				$keys['Promedio'][$valueP['evento']] = $valueP['tiempo'];
