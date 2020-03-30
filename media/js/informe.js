@@ -118,29 +118,31 @@ $(function(){
 		// })
 	})
 
-	// $(document).on('click', '.item-conteo', function(){
-	// 	var ref = $(this).attr('data-ref');
-	// 	var ind = $(this).attr('data-ind');
-	// 	console.log(ref);
-	// 	console.log(ind);
-	// 	console.log(e.objeto.data[ref][ind]);
+	$(document).on('click', '#Proceso .item-conteo', function(){
+		var ref = $(this).attr('data-ref');
+		var ind = $(this).attr('data-ind');
 
-	// 	var values = e.objeto.data[ref][ind];
-	// 	var table = $("<table>").addClass('table table-bordered');
-	// 	var thead = $("<thead>");
-	// 	var columnas = "<tr><th>No Reporte</th><th>Descripción</th></tr>";
-	// 	thead.append(columnas);
-	// 	table.append(thead);
 
-	// 	values.forEach(element => {
-	// 		var tr = $("<tr>");
-	// 		tr.append( $("<td>").html(element.folio) );
-	// 		tr.append( $("<td>").html(element.comentarios) );
-	// 		table.append(tr);
-	// 	});
-	// 	$("#detalle").empty();
-	// 	$("#detalle").append(table[0].outerHTML);
-	// })
+		console.log(e.objeto.data[ref][ind]);
+
+		var values = e.objeto.data[ref][ind];
+		var table = $("<table>").addClass('table table-bordered');
+		var thead = $("<thead>");
+		var columnas = "<tr><th>Reporte</th><th>Evento</th><th>Descripción</th></tr>";
+		thead.append(columnas);
+		table.append(thead);
+
+		values.forEach(element => {
+			var tr = $("<tr>");
+			tr.append( $("<td>").html(element.folio) );
+			tr.append( $("<td>").html(element.evento) );
+			tr.append( $("<td>").html(element.comentarios) );
+			table.append(tr);
+		});
+		$("#detalle").empty();
+		$("#detalle").append(table[0].outerHTML);
+		$("#modalDetalle").modal('show');
+	})
 
 	var setValoresFormulario = function(row, formId){
 

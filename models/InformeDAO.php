@@ -44,7 +44,8 @@ class InformeDAO
 		$filtros = ( $f === null ) ? "" : self::Filtro($f);
 		$keys = array();
 
-		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, UPPER(evento) evento, 
+		$sql = "SELECT a.id, a.comentarios, a.estado, 
+		CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, UPPER(evento) evento, 
 		if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo
 		FROM bitacora a 
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
@@ -57,15 +58,15 @@ class InformeDAO
 
 		foreach($data as $key => $value){
 
-			$keys['total'][] = $value['id'];
-			$keys[$value['estado']]['A_TOTAL'][] = $value['id'];
-			$keys[$value['estado']]['B_'.$value['afectacion']][] = $value['id'];
+			$keys['total'][] = $value;
+			$keys[$value['estado']]['A_TOTAL'][] = $value;
+			$keys[$value['estado']]['B_'.$value['afectacion']][] = $value;
 
 			if( ! empty($value['fecha_escalado']) && $value['fecha_escalado'] != "0000-00-00 00:00:00" )
-				$keys[$value['estado']]['D_ESCALADO'][] = $value['id'];
+				$keys[$value['estado']]['D_ESCALADO'][] = $value;
 
-			$keys[$value['estado']]['C_'.$value['evento']][] = $value['id'];
-			$keys['Gerencias'][$value['gerencia']][] = $value['id'];
+			$keys[$value['estado']]['C_'.$value['evento']][] = $value;
+			$keys['Gerencias'][$value['gerencia']][] = $value;
 
 		}
 
