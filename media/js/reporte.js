@@ -278,6 +278,8 @@ $(function(){
         if (!validator.isValid())
 			return false;
 
+		$("#id_ingeniero").val( $( "#nombre option:selected" ).attr('data-ref') );
+
 		var serial = $("#form-reportes").serialize();
 		var captura = $( "#nombre option:selected" ).attr('data-ref');
 		serial += "&captura=" + captura;
