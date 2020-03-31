@@ -38,7 +38,7 @@ $(function(){
 		'CON AFECTACION' : "list-group-item-info",
 		'SIN AFECTACION' : "list-group-item-info",
 		'ESCALADO' : "",
-		'ASESORIA / CONSULTA' : "list-group-item-disabled",
+		'ASESORIA / CONSULTA' : "list-group-item-success",
 		'FALLA' : "list-group-item-success",
 		'CTRL CAMBIOS / PROGRAMADO' : "list-group-item-success",
 		'REFACCIÓN' : "list-group-item-success"
