@@ -18,6 +18,13 @@ $(function(){
                     }
                 }
             },
+            // nombre_reporta: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Seleccione del listado, si no aparece favor de notificar'
+            //         }
+            //     }
+            // },
             inicio_falla: {
                 validators: {
                     notEmpty: {

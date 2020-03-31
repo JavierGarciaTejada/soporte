@@ -29,48 +29,54 @@ class ReporteDAO
 
 	public static function BitacoraReportes($filtro = ""){
 		$where = empty($filtro) ? "" : "WHERE $filtro";
-		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig c on b.cl = c.ix $where ORDER BY a.id desc";
+		$sql = "SELECT a.*, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function IngenierosSoporte(){
-		$sql = "SELECT id, UPPER(concat(ap,' ',am,' ',no)) label FROM si_usr WHERE ux = 0 ORDER BY ap";
+	public static function IngenierosSoporte($filtro = ""){
+		$where = empty($filtro) ? "" : "AND $filtro";
+		$sql = "SELECT a.id, UPPER(concat(ap,' ',am,' ',a.no)) label, ad_sig.cl FROM si_usr a LEFT JOIN ad_sig 
+		ON a.cl = ad_sig.ix WHERE a.ux = 0 $where ORDER BY ap";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function Clientes(){
+	public static function Clientes($filtro = ""){
 		$sql = "SELECT id, nom_completo label FROM clientes WHERE ux = 0 GROUP BY nom_completo ORDER BY nom_completo";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function Entidades(){
+	public static function Entidades($filtro = ""){
+		$where = empty($filtro) ? "" : "WHERE $filtro";
 		$sql = "SELECT id, no label FROM entidades WHERE ux = 0 ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function Equipos(){
-		$sql = "SELECT id, no label FROM equipos WHERE ux = 0 ORDER BY no";
+	public static function Equipos($filtro = ""){
+		$where = empty($filtro) ? "" : "AND $filtro";
+		$sql = "SELECT id, no label FROM equipos WHERE ux = 0 $where ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function Lugares(){
-		$sql = "SELECT id, no label FROM lugares WHERE ux = 0 ORDER BY no";
+	public static function Lugares($filtro = ""){
+		$where = empty($filtro) ? "" : "AND $filtro";
+		$sql = "SELECT id, no label FROM lugares WHERE ux = 0 $where ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
 	}
 
-	public static function Proveedores(){
+	public static function Proveedores($filtro = ""){
+		$where = empty($filtro) ? "" : "WHERE $filtro";
 		$sql = "SELECT id, no label FROM proveedores WHERE ux = 0 GROUP BY no ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;

@@ -68,46 +68,54 @@ $(function(){
 	});
 
 	getJson(e.url + "getIngenieros", null, function(a){
-		$( "#nombre" ).autocomplete({
-	     	source: a.data,
-	  	   	select: function (event, ui) {
-	  	   		$("#id_ingeniero").val(ui.item.id);
-	  	   		$("#nombre").val(ui.item.value);        
-			    return false;
-			}
-	    });
-		// setValuesSelect('nombre', a.data, 'nombre', 'nombre', 'id');
+		// $( "#nombre" ).autocomplete({
+	 //     	source: a.data,
+	 //  	   	select: function (event, ui) {
+	 //  	   		$("#id_ingeniero").val(ui.item.id);
+	 //  	   		$("#nombre").val(ui.item.value);        
+		// 	    return false;
+		// 	}
+	 //    });
+		setValuesSelect('nombre', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getClientes", null, function(a){
 		$( "#nombre_reporta" ).autocomplete({
-	     	source: a.data
+	     	source: a.data,
+	     	select: function (event, ui) {
+	  	   		$("#id_reporta").val(ui.item.id);
+	  	   		$("#nombre_reporta").val(ui.item.value);        
+			    return false;
+			}
 	    });
 	})
 
 	getJson(e.url + "getEntidades", null, function(a){
-		$( "#entidad" ).autocomplete({
-	     	source: a.data
-	    });
+		// $( "#entidad" ).autocomplete({
+	 //     	source: a.data
+	 //    });
+	 	setValuesSelect('entidad', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getEquipos", null, function(a){
-		$( "#equipo" ).autocomplete({
-	     	source: a.data
-	    });
+		// $( "#equipo" ).autocomplete({
+	 //     	source: a.data
+	 //    });
+	 	setValuesSelect('equipo', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getLugares", null, function(a){
-		$( "#lugar" ).autocomplete({
-	     	source: a.data
-	    });
+		// $( "#lugar" ).autocomplete({
+	 //     	source: a.data
+	 //    });
+	    setValuesSelect('lugar', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getProveedores", null, function(a){
-		$( "#proveedor" ).autocomplete({
-	     	source: a.data
-	    });
-	 	// setValuesSelect('proveedor_escalado', a.data, 'no', 'no', 'id');
+		// $( "#proveedor" ).autocomplete({
+	 //     	source: a.data
+	 //    });
+	 	setValuesSelect('proveedor', a.data, 'label', 'label', 'id');
 	})
 
 	var setValoresFormulario = function(row, formId){
@@ -274,11 +282,11 @@ $(function(){
 		var captura = $( "#nombre option:selected" ).attr('data-ref');
 		serial += "&captura=" + captura;
 
-		if( $("#id_ingeniero").val() == "" ){
-			$("#nombre").val("").focus();
-			alert("Seleccione quien atiende del listado, reportar si no aparece");
-			return false;
-		}
+		// if( $("#id_reporta").val() == "" ){
+		// 	alert("Seleccione quien reporta del listado, si no aparece favor de notificar.");
+		// 	$("#nombre_reporta").val("").focus();
+		// 	return false;
+		// }
 
 		var ope = "registraReporte";
 		if( $("#id").val() != "" )

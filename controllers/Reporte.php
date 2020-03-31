@@ -59,18 +59,20 @@ class Reporte
 	}
 
 	public function getReportes(){
-		$filtro = Perfil::FiltroBitacoraSoporte();
+		$filtro = Perfil::FiltroUsuarioGerencia();
 		$reportes = ReporteDAO::BitacoraReportes($filtro);
 		Funciones::imprimeJson($reportes);
 	}
 
 	public function getIngenieros(){
-		$ingenieros = ReporteDAO::IngenierosSoporte();
+		$filtro = Perfil::FiltroUsuarioGerencia();
+		$ingenieros = ReporteDAO::IngenierosSoporte($filtro);
 		Funciones::imprimeJson($ingenieros);
 	}
 
 	public function getClientes(){
-		$clientes = ReporteDAO::Clientes();
+		$filtro = Perfil::FiltroUsuarioGerencia();
+		$clientes = ReporteDAO::Clientes($filtro);
 		Funciones::imprimeJson($clientes);
 	}
 
@@ -80,12 +82,14 @@ class Reporte
 	}
 
 	public function getEquipos(){
-		$equipos = ReporteDAO::Equipos();
+		$filtro = Perfil::FiltroLugarEquipo();
+		$equipos = ReporteDAO::Equipos($filtro);
 		Funciones::imprimeJson($equipos);
 	}
 
 	public function getLugares(){
-		$lugares = ReporteDAO::Lugares();
+		$filtro = Perfil::FiltroLugarEquipo();
+		$lugares = ReporteDAO::Lugares($filtro);
 		Funciones::imprimeJson($lugares);
 	}
 

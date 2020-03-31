@@ -18,15 +18,34 @@ class Perfil
 		return $filtro;
 	}
 
-
-	public static function FiltroBitacoraSoporte(){
+	public static function FiltroUsuarioGerencia(){
 
 		$filtros = array();
 		$ixCli 	= Session::getSession("siglas");
-		array_push($filtros, " c.cl = '$ixCli' ");
+		$role = Session::getSession("role");
+
+		if( $role === "Administrador" ) return $filtros;
+
+		array_push($filtros, " ad_sig.cl = '$ixCli' ");
 		return implode(" AND ", $filtros);
 
 	}
+
+	public static function FiltroLugarEquipo(){
+
+		$filtros = array();
+		$ixCli 	= Session::getSession("siglas");
+		$role = Session::getSession("role");
+
+		if( $role === "Administrador" ) return $filtros;
+
+		$f = ( $ixCli == 'Leg' || $ixCli == 'Let') ? " siglas IN ('Leg', 'Let') " : " siglas = '$ixCli' ";	
+		array_push($filtros, $f);
+		
+		return implode(" AND ", $filtros);
+
+	}
+
 	
 	public static function FiltroListadoEvaluaciones($anio = ""){
 
@@ -65,19 +84,19 @@ class Perfil
 	}
 
 
-	public static function FiltroUsuarioGerencia(){
+	// public static function FiltroUsuarioGerencia(){
 
-		$cl = Session::getSession("cl");
-		$role = Session::getSession("role");
-		$filtros = array();
-		if( $role === "Administrador" ) return $filtros;
+	// 	$cl = Session::getSession("cl");
+	// 	$role = Session::getSession("role");
+	// 	$filtros = array();
+	// 	if( $role === "Administrador" ) return $filtros;
 
-		array_push($filtros, " a.cl = '$cl' "); //SOLO DE LA GERENCIA
-		// array_push($filtros, " lr IN ('919056264924931', '919056264924932') "); //SOLO SUBGERENTES E INGENIEROS
+	// 	array_push($filtros, " a.cl = '$cl' "); //SOLO DE LA GERENCIA
+	// 	// array_push($filtros, " lr IN ('919056264924931', '919056264924932') "); //SOLO SUBGERENTES E INGENIEROS
 
-		$filtro = implode(' AND ', $filtros);
-		return $filtro;
-	}
+	// 	$filtro = implode(' AND ', $filtros);
+	// 	return $filtro;
+	// }
 
 	
 	
