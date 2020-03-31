@@ -27,8 +27,9 @@ class ReporteDAO
 
 	}
 
-	public static function BitacoraReportes(){
-		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig c on b.cl = c.ix ORDER BY a.id desc";
+	public static function BitacoraReportes($filtro = ""){
+		$where = empty($filtro) ? "" : "WHERE $filtro";
+		$sql = "SELECT a.*, CONCAT(c.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig c on b.cl = c.ix $where ORDER BY a.id desc";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;

@@ -1,0 +1,11 @@
+a.list-group-item-disabled, button.list-group-item-disabled {
+    color: #777;
+}
+a.list-group-item, button.list-group-item {
+    color: #555;
+}
+
+.list-group-item-disabled {
+    color: #777;
+    background-color: #eee;
+}

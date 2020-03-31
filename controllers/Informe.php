@@ -33,7 +33,8 @@ class Informe
 				'librerias/DataTables/Buttons-1.5.6/css/buttons.bootstrap.min.css',
 				'librerias/Bootstrap/bootstrapvalidator-master/dist/css/bootstrapValidator.min.css',
 				'librerias/jquery-ui-1.12.1/jquery-ui.css',
-				'librerias/bootstrap-datetimepicker/jquery.datetimepicker.css'
+				'librerias/bootstrap-datetimepicker/jquery.datetimepicker.css',
+				'css/informe.css'
 			),
 			'js' => array(
 				'librerias/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js',

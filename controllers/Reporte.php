@@ -59,7 +59,8 @@ class Reporte
 	}
 
 	public function getReportes(){
-		$reportes = ReporteDAO::BitacoraReportes();
+		$filtro = Perfil::FiltroBitacoraSoporte();
+		$reportes = ReporteDAO::BitacoraReportes($filtro);
 		Funciones::imprimeJson($reportes);
 	}
 

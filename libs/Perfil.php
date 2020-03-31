@@ -17,6 +17,16 @@ class Perfil
 
 		return $filtro;
 	}
+
+
+	public static function FiltroBitacoraSoporte(){
+
+		$filtros = array();
+		$ixCli 	= Session::getSession("siglas");
+		array_push($filtros, " c.cl = '$ixCli' ");
+		return implode(" AND ", $filtros);
+
+	}
 	
 	public static function FiltroListadoEvaluaciones($anio = ""){
 

@@ -176,7 +176,7 @@ $(function(){
 		"columns" : [
 			{
 				"targets" : 0,
-				"width": "10%",
+				"width": "20%",
 				"class" : "details-control",
 				"orderable" : false,
 				"data" : null,
@@ -207,10 +207,8 @@ $(function(){
 			{ 
 				"data" : "comentarios",
 				"createdCell" : function( td, data ) {
-					var d = ( data == null ) ? "" : data;
-					$( td ).html(
-						'<textarea name="textarea" readonly rows="3" cols="50">'+d+'</textarea>'
-					)
+					if( data !== null && data !== "" )
+						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			},
 
@@ -227,10 +225,8 @@ $(function(){
 			{ 
 				"data" : "solucion",
 				"createdCell" : function( td, data ) {
-					var d = ( data == null ) ? "" : data;
-					$( td ).html(
-						'<textarea name="textarea" readonly rows="3" cols="50">'+d+'</textarea>'
-					)
+					if( data !== null && data !== "" )
+						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			},
 			{ "data" : "fecha_escalado"},
@@ -238,7 +234,13 @@ $(function(){
 			{ "data" : "reporte_escalado"},
 			//{ "data" : "proveedor_escalado"},
 			{ "data" : "fecha_fin_escalado"},
-			{ "data" : "solucion_escalado"}
+			{ 
+				"data" : "solucion_escalado",
+				"createdCell" : function( td, data ) {
+					if( data !== null && data !== "" )
+						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
+				}
+			}
 			// {
 			// 	// "targets" : 0,
 			// 	"class" : "details-control",
