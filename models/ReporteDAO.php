@@ -60,7 +60,7 @@ class ReporteDAO
 	}
 
 	public static function Equipos($filtro = ""){
-		$where = empty($filtro) ? "" : "AND $filtro";
+		$where = ""; //empty($filtro) ? "" : "AND $filtro";
 		$sql = "SELECT id, no label FROM equipos WHERE ux = 0 $where ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
