@@ -141,6 +141,15 @@ class InformeDAO
 		}
 		ksort($s);
 
+		foreach ($i as $ki => $vi) {
+			foreach ($vi as $kvi => $vvi) {
+				foreach ($vvi as $kvvi => $vvvi) {
+					$i[$ki][$kvi][$kvvi] = count($vvvi);
+				}
+				arsort($i[$ki][$kvi]);
+			}
+		}
+
 		$keys['head'] = $s;
 		$keys['body'] = $d;
 		$keys['ing'] = $i;

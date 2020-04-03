@@ -94,7 +94,7 @@ $(function(){
 		div.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros</strong></a>');
 
 		$.each(ing, function(i, v){
-			div.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.length+'</span>'+i+'</a>');
+			div.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v+'</span>'+i+'</a>');
 		})
 		$("#table-conteo-ingeniero").empty();
 		$("#table-conteo-ingeniero").append(div[0].outerHTML);
