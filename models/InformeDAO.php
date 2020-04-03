@@ -109,15 +109,18 @@ class InformeDAO
 	public static function InformeEventosConteo($f = null){
 		$filtros = str_replace(' WHERE ', ' AND ', self::Filtro($f));
 
-		$sql =  "SELECT a.id, c.cl siglas, SUBSTR(fecha_soporte, 1, 10) dia, nombre
+		$sql =  "SELECT a.id, c.cl siglas, turno, SUBSTR(fecha_soporte, 1, 10) dia, CONCAT( SUBSTR(turno, 1, 1), ' - ' ,nombre) nombre
 		FROM bitacora a 
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		LEFT JOIN ad_tur d ON b.id = d.id_usr
 		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) $filtros
-		ORDER BY a.estado DESC";
+		ORDER BY a.fecha_soporte";
 
 		$data = self::executeQuery($sql);
 		$keys = array();
+
+		$s = array('Lec' => 0, 'Leg' => 0, 'Lep' => 0, 'Ler' => 0, 'Let' => 0);
 
 		$t = array();
 		$d = array();
@@ -125,6 +128,10 @@ class InformeDAO
 
 		foreach ($data as $key => $value) {
 			$t[$value['siglas']] = 0;
+
+			if( ! array_key_exists($value['dia'], $d) )
+				$d[$value['dia']] = array('Lec' => [], 'Leg' => [], 'Lep' => [], 'Ler' => [], 'Let' => []);
+
 			$d[$value['dia']][$value['siglas']][] = $value;
 			$i[$value['dia']][$value['siglas']][$value['nombre']][] = $value['id'];
 		}
@@ -132,9 +139,9 @@ class InformeDAO
 		foreach ($d as $k => $v) {
 			ksort($d[$k]);
 		}
-		ksort($t);
+		ksort($s);
 
-		$keys['head'] = $t;
+		$keys['head'] = $s;
 		$keys['body'] = $d;
 		$keys['ing'] = $i;
 		$keys['sql'] = $sql;

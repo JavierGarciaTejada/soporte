@@ -112,6 +112,7 @@ $(function(){
 		$("#detalle").empty();
 		var serial = $("#form-filtro").serialize();
 		getJson(e.url + "getInformeFiltrado", serial, function(a){
+			console.log(a);
 			e.objeto = a;
 			detalle(a.data.total);
 			if( a.data.total.length == 0 ) {
