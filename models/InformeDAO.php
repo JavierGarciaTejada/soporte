@@ -24,7 +24,10 @@ class InformeDAO
 	public static function Filtro($filtro){
 		$f = array();
 
-		// array_push($f, "estado = 'Liquidado'");
+		array_push($f, "estado <> 'Cancelado'");
+
+		if( $filtro == null )
+			return ' WHERE '.join(" AND ", $f);
 
 		if( ! empty($filtro['fecha_soporte']) )
 			array_push($f, "fecha_soporte >= '".$filtro['fecha_soporte']."'");
@@ -41,7 +44,7 @@ class InformeDAO
 	}
 
 	public static function InformeEventos($f = null){
-		$filtros = ( $f === null ) ? "" : self::Filtro($f);
+		$filtros = self::Filtro($f);
 		$keys = array();
 
 		$sql = "SELECT a.id, a.comentarios, a.estado, 
@@ -93,10 +96,50 @@ class InformeDAO
 		}
 
 		array_multisort($keys);
+
+		$keys['conteo'] = self::InformeEventosConteo($f); 
+
 		$informe['data'] = $keys;
 		$informe['sql'] = $sql;
 
 		return $informe;
+
+	}
+
+	public static function InformeEventosConteo($f = null){
+		$filtros = str_replace(' WHERE ', ' AND ', self::Filtro($f));
+
+		$sql =  "SELECT a.id, c.cl siglas, SUBSTR(fecha_soporte, 1, 10) dia, nombre
+		FROM bitacora a 
+		LEFT JOIN si_usr b ON id_ingeniero = b.id 
+		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) $filtros
+		ORDER BY a.estado DESC";
+
+		$data = self::executeQuery($sql);
+		$keys = array();
+
+		$t = array();
+		$d = array();
+		$i = array();
+
+		foreach ($data as $key => $value) {
+			$t[$value['siglas']] = 0;
+			$d[$value['dia']][$value['siglas']][] = $value;
+			$i[$value['dia']][$value['siglas']][$value['nombre']][] = $value['id'];
+		}
+
+		foreach ($d as $k => $v) {
+			ksort($d[$k]);
+		}
+		ksort($t);
+
+		$keys['head'] = $t;
+		$keys['body'] = $d;
+		$keys['ing'] = $i;
+		$keys['sql'] = $sql;
+
+		return $keys;
 
 	}
 

@@ -50,8 +50,6 @@ $(function(){
 			var titulo = titulos[ind];
 			div.append('<a href="#" class="list-group-item text-center active"><strong>'+titulo+'</strong></a>');
 
-			
-
 			$.each(val, function(i, v){
 				var badgeValue = ( Array.isArray(v) ) ? v.length : v;
 				var texto = ( ind == 'Promedio' || ind == 'Gerencias' || ind == 'total' ) ? i : i.substring(2);
@@ -64,19 +62,43 @@ $(function(){
 			$("#contenido #"+ind).append(div[0].outerHTML);
 		})
 
+
+		$("#tabla-conteo-gerencia thead, #tabla-conteo-gerencia tbody").empty();
+
+		var thead = $("<tr>");
+		thead.append("<th>Día</th>")
+		$.each(a.data.conteo.head, function(a,  b){
+			thead.append("<th>"+a+"</th>")
+		})
+		$("#tabla-conteo-gerencia thead").append( thead[0].outerHTML );
+
+		$.each(a.data.conteo.body, function(a,  b){
+			var trd = $("<tr>");
+			trd.append("<td>"+a+"</td>");
+			$.each(b, function(z, y){
+				trd.append( "<td data-ref='"+z+"' data-day='"+a+"' class='cont'>"+y.length+"</td>" )
+			})
+			$("#tabla-conteo-gerencia tbody").append( trd[0].outerHTML );
+		})
+
 	}
 
-	// var promedios = function(a){
-	// 	var prom = $('<div>').addClass('col-sm-6 list-group');
-	// 	var titleProm = '<a href="#" class="list-group-item text-center active"><strong>Tiempo promedio de atención (horas)</strong></a>';
-	// 	prom.append(titleProm);
-	// 	$.each(a, function(i, v){
-	// 		var itemProm = '<a href="#" class="list-group-item"><span class="badge">'+v.tiempo+'</span>'+v.evento+'</a>';
-	// 		prom.append(itemProm);
-	// 	})
-	// 	$("#promedio").empty();
-	// 	$("#promedio").append(prom[0].outerHTML);
-	// }
+	$(document).on('click', '.cont', function(){
+		var ref = $(this).attr('data-ref');
+		var day = $(this).attr('data-day');
+
+		console.log(e.objeto.data.conteo.body[day][ref]);
+		var ing = e.objeto.data.conteo.ing[day][ref];
+
+		var div = $('<div>').addClass('col-sm-8 list-group');
+		div.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros</strong></a>');
+
+		$.each(ing, function(i, v){
+			div.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.length+'</span>'+i+'</a>');
+		})
+		$("#table-conteo-ingeniero").empty();
+		$("#table-conteo-ingeniero").append(div[0].outerHTML);
+	})
 
 	getJson(e.url + "getInforme", null, function(a){
 		e.objeto = a;
@@ -85,11 +107,6 @@ $(function(){
 		conteo(a);
 	})
 
-	/*getJson(e.url + "getPromedio", null, function(a){
-		promedios(a);
-	})*/
-
-
 	$("#filtrar").click(function(){
 
 		$("#detalle").empty();
@@ -97,8 +114,12 @@ $(function(){
 		getJson(e.url + "getInformeFiltrado", serial, function(a){
 			e.objeto = a;
 			detalle(a.data.total);
-			if( a.data.total.length == 0 ) $(".itm").empty();
-			else conteo(a);	
+			if( a.data.total.length == 0 ) {
+				$(".itm").empty();
+			}
+			else { 
+				conteo(a);
+			}
 		})
 
 		// getJson(e.url + "getPromedioFiltrado", serial, function(a){

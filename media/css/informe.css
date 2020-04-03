@@ -9,3 +9,7 @@ a.list-group-item, button.list-group-item {
     color: #777;
     background-color: #eee;
 }
+
+.cont:hover{
+	background-color: #ffd24d;
+}
