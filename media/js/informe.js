@@ -44,7 +44,7 @@ $(function(){
 		'REFACCIÓN' : "list-group-item-success"
 	}
 
-	var conteo = function(a){
+	var conteo = function(a, filtro){
 		$.each(a.data, function(ind, val){
 			var div = $('<div>').addClass('col-sm-8 list-group');
 			var titulo = titulos[ind];
@@ -76,7 +76,8 @@ $(function(){
 			var trd = $("<tr>");
 			trd.append("<td>"+a+"</td>");
 			$.each(b, function(z, y){
-				trd.append( "<td data-ref='"+z+"' data-day='"+a+"' class='cont'>"+y.length+"</td>" )
+				var cls = ( y.length > 0 ) ? "cont" : "";
+				trd.append( "<td data-ref='"+z+"' data-day='"+a+"' data-cont='"+y.length+"' class='"+cls+"'>"+y.length+"</td>" )
 			})
 			$("#tabla-conteo-gerencia tbody").append( trd[0].outerHTML );
 		})
@@ -86,25 +87,42 @@ $(function(){
 	$(document).on('click', '.cont', function(){
 		var ref = $(this).attr('data-ref');
 		var day = $(this).attr('data-day');
+		var c = $(this).attr('data-cont');
 
-		console.log(e.objeto.data.conteo.body[day][ref]);
-		var ing = e.objeto.data.conteo.ing[day][ref];
+		var serial = {
+			dia: day,
+			siglas: ref
+		};
 
-		var div = $('<div>').addClass('col-sm-8 list-group');
-		div.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros</strong></a>');
+		getJson(e.url + "getInformeEventosDiaSiglas", serial, function(a){
+			
+			var divRemoto = $('<div>').addClass('col-sm-6 list-group');
+			var divSitio = $('<div>').addClass('col-sm-6 list-group');
 
-		$.each(ing, function(i, v){
-			div.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v+'</span>'+i+'</a>');
+			divRemoto.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Remoto</strong></a>');
+			divSitio.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Sitio</strong></a>');
+
+			$.each(a.data, function(i, v){
+				if( v.sitio == "Remoto" )
+					divRemoto.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
+				else 
+					divSitio.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
+			})
+
+			$("#table-conteo-ingeniero").empty();
+			$("#table-conteo-ingeniero").append(divRemoto[0].outerHTML);
+			$("#table-conteo-ingeniero").append(divSitio[0].outerHTML);
+
 		})
-		$("#table-conteo-ingeniero").empty();
-		$("#table-conteo-ingeniero").append(div[0].outerHTML);
+
+		
 	})
 
 	getJson(e.url + "getInforme", null, function(a){
 		e.objeto = a;
 		console.log(a);
 		detalle(a.data.total);
-		conteo(a);
+		conteo(a, false);
 	})
 
 	$("#filtrar").click(function(){
@@ -119,7 +137,7 @@ $(function(){
 				$(".itm").empty();
 			}
 			else { 
-				conteo(a);
+				conteo(a, true);
 			}
 		})
 
@@ -133,7 +151,7 @@ $(function(){
 		$("#detalle").empty();
 		getJson(e.url + "getInforme", null, function(a){
 			detalle(a.data.total);
-			conteo(a);
+			conteo(a, false);
 		})
 	
 		// getJson(e.url + "getPromedio", null, function(a){

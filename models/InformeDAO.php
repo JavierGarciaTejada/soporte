@@ -114,7 +114,7 @@ class InformeDAO
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
 		LEFT JOIN ad_tur d ON b.id = d.id_usr
-		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) AND sitio = 'Remoto' $filtros
+		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) $filtros
 		ORDER BY a.fecha_soporte";
 
 		$data = self::executeQuery($sql);
@@ -159,5 +159,32 @@ class InformeDAO
 
 	}
 
+
+	public static function InformeEventosDiaSiglas($filtros){
+
+		$dia = $filtros['dia'];
+		$siglas = $filtros['siglas'];
+
+		$sql = "SELECT dia, cl, i.nombre, CONCAT( SUBSTR(turno, 1, 1), ' - ' ,i.nombre) nt, 
+		if(total is null, 0, total) total, turno, sitio FROM 
+		(SELECT UPPER(concat(ap,' ',am,' ',b.no)) nombre,a.turno, a.sitio, b.id, c.cl
+		FROM ad_tur a 
+		LEFT JOIN si_usr b ON a.id_usr = b.id
+		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		WHERE b.lr = 819056264937815 AND c.cl = '$siglas' GROUP BY a.id_usr) i 
+		LEFT JOIN 
+		(SELECT nombre, SUBSTR(fecha_soporte, 1, 10) dia, count(1) total
+		FROM bitacora WHERE SUBSTR(fecha_soporte, 1, 10) = '$dia' GROUP BY nombre, dia) bi 
+		ON i.nombre = bi.nombre 
+		ORDER BY total DESC";
+
+		$data = self::executeQuery($sql);
+
+		$keys['sql'] = $sql;
+		$keys['data'] = $data;
+
+		return $keys;
+
+	}
 	
 }

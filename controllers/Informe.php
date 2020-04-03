@@ -70,6 +70,14 @@ class Informe
 		Funciones::imprimeJson($informe);
 	}
 
+	public function getInformeEventosDiaSiglas(){
+		$data = Funciones::getDataGet();
+		$informe = InformeDAO::InformeEventosDiaSiglas($data);
+		Funciones::imprimeJson($informe);
+	}
+
+	
+
 	// public function getPromedio(){
 	// 	$promedio = InformeDAO::InformePromedio();
 	// 	Funciones::imprimeJson($promedio);
