@@ -114,7 +114,7 @@ class InformeDAO
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
 		LEFT JOIN ad_tur d ON b.id = d.id_usr
-		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) $filtros
+		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) AND sitio = 'Remoto' $filtros
 		ORDER BY a.fecha_soporte";
 
 		$data = self::executeQuery($sql);
