@@ -95,6 +95,8 @@ $(function(){
 		};
 
 		getJson(e.url + "getInformeEventosDiaSiglas", serial, function(a){
+
+			console.log(a);
 			
 			var divRemoto = $('<div>').addClass('col-sm-6 list-group');
 			var divSitio = $('<div>').addClass('col-sm-6 list-group');
