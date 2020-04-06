@@ -4,6 +4,10 @@ $(function(){
 		url: path + "index.php/reporte/"
 	}
 
+	var puesto = $("#puesto").val();
+	var role = $("#role").val();
+	var autorizacionCambios = ( puesto == "Gerente" || role == "Administrador") ? true : false;
+
 	$.datetimepicker.setLocale('es');
 	$('#fecha_soporte').datetimepicker({
 		dayOfWeekStart : 1,
@@ -201,6 +205,9 @@ $(function(){
 						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
 						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
 					}
+
+					if( data.estado == "Liquidado" && autorizacionCambios)
+					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );;
 
 					$( td ).html( '' + botones.join(' ') + '' );
 				}
