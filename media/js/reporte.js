@@ -10,12 +10,15 @@ $(function(){
 
 	$.datetimepicker.setLocale('es');
 	$('#fecha_soporte').datetimepicker({
-		dayOfWeekStart : 1,
+		minDate:'-1970/01/5',
+ 		maxDate:'+1970/01/01',
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
 		startDate:	'NOW()'
 	});
 	$('#fecha_falla').datetimepicker({
+		minDate:'-1970/01/10',
+ 		maxDate:'+1970/01/01',
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
@@ -54,7 +57,7 @@ $(function(){
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-		startDate:	'NOW()',
+		// startDate:	'NOW()',
 		onShow:function( ct ){
 			this.setOptions({
 				minDate:$('#fecha_soporte_upd').val() ? $('#fecha_soporte_upd').val() : false
@@ -65,6 +68,8 @@ $(function(){
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({
+		minDate:'-1970/01/5',
+ 		maxDate:'+1970/01/01',
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
@@ -226,6 +231,7 @@ $(function(){
 						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			},
+			{ "data" : "lugar"},
 
 			{ "data" : "cobo"},
 			{ "data" : "subevento"},

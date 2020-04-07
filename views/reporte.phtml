@@ -23,6 +23,7 @@
 						<th>Equipo</th>
 						<th>Proveedor</th>
 						<th>Falla</th>
+						<th>Lugar</th>
 
 						<th>Cobo</th>
 						<th>Tipo Evento</th>
@@ -116,7 +117,12 @@
 						<form class="form" id="form-finalizar" style="padding: 0px 20px">
 
 							<input type="hidden" id="id_rep_fin" name="id_rep_fin">
-							<input type="hidden" name="fecha_soporte_upd" id="fecha_soporte_upd">
+							<!-- <input type="hidden" name="fecha_soporte_upd" id="fecha_soporte_upd"> -->
+							<div class="form-group col-sm-12 col-md-6">
+							    <label for="fecha_soporte_upd">Inicio Soporte</label>
+							    <input type="text" class="form-control input-sm" name="fecha_soporte_upd" id="fecha_soporte_upd" readonly="readonly">
+							</div>
+
 							<div class="form-group col-sm-12 col-md-6">
 							    <label for="fecha_fin_falla_upd">Fin Falla</label>
 							    <input type="text" class="form-control input-sm" name="fecha_fin_falla_upd" id="fecha_fin_falla_upd">
@@ -211,7 +217,7 @@
 
 						<div class="row">
 							
-							<div>
+							<div class="row">
 								<input type="hidden" id="id" name="id">
 								<div class="form-group col-sm-12 col-md-3">
 									<input type="hidden" name="id_ingeniero" id="id_ingeniero">
@@ -250,7 +256,7 @@
 								</div>
 							</div>
 
-							<div>
+							<div class="row">
 								<div class="form-group col-sm-12 col-md-2">
 								    <label for="subevento">Tipo</label>
 								    <select class="form-control input-sm" name="subevento" id="subevento">
@@ -299,7 +305,7 @@
 								</div>
 							</div>
 
-							<div>
+							<div class="row">
 								<div class="form-group col-sm-12 col-md-2">
 								    <label for="equipo">Equipo</label>
 								    <!-- <input type="text" class="form-control input-sm auc" name="equipo" id="equipo"> -->
@@ -350,7 +356,7 @@
 								</div>
 							</div>
 
-							<div>
+							<div class="row">
 								<div class="form-group col-sm-12 col-md-2">
 								    <label for="imputable">Imputable</label>
 								    <select class="form-control input-sm" name="imputable" id="imputable">
