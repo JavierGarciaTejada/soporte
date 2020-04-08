@@ -171,7 +171,7 @@ class InformeDAO
 		FROM ad_tur a 
 		LEFT JOIN si_usr b ON a.id_usr = b.id
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
-		WHERE b.lr = 819056264937815 AND c.cl = '$siglas' GROUP BY a.id_usr) i 
+		WHERE b.pu <> 919056264924930 AND c.cl = '$siglas' GROUP BY a.id_usr) i 
 		LEFT JOIN 
 		(SELECT nombre, SUBSTR(fecha_soporte, 1, 10) dia, count(1) total
 		FROM bitacora WHERE SUBSTR(fecha_soporte, 1, 10) = '$dia' GROUP BY nombre, dia) bi 

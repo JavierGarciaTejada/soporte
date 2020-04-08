@@ -29,7 +29,7 @@ class ReporteDAO
 
 	public static function BitacoraReportes($filtro = ""){
 		$where = empty($filtro) ? "" : "WHERE $filtro";
-		$sql = "SELECT a.*, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix ORDER BY a.id desc";
+		$sql = "SELECT a.*, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
@@ -83,14 +83,22 @@ class ReporteDAO
 		return $total;
 	}
 
+	public static function Turno($id){
+		$sql = "SELECT turno, sitio FROM ad_tur WHERE id_usr = $id";
+		$t = self::executeQuery($sql);
+		return $t[0];
+	}
+
 	public static function RegistraReporte($data){
 
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit)";
 			Conexion::$connect = new Conexion();
+
+			$t = self::Turno($data['id_ingeniero']);
 
 			Conexion::$query = $sql;
 			Conexion::$prepare = Conexion::$connect->prepare(Conexion::$query);
@@ -127,9 +135,13 @@ class ReporteDAO
 			$now = date('Y-m-d H:i:s');
 			$year = date('Y');
 			Conexion::$prepare->bindParam(':fcap', $now);
-			// Conexion::$prepare->bindParam(':fcan', "0000/00/00 00:00");
 			Conexion::$prepare->bindParam(':y', $year);
 			Conexion::$prepare->bindParam(':ac', $data['activo']);
+
+			Conexion::$prepare->bindParam(':tur', $t['turno']);
+			Conexion::$prepare->bindParam(':sit', $t['sitio']);
+
+
 			$result = Conexion::$prepare->execute();
 			return $result;
 		}catch( Exception $e ){
