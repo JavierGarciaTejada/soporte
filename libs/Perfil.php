@@ -23,10 +23,14 @@ class Perfil
 		$filtros = array();
 		$ixCli 	= Session::getSession("siglas");
 		$role = Session::getSession("role");
+		$id = Session::getSession("id");
 
 		if( $role === "Administrador" ) return $filtros;
 
-		array_push($filtros, " ad_sig.cl = '$ixCli' ");
+		$gcl = " ad_sig.cl = '$ixCli' ";
+		if( (int)$id == 43 ) $gcl = " ad_sig.cl IN ('$ixCli', 'Ler') ";
+
+		array_push($filtros, $gcl);
 		return implode(" AND ", $filtros);
 
 	}
