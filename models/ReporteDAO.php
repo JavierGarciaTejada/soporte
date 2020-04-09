@@ -69,7 +69,7 @@ class ReporteDAO
 
 	public static function Lugares($filtro = ""){
 		$where = empty($filtro) ? "" : "AND $filtro";
-		$sql = "SELECT id, no label FROM lugares WHERE ux = 0 $where ORDER BY no";
+		$sql = "SELECT id, no label FROM lugares WHERE ux = 0 ORDER BY no";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
