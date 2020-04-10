@@ -54,7 +54,7 @@ class InformeDAO
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
 		$filtros 
-		ORDER BY a.estado DESC";
+		ORDER BY c.cl";
 
 		$data = self::executeQuery($sql);
 		$keys['total'] = [];
