@@ -22,6 +22,7 @@
 						<th>Impacto</th>
 						<th>Equipo</th>
 						<th>Proveedor</th>
+						<th>Nombre / CLLI</th>
 						<th>Falla</th>
 						<th>Lugar</th>
 
@@ -318,6 +319,11 @@
 								    <select class="form-control input-sm" name="proveedor" id="proveedor"></select>
 								</div>
 
+								<div class="form-group col-sm-12 col-md-2">
+								    <label for="equipo_clli">Nombre Equipo / CLLI</label>
+								    <input type="text" class="form-control input-sm" name="equipo_clli" id="equipo_clli">
+								</div>
+
 								<div class="form-group col-sm-12 col-md-4">
 								    <label for="comentarios">Falla</label>
 								    <textarea class="form-control input-sm" name="comentarios" id="comentarios" cols="10" rows="1"></textarea>
@@ -328,6 +334,9 @@
 								    <input type="text" class="form-control input-sm" name="cobo" id="cobo">
 								</div>
 
+							</div>
+
+							<div class="row">
 
 								<div class="form-group col-sm-12 col-md-2">
 								    <label for="causa_falla">Causa Falla</label>
@@ -354,9 +363,7 @@
 										<option value="Software">Software</option>
 								    </select>
 								</div>
-							</div>
 
-							<div class="row">
 								<div class="form-group col-sm-12 col-md-2">
 								    <label for="imputable">Imputable</label>
 								    <select class="form-control input-sm" name="imputable" id="imputable">

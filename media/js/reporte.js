@@ -224,6 +224,7 @@ $(function(){
 			{ "data" : "impacto"},
 			{ "data" : "equipo"},
 			{ "data" : "proveedor"},
+			{ "data" : "equipo_clli"},
 			{ 
 				"data" : "comentarios",
 				"createdCell" : function( td, data ) {
@@ -296,12 +297,6 @@ $(function(){
 		var serial = $("#form-reportes").serialize();
 		var captura = $( "#nombre option:selected" ).attr('data-ref');
 		serial += "&captura=" + captura;
-
-		// if( $("#id_reporta").val() == "" ){
-		// 	alert("Seleccione quien reporta del listado, si no aparece favor de notificar.");
-		// 	$("#nombre_reporta").val("").focus();
-		// 	return false;
-		// }
 
 		var ope = "registraReporte";
 		if( $("#id").val() != "" )

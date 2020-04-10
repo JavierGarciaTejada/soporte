@@ -94,8 +94,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli)";
 			Conexion::$connect = new Conexion();
 
 			$t = self::Turno($data['id_ingeniero']);
@@ -121,6 +121,7 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':fecha_reporte_falla', $data['fecha_reporte_falla']);
 			Conexion::$prepare->bindParam(':lugar', $data['lugar']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
+			Conexion::$prepare->bindParam(':equipo_clli', $data['equipo_clli']);
 
 			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
 			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
@@ -180,7 +181,8 @@ class ReporteDAO
 			area = :area,
 
 			solucion = :solucion,
-			equipo = :equipo
+			equipo = :equipo,
+			equipo_clli = :equipo_clli
 			WHERE id = :id";
 			Conexion::$connect = new Conexion();
 
@@ -214,6 +216,7 @@ class ReporteDAO
 			// Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
 			Conexion::$prepare->bindParam(':solucion', $data['solucion']);
 			Conexion::$prepare->bindParam(':equipo', $data['equipo']);
+			Conexion::$prepare->bindParam(':equipo_clli', $data['equipo_clli']);
 
 			Conexion::$prepare->bindParam(':id', $data['id']);
 			$result = Conexion::$prepare->execute();
