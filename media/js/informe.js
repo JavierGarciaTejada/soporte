@@ -98,23 +98,39 @@ $(function(){
 		getJson(e.url + "getInformeEventosDiaSiglas", serial, function(a){
 
 			console.log(a);
-			
-			var divRemoto = $('<div>').addClass('col-sm-6 list-group');
-			var divSitio = $('<div>').addClass('col-sm-6 list-group');
-
-			divRemoto.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Remoto</strong></a>');
-			divSitio.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Sitio</strong></a>');
+			$("#tabla-conteo-ingeniero tbody").empty();
 
 			$.each(a.data, function(i, v){
-				if( v.sitio == "Remoto" )
-					divRemoto.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
-				else 
-					divSitio.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
+
+				var cls = ( v.sitio == "Remoto" ) ? "bg-warning" : "";
+				var tr = $("<tr>").addClass(cls);
+				tr.append( $("<td>").text(v.nombre) );
+				tr.append( $("<td>").text(v.turno) );
+				tr.append( $("<td>").text(v.sitio) );
+				tr.append( $("<td>").text(v.CA) );
+				tr.append( $("<td>").text(v.SA) );
+				tr.append( $("<td>").text(v.total) );
+				$("#tabla-conteo-ingeniero tbody").append( tr[0].outerHTML );
 			})
 
-			$("#table-conteo-ingeniero").empty();
-			$("#table-conteo-ingeniero").append(divRemoto[0].outerHTML);
-			$("#table-conteo-ingeniero").append(divSitio[0].outerHTML);
+
+			
+			// var divRemoto = $('<div>').addClass('col-sm-6 list-group');
+			// var divSitio = $('<div>').addClass('col-sm-6 list-group');
+
+			// divRemoto.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Remoto</strong></a>');
+			// divSitio.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Sitio</strong></a>');
+
+			// $.each(a.data, function(i, v){
+			// 	if( v.sitio == "Remoto" )
+			// 		divRemoto.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
+			// 	else 
+			// 		divSitio.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
+			// })
+
+			// $("#table-conteo-ingeniero").empty();
+			// $("#table-conteo-ingeniero").append(divRemoto[0].outerHTML);
+			// $("#table-conteo-ingeniero").append(divSitio[0].outerHTML);
 
 		})
 

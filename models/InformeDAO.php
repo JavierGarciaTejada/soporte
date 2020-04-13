@@ -166,16 +166,22 @@ class InformeDAO
 		$siglas = $filtros['siglas'];
 
 		$sql = "SELECT dia, cl, i.nombre, CONCAT( SUBSTR(turno, 1, 1), ' - ' ,i.nombre) nt, 
-		if(total is null, 0, total) total, turno, sitio FROM 
+		if(total is null, 0, total) total, turno, sitio, tur, sit, if(CA IS NULL, 0, CA) CA, if(SA IS NULL, 0, SA) SA FROM 
 		(SELECT UPPER(concat(ap,' ',am,' ',b.no)) nombre,a.turno, a.sitio, b.id, c.cl
 		FROM ad_tur a 
 		LEFT JOIN si_usr b ON a.id_usr = b.id
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
 		WHERE b.pu <> 919056264924930 AND c.cl = '$siglas' GROUP BY a.id_usr) i 
 		LEFT JOIN 
-		(SELECT nombre, SUBSTR(fecha_soporte, 1, 10) dia, count(1) total
+		(SELECT nombre, SUBSTR(fecha_soporte, 1, 10) dia, tur, sit, count(1) total
 		FROM bitacora WHERE SUBSTR(fecha_soporte, 1, 10) = '$dia' GROUP BY nombre, dia) bi 
 		ON i.nombre = bi.nombre 
+		LEFT JOIN 
+		( SELECT count(1) CA, id_ingeniero FROM bitacora WHERE impacto LIKE '%ca' AND SUBSTR(fecha_soporte, 1, 10) = '$dia' GROUP BY id_ingeniero ) imp_ca
+		ON i.id = imp_ca.id_ingeniero
+		LEFT JOIN 
+		( SELECT count(1) SA, id_ingeniero FROM bitacora WHERE impacto LIKE '%sa' AND SUBSTR(fecha_soporte, 1, 10) = '$dia' GROUP BY id_ingeniero ) imp_sa
+		ON i.id = imp_sa.id_ingeniero
 		ORDER BY total DESC";
 
 		$data = self::executeQuery($sql);
