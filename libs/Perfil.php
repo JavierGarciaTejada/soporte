@@ -28,7 +28,7 @@ class Perfil
 		if( $role === "Administrador" ) return $filtros;
 
 		$gcl = " ad_sig.cl = '$ixCli' ";
-		if( (int)$id == 43 ) $gcl = " ad_sig.cl IN ('$ixCli', 'Ler') ";
+		if( (int)$id == 43 || (int)$id == 72 ) $gcl = " ad_sig.cl IN ('$ixCli', 'Ler') ";
 
 		array_push($filtros, $gcl);
 		return implode(" AND ", $filtros);
