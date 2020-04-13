@@ -52,6 +52,7 @@ $(function(){
 
 			$.each(val, function(i, v){
 				var badgeValue = ( Array.isArray(v) ) ? v.length : v;
+				if( badgeValue == null ) badgeValue = 'N/A';
 				var texto = ( ind == 'Promedio' || ind == 'Gerencias' || ind == 'total' ) ? i : i.substring(2);
 				var color = ( ind == 'Liquidado' || ind == 'En Proceso' ) ? colores[texto] : "";
 				div.append('<a href="#" class="list-group-item item-conteo '+color+'" data-ref="'+ind+'" data-ind="'+i+'"><span class="badge">'+badgeValue+'</span>'+texto+'</a>');
@@ -120,7 +121,19 @@ $(function(){
 		
 	})
 
-	getJson(e.url + "getInforme", null, function(a){
+	var dia = moment(new Date()).format("YYYY/MM/DD");
+	var hoy_inicio = dia + " 00:00:00";
+	var hoy_fin = dia + " 23:59:59";
+
+	$("#fecha_soporte").val(hoy_inicio);
+	$("#fecha_fin_falla").val(hoy_fin);
+
+	// var serial = { 
+	// 	fecha_soporte: hoy_inicio,
+	// 	fecha_fin_falla: hoy_fin
+	// }
+	var serial = $("#form-filtro").serialize();
+	getJson(e.url + "getInformeFiltrado", serial, function(a){
 		e.objeto = a;
 		console.log(a);
 		detalle(a.data.total);
