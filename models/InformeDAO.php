@@ -48,7 +48,8 @@ class InformeDAO
 		$keys = array();
 
 		$sql = "SELECT a.id, a.comentarios, a.estado, 
-		CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, UPPER(evento) evento, 
+		CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, impacto, fecha_soporte, UPPER(evento) evento,
+		round((TIMESTAMPDIFF(SECOND, fecha_soporte, NOW()) / 60), 2) transcurrido,
 		if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo
 		FROM bitacora a 
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 

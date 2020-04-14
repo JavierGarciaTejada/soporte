@@ -200,7 +200,7 @@ $(function(){
 		var values = e.objeto.data[ref][ind];
 		var table = $("<table>").addClass('table table-bordered');
 		var thead = $("<thead>");
-		var columnas = "<tr><th>Reporte</th><th>Evento</th><th>Descripción</th></tr>";
+		var columnas = "<tr><th>Reporte</th><th>Evento</th><th>Descripción</th><th>Impacto</th><th>Inicio Soporte</th><th>Min Transcurridos</th></tr>";
 		thead.append(columnas);
 		table.append(thead);
 
@@ -209,6 +209,9 @@ $(function(){
 			tr.append( $("<td>").html(element.folio) );
 			tr.append( $("<td>").html(element.evento) );
 			tr.append( $("<td>").html(element.comentarios) );
+			tr.append( $("<td>").html(element.impacto) );
+			tr.append( $("<td>").html(element.fecha_soporte) );
+			tr.append( $("<td>").html(element.transcurrido) );
 			table.append(tr);
 		});
 		$("#detalle").empty();
