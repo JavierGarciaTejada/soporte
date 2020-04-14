@@ -21,8 +21,10 @@ a.list-group-item, button.list-group-item {
 }
 
 
-.afectacion strong{
+.afectacion tbody strong{
 	font-size: 14px !important;
+	float: right;
+	margin-right: 5px;
 }
 
 .bg-proceso{
