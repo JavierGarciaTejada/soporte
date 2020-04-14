@@ -76,6 +76,12 @@ class Informe
 		Funciones::imprimeJson($informe);
 	}
 
+	public function getInformeProceso(){
+		$data = Funciones::getDataGet();
+		$informe = InformeDAO::InformeProceso($data);
+		Funciones::imprimeJson($informe);
+	}
+
 	
 
 	// public function getPromedio(){

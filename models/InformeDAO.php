@@ -74,8 +74,8 @@ class InformeDAO
 
 		}
 
-		ksort($keys['Liquidado']);
-		ksort($keys['En Proceso']);
+		//ksort($keys['Liquidado']);
+		//ksort($keys['En Proceso']);
 
 		$sqlPromedio = "SELECT if(evento <> 'Falla', UPPER(evento), if(impacto LIKE '%SA', 'FALLA SIN AFECTACION', 'FALLA CON AFECTACION')) evento, 
 		ROUND(AVG(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60),2) tiempo 
@@ -99,6 +99,7 @@ class InformeDAO
 		array_multisort($keys);
 
 		$keys['conteo'] = self::InformeEventosConteo($f); 
+		$keys['afectacion'] = self::InformeEventosImpactoEvento($f);
 
 		$informe['data'] = $keys;
 		$informe['sql'] = $sql;
@@ -191,6 +192,88 @@ class InformeDAO
 		$keys['data'] = $data;
 
 		return $keys;
+
+	}
+
+	public static function InformeEventosImpactoEvento($f = null){
+
+		$filtros = self::Filtro($f);
+		$global = array();
+
+		$sqlTotal = "SELECT COUNT(1) c, if(estado = 'En Proceso', 'p_total', if(estado = 'Liquidado', 'l_total', estado)) id FROM 
+		bitacora a
+		INNER JOIN si_usr b ON a.id_ingeniero = b.id
+		INNER JOIN ad_sig c ON b.cl = c.ix 
+		$filtros GROUP BY estado";
+		$total = self::executeQuery($sqlTotal);
+
+		foreach ($total as $keyT => $valueT) 
+			$global[ $valueT['id'] ] = $valueT['c'];
+
+		$sqlImpacto = "SELECT COUNT(1) c, estado, if(impacto LIKE '%SA', 'sa', 'ca') afectacion, 
+		CONCAT(if(estado = 'En Proceso', 'p_', if(estado = 'Liquidado', 'l_', 'c_')), if(impacto LIKE '%SA', 'sa', 'ca')) id
+		FROM bitacora a
+		INNER JOIN si_usr b ON a.id_ingeniero = b.id
+		INNER JOIN ad_sig c ON b.cl = c.ix 
+		$filtros GROUP BY estado, afectacion";
+		$impacto = self::executeQuery($sqlImpacto);
+
+		foreach ($impacto as $keyI => $valueI) 
+			$global[ $valueI['id'] ] = $valueI['c'];
+
+		$sqlEvento = "SELECT estado, if(impacto LIKE '%SA', 'SA', 'CA') afectacion, evento, COUNT(1) c,
+		CONCAT(if(estado = 'En Proceso', 'p_', if(estado = 'Liquidado', 'l_', 'c_')),if(impacto LIKE '%SA', 'sa', 'ca'),'_', lower(substr(evento, 1, 2))) id
+		FROM bitacora a
+		INNER JOIN si_usr b ON a.id_ingeniero = b.id
+		INNER JOIN ad_sig c ON b.cl = c.ix
+		$filtros GROUP BY estado, afectacion, evento";
+		$evento = self::executeQuery($sqlEvento);
+
+		foreach ($evento as $keyE => $valueE) 
+			$global[ $valueE['id'] ] = $valueE['c'];
+
+
+		return $global;
+
+	}
+
+
+	public static function InformeProceso($f){
+
+		$filtros = array();
+		if( ! empty($f['estado']) )
+			array_push($filtros, "estado = '".$f['estado']."'");
+
+		if( ! empty($f['afectacion']) )
+			array_push($filtros, "impacto LIKE '%".$f['afectacion']."'");
+
+		if( ! empty($f['evento']) )
+			array_push($filtros, "evento = '".$f['evento']."'");
+
+		if( ! empty($f['fecha_soporte']) )
+			array_push($filtros, "fecha_soporte >= '".$f['fecha_soporte']."'");
+
+		if( ! empty($f['fecha_fin_falla']) )
+			array_push($filtros,"fecha_soporte <= '".$f['fecha_fin_falla']."'");
+
+		if( ! empty($f['gerencia']) )
+			array_push($filtros,"c.cl = '".$f['gerencia']."'");
+
+		$fil = ( count($filtros) > 0 ) ?  ' WHERE '.join(" AND ", $filtros) : "";
+
+		$sql = "SELECT a.id, a.comentarios, a.estado, 
+		CONCAT(c.cl,'-', a.id, '/', year) folio, c.cl gerencia, impacto, fecha_soporte, UPPER(evento) evento,
+		round((TIMESTAMPDIFF(SECOND, fecha_soporte, NOW()) / 60), 2) transcurrido,
+		if(impacto LIKE '%SA', 'SIN AFECTACION', 'CON AFECTACION') afectacion, TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60 tiempo
+		FROM bitacora a 
+		LEFT JOIN si_usr b ON id_ingeniero = b.id 
+		LEFT JOIN ad_sig c ON b.cl = c.ix 
+		$fil 
+		ORDER BY c.cl";
+
+		$data = self::executeQuery($sql);
+
+		return $data;
 
 	}
 	

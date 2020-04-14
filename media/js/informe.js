@@ -46,7 +46,7 @@ $(function(){
 
 	var conteo = function(a, filtro){
 		$.each(a.data, function(ind, val){
-			var div = $('<div>').addClass('col-sm-8 list-group');
+			var div = $('<div>').addClass('col-sm-12 list-group');
 			var titulo = titulos[ind];
 			div.append('<a href="#" class="list-group-item text-center active"><strong>'+titulo+'</strong></a>');
 
@@ -65,6 +65,7 @@ $(function(){
 
 
 		$("#tabla-conteo-gerencia thead, #tabla-conteo-gerencia tbody").empty();
+		$("#tabla-conteo-ingeniero tbody").empty();
 
 		var thead = $("<tr>");
 		thead.append("<th>Día</th>")
@@ -83,7 +84,58 @@ $(function(){
 			$("#tabla-conteo-gerencia tbody").append( trd[0].outerHTML );
 		})
 
+		//afectacion
+		$(".afectacion strong").text("0");
+		$.each(a.data.afectacion, function(af, bf){
+			$("#table-proceso #"+af).parents('td').addClass('proceso');
+			$(".afectacion strong#"+af).text(bf);
+		})
+
 	}
+
+
+	$(document).on('click', '.proceso', function(){
+
+		var es = $(this).attr('data-est');
+		var af = $(this).attr('data-afe');
+		var ev = $(this).attr('data-eve');
+
+		var serial = {
+			estado: es,
+			afectacion: af,
+			evento: ev,
+			fecha_soporte: $("#fecha_soporte").val(),
+			fecha_fin_falla: $("#fecha_fin_falla").val(),
+			gerencia: $("#gerencia").val()
+		}
+
+		getJson(e.url + "getInformeProceso", serial, function(a){
+
+			var table = $("<table>").addClass('table table-bordered');
+			var thead = $("<thead>");
+			var columnas = "<tr><th>Reporte</th><th>Evento</th><th>Descripción</th><th>Impacto</th><th>Inicio Soporte</th><th>Min Transcurridos</th></tr>";
+			thead.append(columnas);
+			table.append(thead);
+
+			a.forEach(element => {
+				var tr = $("<tr>");
+				tr.append( $("<td>").html(element.folio) );
+				tr.append( $("<td>").html(element.evento) );
+				tr.append( $("<td>").html(element.comentarios) );
+				tr.append( $("<td>").html(element.impacto) );
+				tr.append( $("<td>").html(element.fecha_soporte) );
+				tr.append( $("<td>").html(element.transcurrido) );
+				table.append(tr);
+			});
+			$("#detalle").empty();
+			$("#detalle").append(table[0].outerHTML);
+			$("#modalDetalle").modal('show');
+
+		})
+
+	})
+
+
 
 	$(document).on('click', '.cont', function(){
 		var ref = $(this).attr('data-ref');
@@ -112,26 +164,6 @@ $(function(){
 				tr.append( $("<td>").text(v.total) );
 				$("#tabla-conteo-ingeniero tbody").append( tr[0].outerHTML );
 			})
-
-
-			
-			// var divRemoto = $('<div>').addClass('col-sm-6 list-group');
-			// var divSitio = $('<div>').addClass('col-sm-6 list-group');
-
-			// divRemoto.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Remoto</strong></a>');
-			// divSitio.append('<a href="#" class="list-group-item text-center active"><strong>Ingenieros Sitio</strong></a>');
-
-			// $.each(a.data, function(i, v){
-			// 	if( v.sitio == "Remoto" )
-			// 		divRemoto.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
-			// 	else 
-			// 		divSitio.append('<a href="#" class="list-group-item item-conteo"><span class="badge">'+v.total+'</span>'+v.nt+'</a>');
-			// })
-
-			// $("#table-conteo-ingeniero").empty();
-			// $("#table-conteo-ingeniero").append(divRemoto[0].outerHTML);
-			// $("#table-conteo-ingeniero").append(divSitio[0].outerHTML);
-
 		})
 
 		

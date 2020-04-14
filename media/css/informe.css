@@ -12,4 +12,20 @@ a.list-group-item, button.list-group-item {
 
 .cont:hover{
 	background-color: #ffd24d;
+	cursor: pointer;
+}
+
+.proceso:hover{
+	background-color: #ffd24d;
+	cursor: pointer;
+}
+
+
+.afectacion strong{
+	font-size: 14px !important;
+}
+
+.bg-proceso{
+	background-color:#d73232;
+	color: #FFF;
 }
