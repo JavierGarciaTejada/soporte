@@ -244,6 +244,7 @@ $(function(){
 			{ "data" : "fecha_reporte_falla"},
 			{ "data" : "fecha_soporte"},
 			{ "data" : "fecha_fin_falla"},
+			{ "data" : "tiempo"},
 			{ 
 				"data" : "solucion",
 				"createdCell" : function( td, data ) {
