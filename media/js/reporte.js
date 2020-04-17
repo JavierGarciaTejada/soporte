@@ -57,6 +57,7 @@ $(function(){
 		dayOfWeekStart : 1,
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+		// format:'Y-m-d h:m:s',
 		// startDate:	'NOW()',
 		onShow:function( ct ){
 			this.setOptions({
@@ -383,6 +384,13 @@ $(function(){
 			return false;
 
 		var serial = $("#form-finalizar").serialize();
+
+		var diff = moment( $("#fecha_fin_falla_upd").val() ).diff( $("#fecha_soporte_upd").val() );
+		if( diff <= 0 ){
+			alert("La fecha fin de falla debe ser mayor al inicio del soporte");
+			return 0;
+		}
+
 		setPost(e.url + 'finalizarReporte', serial, function(response){
 			if( response === true ){
 				mensaje = "Se realizó correctamente.";
