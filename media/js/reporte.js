@@ -9,15 +9,16 @@ $(function(){
 	var autorizacionCambios = ( puesto == "Gerente" || role == "Administrador") ? true : false;
 
 	$.datetimepicker.setLocale('es');
+	alert("ss");
 	$('#fecha_soporte').datetimepicker({
-		minDate:'-1970/01/5',
+		minDate:'-1970/01/30',
  		maxDate:'+1970/01/01',
 		lang:'es',
 		disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
 		startDate:	'NOW()'
 	});
 	$('#fecha_falla').datetimepicker({
-		minDate:'-1970/01/10',
+		minDate:'-1970/01/30',
  		maxDate:'+1970/01/01',
 		dayOfWeekStart : 1,
 		lang:'es',
@@ -69,7 +70,7 @@ $(function(){
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({
-		minDate:'-1970/01/5',
+		minDate:'-1970/01/30',
  		maxDate:'+1970/01/01',
 		dayOfWeekStart : 1,
 		lang:'es',
