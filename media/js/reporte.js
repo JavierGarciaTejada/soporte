@@ -9,7 +9,6 @@ $(function(){
 	var autorizacionCambios = ( puesto == "Gerente" || role == "Administrador") ? true : false;
 
 	$.datetimepicker.setLocale('es');
-	alert("ss");
 	$('#fecha_soporte').datetimepicker({
 		minDate:'-1970/01/30',
  		maxDate:'+1970/01/01',
