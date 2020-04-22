@@ -39,6 +39,10 @@
 						<th>Min Atención</th>
 						<th>Solución</th>
 
+						<th>Rep Refacción</th>
+						<th>Cant Refacciones</th>
+						<th>Códigos</th>
+
 
 						<th>Fecha Escalación</th>
 						<!-- <th>Reporte Escalado</th> -->
@@ -392,33 +396,50 @@
 						</div>
 
 						<!-- escalado a proveedor -->
-						<div class="row bg-info">
-							<p><h4 class="text-center">Escalado</h4></p>
-						
-							<div class="form-group col-sm-12 col-md-3">
-							    <label for="reporte_escalado">No. Reporte</label>
-							    <input type="text" class="form-control input-sm" name="reporte_escalado" id="reporte_escalado">
+						<div class="row">
+
+							<div class="col-sm-12 col-md-6 bg-info">
+								<p><h4 class="text-center">Escalado a Proveedor</h4></p>
+								<div class="form-group col-sm-12 col-md-4">
+								    <label for="reporte_escalado">Reporte</label>
+								    <input type="text" class="form-control input-sm" name="reporte_escalado" id="reporte_escalado">
+								</div>
+
+								<div class="form-group col-sm-12 col-md-4">
+								    <label for="fecha_escalado">Fecha Escalación</label>
+								    <input type="text" class="form-control input-sm" name="fecha_escalado" id="fecha_escalado">
+								</div>
+
+								<div class="form-group col-sm-12 col-md-4">
+								    <label for="fecha_fin_escalado">Fin de atencíon</label>
+								    <input type="text" class="form-control input-sm" name="fecha_fin_escalado" id="fecha_fin_escalado">
+								</div>
+
+								<div class="form-group col-sm-12 col-md-12">
+								    <label for="solucion_escalado">Solución de Proveedor</label>
+								    <textarea class="form-control" name="solucion_escalado" id="solucion_escalado" cols="10" rows="1"></textarea>
+								</div>
 							</div>
 
-							<!-- <div class="form-group col-sm-12 col-md-3">
-							    <label for="proveedor_escalado">Proveedor Escalado</label>
-							    <select  class="form-control input-sm" name="proveedor_escalado" id="proveedor_escalado"></select>
-							</div> -->
+							<div class=" col-md-offset-1 col-sm-12 col-md-5  bg-warning">
+								<p><h4 class="text-center">Refacciones</h4></p>
+								<div class="form-group col-sm-12 col-md-6">
+								    <label for="reporte_refaccion">Reporte</label>
+								    <input type="text" class="form-control input-sm" name="reporte_refaccion" id="reporte_refaccion">
+								</div>
 
-							<div class="form-group col-sm-12 col-md-3">
-							    <label for="fecha_escalado">Fecha Escalación</label>
-							    <input type="text" class="form-control input-sm" name="fecha_escalado" id="fecha_escalado">
+								<div class="form-group col-sm-12 col-md-6">
+								    <label for="cantidad_refaccion">Cantidad</label>
+								    <input type="text" class="form-control input-sm" name="cantidad_refaccion" id="cantidad_refaccion">
+								</div>
+
+								<div class="form-group col-sm-12 col-md-12">
+								    <label for="codigos_refaccion">Códigos (separados por comas)</label>
+								    <input type="text" class="form-control input-sm" name="codigos_refaccion" id="codigos_refaccion" placeholder="codigo1,codigo2,codigo3...">
+								</div>
 							</div>
 
-							<div class="form-group col-sm-12 col-md-3">
-							    <label for="fecha_fin_escalado">Fin de atencíon Proveedor</label>
-							    <input type="text" class="form-control input-sm" name="fecha_fin_escalado" id="fecha_fin_escalado">
-							</div>
 
-							<div class="form-group col-sm-12 col-md-12">
-							    <label for="solucion_escalado">Solución de Proveedor</label>
-							    <textarea class="form-control" name="solucion_escalado" id="solucion_escalado" cols="10" rows="1"></textarea>
-							</div>
 						</div>
 						
 

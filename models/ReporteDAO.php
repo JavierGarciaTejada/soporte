@@ -94,8 +94,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli,reporte_refaccion,cantidad_refaccion,codigos_refaccion) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli,:reporte_refaccion,:cantidad_refaccion,:codigos_refaccion)";
 			Conexion::$connect = new Conexion();
 
 			$t = self::Turno($data['id_ingeniero']);
@@ -132,6 +132,12 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':causa_falla', $data['causa_falla']);
 			Conexion::$prepare->bindParam(':imputable', $data['imputable']);
 			Conexion::$prepare->bindParam(':area', $data['area']);
+
+			Conexion::$prepare->bindParam(':reporte_refaccion', $data['reporte_refaccion']);
+			Conexion::$prepare->bindParam(':cantidad_refaccion', $data['cantidad_refaccion']);
+
+			$cod = trim(preg_replace('/\s+/', '', $data['codigos_refaccion']));
+			Conexion::$prepare->bindParam(':codigos_refaccion', $cod);
 
 			$now = date('Y-m-d H:i:s');
 			$year = date('Y');
@@ -180,6 +186,10 @@ class ReporteDAO
 			imputable = :imputable,
 			area = :area,
 
+			reporte_refaccion = :reporte_refaccion,
+			cantidad_refaccion = :cantidad_refaccion,
+			codigos_refaccion = :codigos_refaccion,
+
 			solucion = :solucion,
 			equipo = :equipo,
 			equipo_clli = :equipo_clli
@@ -212,6 +222,10 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':causa_falla', $data['causa_falla']);
 			Conexion::$prepare->bindParam(':imputable', $data['imputable']);
 			Conexion::$prepare->bindParam(':area', $data['area']);
+
+			Conexion::$prepare->bindParam(':reporte_refaccion', $data['reporte_refaccion']);
+			Conexion::$prepare->bindParam(':cantidad_refaccion', $data['cantidad_refaccion']);
+			Conexion::$prepare->bindParam(':codigos_refaccion', $data['codigos_refaccion']);
 
 			// Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
 			Conexion::$prepare->bindParam(':solucion', $data['solucion']);

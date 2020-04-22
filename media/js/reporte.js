@@ -253,8 +253,11 @@ $(function(){
 						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			},
-			{ "data" : "fecha_escalado"},
+			{ "data" : "reporte_refaccion"},
+			{ "data" : "cantidad_refaccion"},
+			{ "data" : "codigos_refaccion"},
 
+			{ "data" : "fecha_escalado"},
 			{ "data" : "reporte_escalado"},
 			//{ "data" : "proveedor_escalado"},
 			{ "data" : "fecha_fin_escalado"},
@@ -290,9 +293,9 @@ $(function(){
 
 	$("#btn-guardar-reporte").click(function(){
 		var validator = $('#form-reportes').data('bootstrapValidator');
-        validator.validate();
-        if (!validator.isValid())
-			return false;
+   //      validator.validate();
+   //      if (!validator.isValid())
+			// return false;
 
 		$("#id_ingeniero").val( $( "#nombre option:selected" ).attr('data-ref') );
 
@@ -303,6 +306,27 @@ $(function(){
 		var ope = "registraReporte";
 		if( $("#id").val() != "" )
 			ope = "modificarReporte";
+
+
+		if( $("#reporte_refaccion").val().length > 0 || $("#cantidad_refaccion").val().length > 0 || $("#codigos_refaccion").val().length > 0 ){
+			var cant = parseInt( $("#cantidad_refaccion").val() );
+			if( cant === 0 || isNaN(cant) || $("#cantidad_refaccion").val() == "" ){
+				alert("Verifique la cantidad de refacciones");
+				$("#cantidad_refaccion").focus();
+				return 0;
+			}
+			if( $("#codigos_refaccion").val() == "" ){
+				var text = ( cant == 1 ) ? 'código' : 'códigos';
+				alert("Ingrese "+cant+" "+text+" de refacción");
+				$("#codigos_refaccion").focus();
+				return 0;
+			}
+			if( $("#reporte_refaccion").val() == "" ){
+				alert("Ingrese el reporte de refacción");
+				$("#reporte_refaccion").focus();
+				return 0;
+			}
+		}
 
 		setPost(e.url + ope, serial, function(response){
 			console.log(response);
