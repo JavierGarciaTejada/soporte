@@ -293,9 +293,9 @@ $(function(){
 
 	$("#btn-guardar-reporte").click(function(){
 		var validator = $('#form-reportes').data('bootstrapValidator');
-   //      validator.validate();
-   //      if (!validator.isValid())
-			// return false;
+        validator.validate();
+        if (!validator.isValid())
+			return false;
 
 		$("#id_ingeniero").val( $( "#nombre option:selected" ).attr('data-ref') );
 
