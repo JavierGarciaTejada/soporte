@@ -1,5 +1,16 @@
 $(function(){
 
+    var clli = {};
+    if( $("#siglas").val() == "Ler" || $("#siglas").val() == "Let" ){
+        clli = {
+            validators: {
+                notEmpty: {
+                    message: 'Ingrese CLLI o Nombre Equipo'
+                }
+            }
+        }
+    }
+
     //VALIDACION NUEVO REPORTE
     $('#form-reportes')
     .bootstrapValidator({
@@ -78,6 +89,9 @@ $(function(){
                     }
                 }
             },
+
+            equipo_clli : clli,
+            
             impacto: {
                 validators: {
                     notEmpty: {
