@@ -198,6 +198,8 @@ $(function(){
 			detalle(a.data.total);
 			if( a.data.total.length == 0 ) {
 				$(".itm").empty();
+				$(".row strong").text("0");
+				$("#tabla-conteo-gerencia tbody, #tabla-conteo-ingeniero tbody").empty();
 			}
 			else { 
 				conteo(a, true);
