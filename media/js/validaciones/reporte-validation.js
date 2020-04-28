@@ -29,13 +29,13 @@ $(function(){
                     }
                 }
             },
-            // nombre_reporta: {
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'Seleccione del listado, si no aparece favor de notificar'
-            //         }
-            //     }
-            // },
+            causa_falla: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione la causa'
+                    }
+                }
+            },
             inicio_falla: {
                 validators: {
                     notEmpty: {
