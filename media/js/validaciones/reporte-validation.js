@@ -134,6 +134,13 @@ $(function(){
                         message: 'Ingrese Descripción'
                     }
                 }
+            },
+            area: {
+                validators: {
+                    notEmpty: {
+                        message: 'Seleccione el una opción'
+                    }
+                }
             }
 
         }
