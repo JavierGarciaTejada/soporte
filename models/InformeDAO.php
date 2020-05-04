@@ -116,7 +116,8 @@ class InformeDAO
 		LEFT JOIN si_usr b ON id_ingeniero = b.id 
 		LEFT JOIN ad_sig c ON b.cl = c.ix 
 		LEFT JOIN ad_tur d ON b.id = d.id_usr
-		WHERE MONTH(fecha_soporte) = MONTH(CURRENT_DATE()) AND c.cl IN ('Lec','Leg','Lep','Ler','Let') $filtros
+		#MONTH(fecha_soporte) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND
+		WHERE c.cl IN ('Lec','Leg','Lep','Ler','Let') $filtros
 		GROUP BY a.id ORDER BY a.fecha_soporte";
 
 		$data = self::executeQuery($sql);
