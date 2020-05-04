@@ -94,8 +94,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli,reporte_refaccion,cantidad_refaccion,codigos_refaccion) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli,:reporte_refaccion,:cantidad_refaccion,:codigos_refaccion)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,asistencia_proveedor,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli,reporte_refaccion,cantidad_refaccion,codigos_refaccion) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:asistencia_proveedor,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli,:reporte_refaccion,:cantidad_refaccion,:codigos_refaccion)";
 			Conexion::$connect = new Conexion();
 
 			$t = self::Turno($data['id_ingeniero']);
@@ -126,6 +126,7 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
 			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
 			Conexion::$prepare->bindParam(':fecha_fin_escalado', $data['fecha_fin_escalado']);
+			Conexion::$prepare->bindParam(':asistencia_proveedor', $data['asistencia_proveedor']);
 			Conexion::$prepare->bindParam(':solucion_escalado', $data['solucion_escalado']);
 			Conexion::$prepare->bindParam(':cobo', $data['cobo']);
 			Conexion::$prepare->bindParam(':subevento', $data['subevento']);
@@ -179,6 +180,7 @@ class ReporteDAO
 			reporte_escalado = :reporte_escalado,
 			fecha_escalado = :fecha_escalado,
 			fecha_fin_escalado = :fecha_fin_escalado,
+			asistencia_proveedor = :asistencia_proveedor,
 			solucion_escalado = :solucion_escalado,
 			cobo = :cobo,
 			subevento = :subevento,
@@ -216,6 +218,7 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':reporte_escalado', $data['reporte_escalado']);
 			Conexion::$prepare->bindParam(':fecha_escalado', $data['fecha_escalado']);
 			Conexion::$prepare->bindParam(':fecha_fin_escalado', $data['fecha_fin_escalado']);
+			Conexion::$prepare->bindParam(':asistencia_proveedor', $data['asistencia_proveedor']);
 			Conexion::$prepare->bindParam(':solucion_escalado', $data['solucion_escalado']);
 			Conexion::$prepare->bindParam(':cobo', $data['cobo']);
 			Conexion::$prepare->bindParam(':subevento', $data['subevento']);
