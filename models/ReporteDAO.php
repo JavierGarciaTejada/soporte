@@ -10,7 +10,7 @@ class ReporteDAO
 		Conexion::$connect->query("SET NAMES 'utf8'");
 	}
 
-	public static function executeQuery($sql){
+	public static function executeQuery($sql, $fetch = ""){
 
 		try 
 		{
@@ -18,7 +18,10 @@ class ReporteDAO
 			Conexion::$query = $sql;
 			Conexion::$result = Conexion::$connect->prepare(Conexion::$query);
 			Conexion::$result->execute();
-			return Conexion::$result->fetchAll(PDO::FETCH_ASSOC);
+			if( empty($fetch) )
+				return Conexion::$result->fetchAll(PDO::FETCH_ASSOC);
+			else 
+				return Conexion::$result->fetchAll(PDO::FETCH_NUM);
 		}
 		catch(Exception $e)
 		{
@@ -32,6 +35,18 @@ class ReporteDAO
 		$sql = "SELECT a.*, ROUND(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60,2) tiempo, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
+		return $total;
+	}
+
+	public static function BitacoraReportesExcel($filtro = ""){
+		$where = empty($filtro) ? "" : "WHERE $filtro";
+		#replace(solucion_escalado,'\\n',' ') solucion_escalado
+		$sql = "SELECT  CONCAT(ad_sig.cl,'-', a.id, '/', year) folio, nombre,evento,estado,impacto,equipo,proveedor,
+		equipo_clli,replace(comentarios,'\\n',' ') comentarios,lugar,cobo,subevento,causa_falla,imputable,area,fecha_falla,fecha_reporte_falla,fecha_soporte,fecha_fin_falla,ROUND(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60,2) tiempo,
+		reporte_refaccion,cantidad_refaccion,codigos_refaccion,fecha_escalado,reporte_escalado,fecha_fin_escalado 
+		FROM bitacora a LEFT JOIN si_usr b ON 
+		id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc";
+		$total = self::executeQuery($sql, 'FETCH_NUM');
 		return $total;
 	}
 

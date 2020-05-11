@@ -2,6 +2,12 @@
 
 defined("PROJECTPATH") or die("Access error");
 require_once Config::$configuration->get('modelsFolder') . 'ReporteDAO.php';
+require_once PROJECTPATH . '/libraries/spout-3.1.0/src/Spout/Autoloader/autoload.php';
+use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use Box\Spout\Common\Entity\Row;
+use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
+use Box\Spout\Common\Entity\Style\CellAlignment;
+use Box\Spout\Common\Entity\Style\Color;
 
 class Reporte
 {
@@ -191,6 +197,46 @@ class Reporte
 		$data = Funciones::getDataPost();
  		$update = ReporteDAO::EscalarReporte($data);
 		Funciones::imprimeJson($update);
+	}
+
+
+	public function getExcelSpout(){
+		
+		$writer = WriterEntityFactory::createXLSXWriter();
+
+		$filePath = PROJECTPATH ."/anexos/reportes/soportes.xlsx";
+		$fileExport = "../../anexos/reportes/soportes.xlsx";
+		$writer->openToFile($filePath);
+
+		$styleHead = (new StyleBuilder())
+           ->setFontBold()
+           ->setFontSize(12)
+           ->setFontColor(Color::rgb(0,0,122))
+           #->setShouldWrapText()
+           ->setCellAlignment(CellAlignment::CENTER)
+           #->setBackgroundColor(Color::YELLOW)
+           ->build();
+
+		$headers = array('No Reporte','Ingeniero','Evento','Estatus','Impacto','Equipo','Proveedor','Nombre / CLLI','Falla','Lugar','Cobo','Tipo Evento','Causa','Imputable','Area','Inicio de Falla','Aviso a Soporte','Inicio de Soporte','Fin de Soporte','Min Atención','Rep Refacción','Cant Refacciones','Códigos','Fecha Escalación','Proveedor Escalado','Fecha Fin Escalado');
+		$writer->addRow( WriterEntityFactory::createRowFromArray($headers, $styleHead) );
+
+
+		$styleBody = (new StyleBuilder())
+           ->setFontName('Arial')
+           ->setFontSize(9)
+           ->build();
+
+		$filtro = Perfil::FiltroUsuarioGerencia();
+		$reportes = ReporteDAO::BitacoraReportesExcel($filtro);
+		foreach ($reportes as $key => $value) {
+			$writer->addRow( WriterEntityFactory::createRowFromArray($value, $styleBody) );
+		}
+
+		$writer->close();
+		$out = array("path" => $fileExport, 'status' => 'OK');
+
+		Funciones::imprimeJson($out);
+
 	}
 
 

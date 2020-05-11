@@ -101,30 +101,18 @@ $(function(){
 	})
 
 	getJson(e.url + "getEntidades", null, function(a){
-		// $( "#entidad" ).autocomplete({
-	 //     	source: a.data
-	 //    });
 	 	setValuesSelect('entidad', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getEquipos", null, function(a){
-		// $( "#equipo" ).autocomplete({
-	 //     	source: a.data
-	 //    });
 	 	setValuesSelect('equipo', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getLugares", null, function(a){
-		// $( "#lugar" ).autocomplete({
-	 //     	source: a.data
-	 //    });
 	    setValuesSelect('lugar', a.data, 'label', 'label', 'id');
 	})
 
 	getJson(e.url + "getProveedores", null, function(a){
-		// $( "#proveedor" ).autocomplete({
-	 //     	source: a.data
-	 //    });
 	 	setValuesSelect('proveedor', a.data, 'label', 'label', 'id');
 	})
 
@@ -171,6 +159,7 @@ $(function(){
 		dom: 'Bfrtip',
         buttons: [
 	        {
+	        	text: 'Excel Listado',
 	        	extend: 'excelHtml5'
 		        // ,exportOptions: {
 	         //        columns: [1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -188,6 +177,26 @@ $(function(){
 					$( ".auc" ).autocomplete( "option", "appendTo", "#form-reportes" );
 
 	            }
+	        },
+	        {
+	        	text: 'Excel Completo',
+	        	action: function(dt){
+	        		$("#link-xlsx").remove();
+					$.ajax({
+						url: e.url + "getExcelSpout",
+						beforeSend: function( xhr ) {
+							$( '#modal-loader' ).modal( 'show' );
+						},
+						complete: function(){
+							$( '#modal-loader' ).modal( 'hide' );
+						}
+					})
+					.done(function( a ) {
+	        			var link = '<a href="'+a.path+'" id="link-xlsx" target="_blank"><button class="dt-button buttons-excel buttons-html5 btn btn-success btn-sm" tabindex="0" aria-controls="table-reportes" type="button"><span>XLSX</span></button></a>';
+						$(".dt-buttons").append(link);
+					});
+
+	        	}
 	        }
 	        
 	    ],
@@ -259,7 +268,6 @@ $(function(){
 
 			{ "data" : "fecha_escalado"},
 			{ "data" : "reporte_escalado"},
-			//{ "data" : "proveedor_escalado"},
 			{ "data" : "fecha_fin_escalado"},
 			{ 
 				"data" : "solucion_escalado",
@@ -268,24 +276,6 @@ $(function(){
 						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			}
-			// {
-			// 	// "targets" : 0,
-			// 	"class" : "details-control",
-			// 	"orderable" : false,
-			// 	"data" : null,
-			// 	"defaultContent" : "",
-			// 	"searchable" : false,
-			// 	"createdCell" : function( td, data ) {
-			// 		var botones = [];
-			// 		if( data.estado == "En Proceso" || data.estado == "Finalizado" ){
-			// 			// botones.push( '<button class="btn btn-sm btn-escalado escalado" id='+ data.id +' title="Escalación"><i class="fa fa-child" aria-hidden="true"></i></button>' );
-			// 			// botones.push( '<button class="btn btn-sm btn-warning archivos" id='+ data.id +' title="Archivos"><i class="fa fa-file" aria-hidden="true"></i></button>' );
-			// 		}
-					
-			// 		$( td ).html( '<div class="col-sm-12">' + botones.join(' ') + '</div>' );
-			// 	}
-			// }
-			
 		]
 	} );
 	tableReportes.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );
