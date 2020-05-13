@@ -28,7 +28,7 @@ Config::$configuration->set('layout', 'layout.phtml');
 Config::$configuration->set('layout_jquery_ui', 'layout_jqueryui.phtml');
 Config::$configuration->set('layoutlogin', Config::$configuration->get('pathlayout') .'login.phtml');
 Config::$configuration->set('ruta_login', '/index.php/login/');
-Config::$configuration->set('slogan', 'LEP');
+Config::$configuration->set('slogan', 'LE');
 Config::$configuration->set('img_logo', Config::$configuration->get('media') .'images/telmex.svg');
 Config::$configuration->set('logo', 'TELMEX');
 
