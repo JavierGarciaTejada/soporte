@@ -204,8 +204,8 @@ class Reporte
 		
 		$writer = WriterEntityFactory::createXLSXWriter();
 
-		$filePath = PROJECTPATH ."/anexos/reportes/soportes.xlsx";
-		$fileExport = "../../anexos/reportes/soportes.xlsx";
+		$filePath = PROJECTPATH ."/anexos/reportes/soportes_".Session::getSession("id").".xlsx";
+		$fileExport = "../../anexos/reportes/soportes_".Session::getSession("id").".xlsx";
 		$writer->openToFile($filePath);
 
 		$styleHead = (new StyleBuilder())
