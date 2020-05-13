@@ -159,7 +159,8 @@ $(function(){
 		dom: 'Bfrtip',
         buttons: [
 	        {
-	        	text: 'Excel Listado',
+	        	text: 'Exportar Filtrado',
+	        	titleAttr: 'Exporta un excel con los datos de la tabla inferior respetando filtros',
 	        	extend: 'excelHtml5'
 		        // ,exportOptions: {
 	         //        columns: [1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -179,7 +180,8 @@ $(function(){
 	            }
 	        },
 	        {
-	        	text: 'Excel Completo',
+	        	text: 'Exportar Completo',
+	        	titleAttr: 'Todos los eventos que corresponden a su perfil',
 	        	action: function(dt){
 	        		$("#link-xlsx").remove();
 					$.ajax({
