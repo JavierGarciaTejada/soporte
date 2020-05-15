@@ -244,6 +244,16 @@ a#title-modulo-layout:focus, a#title-modulo-layout:hover {
 	margin-top: 15px;
 }
 
+.bg-thead-tmx{
+	background-color: #2653aa;
+	-background-color: #0980d3;
+	color: #FFF;
+}
+
+.bg-skies{
+	background-color: #e8edfd;
+}
+
 .bg-success1{
 	background-color: #49ff00;
 }
