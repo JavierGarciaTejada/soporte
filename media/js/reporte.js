@@ -6,7 +6,28 @@ $(function(){
 
 	var puesto = $("#puesto").val();
 	var role = $("#role").val();
+	var ni = $("#ni").val().split('@');
 	var autorizacionCambios = ( puesto == "Gerente" || role == "Administrador") ? true : false;
+
+
+	var botonesSoporte = function( td, data ) {
+		var botones = [];
+		if( data.estado == "En Proceso" || data.estado == "Finalizado" )
+			botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );
+
+		if( data.estado == "En Proceso" ){
+			botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
+			botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
+		}
+
+		if( data.estado == "Liquidado" && autorizacionCambios)
+		botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );;
+
+		$( td ).html( '' + botones.join(' ') + '' );
+	};
+
+	if( ni[1] != "telmex.com" && ni[1] != "telmexomsasi.com" )
+		botonesSoporte = null;
 
 	$.datetimepicker.setLocale('es');
 	$('#fecha_soporte').datetimepicker({
@@ -170,6 +191,9 @@ $(function(){
 	            text: 'Nuevo Reporte',
 	            action: function ( dt ) {
 
+	            	if( botonesSoporte == null )
+	            		return 0;
+
 	        		$("#form-reportes")[0].reset();
 					$("#form-reportes").data('bootstrapValidator').resetForm();
 					$("#id").val( "" );
@@ -211,23 +235,7 @@ $(function(){
 				"data" : null,
 				"defaultContent" : "",
 				"searchable" : false,
-				"createdCell" : function( td, data ) {
-
-					var botones = [];
-
-					if( data.estado == "En Proceso" || data.estado == "Finalizado" )
-						botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );
-
-					if( data.estado == "En Proceso" ){
-						botones.push( '<button class="btn btn-sm btn-success finalizar" data-ref="finalizarReporte" data-ope="finalizar" id='+ data.id +' title="Finalizar Reporte"><i class="fa fa-check" aria-hidden="true"></i></button>' );
-						botones.push( '<button class="btn btn-sm btn-danger estado" data-ref="cancelarReporte" data-ope="cancelar" id='+ data.id +' title="Cancelar Reporte"><i class="fa fa-times" aria-hidden="true"></i></button>' );
-					}
-
-					if( data.estado == "Liquidado" && autorizacionCambios)
-					botones.push( '<button class="btn btn-sm btn-info modificar-rep" id='+ data.id +' title="Actualizar Reporte"><i class="fa fa-edit" aria-hidden="true"></i></button>' );;
-
-					$( td ).html( '' + botones.join(' ') + '' );
-				}
+				"createdCell" : botonesSoporte
 			},
 			{ "data" : "folio"},
 			{ "data" : "nombre"},

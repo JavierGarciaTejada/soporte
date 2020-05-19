@@ -24,13 +24,23 @@ class Perfil
 		$ixCli 	= Session::getSession("siglas");
 		$role = Session::getSession("role");
 		$id = Session::getSession("id");
+		$ni = Session::getSession("ni");
 
 		if( $role === "Administrador" ) return $filtros;
 
 		$gcl = " ad_sig.cl = '$ixCli' ";
 		if( (int)$id == 43 || (int)$id == 72 ) $gcl = " ad_sig.cl IN ('$ixCli', 'Ler') ";
+		
+
+		$mail = explode("@", $ni);
+		if( $mail[1] == "nokia.com" ){
+			//$gcl = "ad_sig.cl <> ''";
+			$proveedor = "proveedor = 'NOKIA'";
+		}
 
 		array_push($filtros, $gcl);
+		array_push($filtros, $proveedor);
+
 		return implode(" AND ", $filtros);
 
 	}
