@@ -36,10 +36,10 @@ class Perfil
 		if( $mail[1] == "nokia.com" ){
 			//$gcl = "ad_sig.cl <> ''";
 			$proveedor = "proveedor = 'NOKIA'";
+			array_push($filtros, $proveedor);
 		}
 
 		array_push($filtros, $gcl);
-		array_push($filtros, $proveedor);
 
 		return implode(" AND ", $filtros);
 
