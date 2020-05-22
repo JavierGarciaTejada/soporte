@@ -1,0 +1,137 @@
+<div class="container-fluid">
+	
+	<div class="table-controls">
+		<span>
+			<label for="filter-field">Fila: </label>
+			<select id="filter-field">
+			</select>
+		</span>
+
+		<span>
+			<select id="filter-type">
+				<option value="=">=</option>
+				<option value="<"><</option>
+				<option value="<="><=</option>
+				<option value=">">></option>
+				<option value=">=">>=</option>
+				<option value="!=">!=</option>
+				<option value="like">like</option>
+			</select>
+		</span>
+
+		<span>
+			<label for="filter-value">Valor: </label>
+			<input id="filter-value" type="text" placeholder="Valor del Filtro">
+		</span>
+
+		<button id="filter-clear" class="btn-sm btn-default">Limpiar Filtro</button>
+		<button id="reactivity-add" class="btn-sm btn-default">Nuevo</button>
+	    <button id="reactivity-xlsx" class="btn-sm btn-success">XLSX</button>
+	</div>
+	
+	<div style="margin-bottom: 20px;" class="row" id="inventario-table"></div>
+	
+	
+</div>
+
+
+
+<div class="modal fade" id="modal-refaccion" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Refacción</h4>
+			</div>
+			<div class="modal-body">
+				
+				<form class="form" id="form-refaccion">
+
+					<input type="hidden" id="id" name="id">
+					<div class="row section">
+						<div class="col-sm-12"><span class="titulo-section label label-danger">Datos Gerencia</span></div>
+						<div class="col-sm-12 col-md-3">
+							<label for="gerencia">Gerencia</label>
+							<input type="text" class="form-control input-sm" id="gerencia" name="gerencia">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="red">Red</label>
+							<input type="text" class="form-control input-sm" id="red" name="red">
+						</div>
+					</div>
+
+					<div class="row section">
+						<div class="col-sm-12"><span class="titulo-section label label-danger">Detalle Refacción</span></div>
+						<div class="col-sm-12 col-md-2">
+							<label for="tipo_ref">Tipo</label>
+							<input type="text" class="form-control input-sm" id="tipo_ref" name="tipo_ref">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="modelo_ref">Modelo</label>
+							<input type="text" class="form-control input-sm" id="modelo_ref" name="modelo_ref">
+						</div>
+						<div class="col-sm-12 col-md-2">
+							<label for="codigo_ref">Código</label>
+							<input type="text" class="form-control input-sm" id="codigo_ref" name="codigo_ref">
+						</div>
+						<div class="col-sm-12 col-md-2">
+							<label for="cantidad">Cantidad</label>
+							<input type="text" class="form-control input-sm" id="cantidad" name="cantidad">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="tecnologia">Tecnologia</label>
+							<input type="text" class="form-control input-sm" id="tecnologia" name="tecnologia">
+						</div>
+					</div>
+
+
+					<div class="row section">
+						<div class="col-sm-12"><span class="titulo-section label label-danger">Equipo donde se implementa</span></div>
+						<div class="col-sm-12 col-md-3">
+							<label for="equipo_imp">Equipo</label>
+							<input type="text" class="form-control input-sm" id="equipo_imp" name="equipo_imp">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="modelo_imp">Modelo</label>
+							<input type="text" class="form-control input-sm" id="modelo_imp" name="modelo_imp">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="version_equipo_imp">Versión</label>
+							<input type="text" class="form-control input-sm" id="version_equipo_imp" name="version_equipo_imp">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="proveedor_equipo">Proveedor</label>
+							<input type="text" class="form-control input-sm" id="proveedor_equipo" name="proveedor_equipo">
+						</div>
+					</div>
+					
+					<div class="row section">
+						<div class="col-sm-12"><span class="titulo-section label label-danger">Ubicación Refacción</span></div>
+						<div class="col-sm-12 col-md-3">
+							<label for="almacen">Almacen</label>
+							<input type="text" class="form-control input-sm" id="almacen" name="almacen">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="ciudad_atencion">Ciudad Atención</label>
+							<input type="text" class="form-control input-sm" id="ciudad_atencion" name="ciudad_atencion">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="division">División</label>
+							<input type="text" class="form-control input-sm" id="division" name="division">
+						</div>
+						<div class="col-sm-12 col-md-3">
+							<label for="responsable">Responsable</label>
+							<input type="text" class="form-control input-sm" id="responsable" name="responsable">
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button type="button" id="btn-save" class="btn btn-primary">Guardar</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
