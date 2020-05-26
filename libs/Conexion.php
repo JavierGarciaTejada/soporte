@@ -53,6 +53,11 @@ class Conexion
 		return self::$_connect->prepare($sql);
 	}
 
+	public function query($sql)
+	{
+		return self::$_connect->query($sql);
+	}
+
 	public static function instance()
 	{
 		if( !isset(self::$_instance) )

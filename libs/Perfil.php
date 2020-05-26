@@ -18,6 +18,33 @@ class Perfil
 		return $filtro;
 	}
 
+	public static function FiltroUsuarioGerenciaView(){
+
+		$filtros = array();
+		$ixCli 	= Session::getSession("siglas");
+		$role = Session::getSession("role");
+		$id = Session::getSession("id");
+		$ni = Session::getSession("ni");
+
+		if( $role === "Administrador" ) return $filtros;
+
+		$gcl = " cl = '$ixCli' ";
+		if( (int)$id == 43 || (int)$id == 72 ) $gcl = " cl IN ('$ixCli', 'Ler') ";
+		
+
+		$mail = explode("@", $ni);
+		if( $mail[1] == "nokia.com" ){
+			//$gcl = "ad_sig.cl <> ''";
+			$proveedor = "proveedor = 'NOKIA'";
+			array_push($filtros, $proveedor);
+		}
+
+		array_push($filtros, $gcl);
+
+		return implode(" AND ", $filtros);
+
+	}
+
 	public static function FiltroUsuarioGerencia(){
 
 		$filtros = array();

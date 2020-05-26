@@ -32,7 +32,7 @@ class ReporteDAO
 
 	public static function BitacoraReportes($filtro = ""){
 		$where = empty($filtro) ? "" : "WHERE $filtro";
-		$sql = "SELECT a.*, ROUND(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60,2) tiempo, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc";
+		$sql = "SELECT a.*, ROUND(TIMESTAMPDIFF(SECOND, fecha_soporte, fecha_fin_falla) / 60,2) tiempo, CONCAT(ad_sig.cl,'-', a.id, '/', year) folio FROM bitacora a LEFT JOIN si_usr b ON id_ingeniero = b.id LEFT JOIN ad_sig on b.cl = ad_sig.ix $where ORDER BY a.id desc limit 1000";
 		$total['data'] = self::executeQuery($sql);
 		$total['sql'] = $sql;
 		return $total;
@@ -109,8 +109,8 @@ class ReporteDAO
 		try{
 
 			$sql = "INSERT INTO bitacora 
-			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,asistencia_proveedor,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli,reporte_refaccion,cantidad_refaccion,codigos_refaccion) 
-			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:asistencia_proveedor,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli,:reporte_refaccion,:cantidad_refaccion,:codigos_refaccion)";
+			(usuario_captura, nombre,id_ingeniero, fecha_falla, fecha_soporte, impacto, comentarios, estado, fechaDeCaptura, `year`, activo, nombre_reporta,entidad,proveedor,evento,fecha_reporte_falla,lugar,equipo,reporte_escalado,fecha_escalado,fecha_fin_escalado,asistencia_proveedor,solucion_escalado,cobo,subevento,causa_falla,imputable,area,tur,sit,equipo_clli,reporte_refaccion,cantidad_refaccion,codigos_refaccion,origen_refaccion) 
+			VALUES (:uc, :no, :ii, :ff, :fs, :im, :co, :es, :fcap, :y, :ac, :nombre_reporta,:entidad,:proveedor,:evento,:fecha_reporte_falla,:lugar,:equipo,:reporte_escalado,:fecha_escalado,:fecha_fin_escalado,:asistencia_proveedor,:solucion_escalado,:cobo,:subevento,:causa_falla,:imputable,:area,:tur,:sit,:equipo_clli,:reporte_refaccion,:cantidad_refaccion,:codigos_refaccion,:origen_refaccion)";
 			Conexion::$connect = new Conexion();
 
 			$t = self::Turno($data['id_ingeniero']);
@@ -154,6 +154,7 @@ class ReporteDAO
 
 			$cod = trim(preg_replace('/\s+/', '', $data['codigos_refaccion']));
 			Conexion::$prepare->bindParam(':codigos_refaccion', $cod);
+			Conexion::$prepare->bindParam(':origen_refaccion', $data['origen_refaccion']);
 
 			$now = date('Y-m-d H:i:s');
 			$year = date('Y');
@@ -206,6 +207,7 @@ class ReporteDAO
 			reporte_refaccion = :reporte_refaccion,
 			cantidad_refaccion = :cantidad_refaccion,
 			codigos_refaccion = :codigos_refaccion,
+			origen_refaccion = :origen_refaccion,
 
 			solucion = :solucion,
 			equipo = :equipo,
@@ -244,6 +246,7 @@ class ReporteDAO
 			Conexion::$prepare->bindParam(':reporte_refaccion', $data['reporte_refaccion']);
 			Conexion::$prepare->bindParam(':cantidad_refaccion', $data['cantidad_refaccion']);
 			Conexion::$prepare->bindParam(':codigos_refaccion', $data['codigos_refaccion']);
+			Conexion::$prepare->bindParam(':origen_refaccion', $data['origen_refaccion']);
 
 			// Conexion::$prepare->bindParam(':fecha_fin_falla', $data['fecha_fin_falla']);
 			Conexion::$prepare->bindParam(':solucion', $data['solucion']);

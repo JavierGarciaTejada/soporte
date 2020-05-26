@@ -85,8 +85,6 @@ $(function(){
 				minDate:$('#fecha_soporte_upd').val() ? $('#fecha_soporte_upd').val() : false
 			})
 		},
-		// ,minDate:0,
-		// minTime:0
 	});
 
 	$('#fecha_reporte_falla').datetimepicker({
@@ -99,14 +97,6 @@ $(function(){
 	});
 
 	getJson(e.url + "getIngenieros", null, function(a){
-		// $( "#nombre" ).autocomplete({
-	 //     	source: a.data,
-	 //  	   	select: function (event, ui) {
-	 //  	   		$("#id_ingeniero").val(ui.item.id);
-	 //  	   		$("#nombre").val(ui.item.value);        
-		// 	    return false;
-		// 	}
-	 //    });
 		setValuesSelect('nombre', a.data, 'label', 'label', 'id');
 	})
 
@@ -162,30 +152,21 @@ $(function(){
 			
 		});
 	}
- 	
-	var tableReportes = $( '#table-reportes' ).DataTable( 
-	{
-		"processing" : true,
+
+	var tableReportes = $( '#table-reportes' ).DataTable({
+		"processing": true,
+		"serverSide": true,
+		"sAjaxSource": e.url + "getReportes/",
 		"language" : lenguageTable,
+		"lengthChange": false,
 		"scrollX" : true,
 		"scrollY" : '67vh',
-		"scrollCollapse" : true,
-		"orderCellsTop": true,
-        "fixedHeader": true,
-		"ajax" : {
-			"url" : e.url + "getReportes/",
-			"type" : "GET"
-		},
-		lengthChange: false,
-		dom: 'Bfrtip',
-        buttons: [
+		"dom": 'Bfrtip',
+		"buttons": [
 	        {
 	        	text: 'Exportar Filtrado',
 	        	titleAttr: 'Exporta un excel con los datos de la tabla inferior respetando filtros',
-	        	extend: 'excelHtml5'
-		        // ,exportOptions: {
-	         //        columns: [1,2,3,4,5,6,7,8,9,10,11,12,13]
-	         //    }
+	        	extend: 'excelHtml5',
 	        },
 	        {
 	            text: 'Nuevo Reporte',
@@ -275,6 +256,7 @@ $(function(){
 			{ "data" : "reporte_refaccion"},
 			{ "data" : "cantidad_refaccion"},
 			{ "data" : "codigos_refaccion"},
+			{ "data" : "origen_refaccion"},
 
 			{ "data" : "fecha_escalado"},
 			{ "data" : "reporte_escalado"},
@@ -286,8 +268,9 @@ $(function(){
 						$( td ).html('<textarea name="textarea" readonly rows="3" cols="50">'+data+'</textarea>')
 				}
 			}
-		]
-	} );
+		] 
+	}); 
+ 	
 	tableReportes.buttons().container().appendTo( '#example_wrapper .col-sm-6:eq(0)' );
 	$("button.dt-button").addClass('btn btn-primary btn-sm');
 
@@ -439,32 +422,7 @@ $(function(){
 		setValoresFormulario( $(this), "#form-escalado" );
 		$("#id_rep_escalado").val( $(this).attr('id') );
 		$("#modal-escalado").modal('show');
-	})
-
-	// $("#btn-escalado").click(function(){
-
-	// 	var validator = $('#form-escalado').data('bootstrapValidator');
- //        validator.validate();
- //        if (!validator.isValid())
-	// 		return false;
-
-	// 	var serial = $("#form-escalado").serialize();
-	// 	setPost(e.url + 'escalarReporte', serial, function(response){
-	// 		if( response === true ){
-	// 			mensaje = "Se realizó correctamente.";
-	// 			clase = "alertify-success";
-	// 			$("#modal-evaluacion").modal('hide');
-	// 			tableReportes.ajax.reload();
-	// 		}else{
-	// 			mensaje = "Ocurrio un error.";
-	// 			clase = "alertify-danger";
-	// 		}
-
-	// 		alertMessage(mensaje, clase);
-	// 	});
-
-	// })
-
+	});
 
 	//BOTON ARCHIVOS
 	$(document).on('click', '.archivos', function(){

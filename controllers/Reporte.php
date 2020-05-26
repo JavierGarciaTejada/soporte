@@ -2,6 +2,7 @@
 
 defined("PROJECTPATH") or die("Access error");
 require_once Config::$configuration->get('modelsFolder') . 'ReporteDAO.php';
+require_once Config::$configuration->get('modelsFolder') . 'ServerSideDAO.php';
 require_once PROJECTPATH . '/libraries/spout-3.1.0/src/Spout/Autoloader/autoload.php';
 use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
 use Box\Spout\Common\Entity\Row;
@@ -65,8 +66,10 @@ class Reporte
 	}
 
 	public function getReportes(){
-		$filtro = Perfil::FiltroUsuarioGerencia();
-		$reportes = ReporteDAO::BitacoraReportes($filtro);
+		$filtro = Perfil::FiltroUsuarioGerenciaView();
+		$data = Funciones::getDataGet();
+		//$reportes = ReporteDAO::BitacoraReportes($filtro);
+		$reportes = ServerSideDAO::get($data, $filtro, 'bitacora_view', 'id', array('id','folio','cl','tiempo','usuario_captura','nombre','id_ingeniero','fecha_falla','fecha_soporte','fecha_fin_falla','asunto','impacto','comentarios','estado','fechaDeCaptura','fechaDeCancelacion','solucion','year','archivo_adjunto','archivo_nombre','activo','nombre_reporta','entidad','evento','fecha_reporte_falla','lugar','equipo','reporte_escalado','ingeniero_escalado','proveedor_escalado','asistencia_proveedor','solucion_escalado','fecha_escalado','cobo','proveedor','subevento','causa_falla','imputable','area','fecha_fin_escalado','tur','sit','equipo_clli','reporte_refaccion','cantidad_refaccion','codigos_refaccion','origen_refaccion'));
 		Funciones::imprimeJson($reportes);
 	}
 

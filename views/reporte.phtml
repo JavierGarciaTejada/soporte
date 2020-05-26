@@ -42,6 +42,7 @@
 						<th>Rep Refacción</th>
 						<th>Cant Refacciones</th>
 						<th>Códigos</th>
+						<th>Origen Ref</th>
 
 
 						<th>Fecha Escalación</th>
@@ -443,10 +444,19 @@
 								    <input type="text" class="form-control input-sm" name="cantidad_refaccion" id="cantidad_refaccion">
 								</div>
 
-								<div class="form-group col-sm-12 col-md-12">
+								<div class="form-group col-sm-12 col-md-8">
 								    <label for="codigos_refaccion">Códigos (separados por comas)</label>
 								    <input type="text" class="form-control input-sm" name="codigos_refaccion" id="codigos_refaccion" placeholder="codigo1,codigo2,codigo3...">
 								</div>
+								<div class="form-group col-sm-12 col-md-4">
+								    <label for="origen_refaccion">Origen Refacción</label>
+								    <select class="form-control input-sm" name="origen_refaccion" id="origen_refaccion">
+								    	<option value="">Seleccionar</option>
+								    	<option value='Telmex'>Telmex</option>
+										<option value='Proveedor'>Proveedor</option>
+								    </select>
+								</div>
+
 							</div>
 
 
